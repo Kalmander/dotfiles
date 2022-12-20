@@ -1,0 +1,15 @@
+{
+        "linux": {
+                "home": "~~/",
+                "assets": "home",
+                "clips": "~/mpv_clips",
+                "playlists": "home/playlists"
+        },
+
+        "windows": {
+                "home": "~~exe_dir/",
+                "assets": "home/../assets",
+                "clips": "home/../clips",
+                "playlists": "home/../playlists"
+        }
+}
