@@ -42,15 +42,12 @@ unset __conda_setup
 
 
 eval "$(zoxide init zsh)"
-export PAGER=nvimpager
 
 
 # Aliases
-# alias texs="nvim ~/Dropbox/Latex/"
-# alias nvim="VIMRUNTIME=~/repos/neovim/runtime ~/repos/neovim/build/bin/nvim"
-# alias tvim="nvim --cmd 'let g:sonokai_transparent_background = 2'"
 alias icat="kitty +kitten icat"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+alias how2='npx how2 -s'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

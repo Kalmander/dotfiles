@@ -18,3 +18,21 @@
 - :so til að sourcea current file
 
 - The diagnostic framework is an extension to existing error handling functionality such as the |quickfix| list.
+
+- \v í leitarstreng gerir hann very magic svo þarft ekki að escapea stöff,
+  gætir íhugað að remappa / í /\v og gera shortcut fyrir :%s/\v
+
+- Nokkrir hlutir ólíkir milli vim regex og venjulegs:
+Perl    Vim     Explanation
+---------------------------
+x?      x\=     Match 0 or 1 of x
+x+      x\+     Match 1 or more of x
+(xyz)   \(xyz\) Use brackets to group matches
+x{n,m}  x\{n,m} Match n to m of x
+x*?     x\{-}   Match 0 or 1 of x, non-greedy
+x+?     x\{-1,} Match 1 or more of x, non-greedy
+\b      \< \>   Word boundaries
+$n      \n      Backreferences for previously grouped matches
+
+- Ástæðan fyrir muninum er söguleg: þegar vim festi þetta var svona regex
+  standardinn 
