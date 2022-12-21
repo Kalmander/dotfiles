@@ -29,7 +29,7 @@ M.normal_mode_keymaps = {
 M.visualselect_keymaps = {
 	[">"] = ">gv",
 	["<"] = "<gv",
-	-- ["p"] = '"_dP',
+	["<leader>p"] = '"_dP',
 }
 
 M.visual_mode_keymaps = {
