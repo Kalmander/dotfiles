@@ -28,22 +28,25 @@ require("trouble").setup({
 local rt = require("rust-tools")
 rt.setup({
 	server = {
-		on_attach = function(client, bufnr)
+		on_attach = function(_, bufnr)
 			require("tkj.keymaps"):set_lsp_keymaps(bufnr)
-			local status_ok, illuminate = pcall(require, "illuminate")
-			if not status_ok then
-				return
-			end
-			illuminate.on_attach(client)
 		end,
 	},
 })
 
-require("indent_blankline").setup({
-	-- for example, context is off by default, use this to turn it on
-	-- show_current_context = true,
-	show_current_context_start = true,
-	show_end_of_line = true,
+require("fidget").setup({})
+
+require("obsidian").setup({
+	dir = "~/Desktop/hrafnatinna/",
+	completion = {
+		nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
+	},
+	disable_frontmatter = true,
 })
 
-require("fidget").setup({})
+-- Yankstack
+vim.cmd([[
+let g:yankstack_map_keys = 0 "defaultin nota meta
+nmap <a-p> <Plug>yankstack_substitute_older_paste
+nmap <a-P> <Plug>yankstack_substitute_newer_paste
+]])

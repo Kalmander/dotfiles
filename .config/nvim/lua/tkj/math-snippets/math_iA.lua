@@ -120,6 +120,171 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "conj", name = "conjugate" }, "\\overline{$1}$0"),
 
         -- TKJ 
+        -- TKJ griskir
+        ls.parser.parse_snippet(
+                { trig =  "@a", name =  "alpha" },
+                "\\alpha"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@b", name =  "beta"  },
+                "\\beta"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@c", name =  "chi"  },
+                "\\chi"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@d", name =  "delta"  },
+                "\\delta"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@e", name =  "epsilon"  },
+                "\\epsilon"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@ve", name =  "varepsilon"},
+                "\\varepsilon"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@f", name =  "phi"},
+                "\\phi"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@vf", name =  "varphi"},
+                "\\varphi"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@g", name =  "gamma"},
+                "\\gamma"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@h", name =  "eta"},
+                "\\eta"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@i", name =  "iota"},
+                "\\iota"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@k", name =  "kappa"},
+                "\\kappa"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@l", name =  "lambda"},
+                "\\lambda"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@m", name =  "mu"},
+                "\\mu"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@n", name =  "nu"},
+                "\\nu"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@p", name =  "pi"},
+                "\\pi"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@q", name =  "theta"},
+                "\\theta"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@vq", name =  "vartheta"},
+                "\\vartheta"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@r", name =  "rho"},
+                "\\rho"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@s", name =  "sigma"},
+                "\\sigma"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@vs", name =  "varsigma"},
+                "\\varsigma"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@t", name =  "tau"},
+                "\\tau"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@u", name =  "upsilon"},
+                "\\upsilon"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@o", name =  "omega"},
+                "\\omega"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@&", name =  "wedge"},
+                "\\wedge"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@x", name =  "xi"},
+                "\\xi"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@y", name =  "psi"},
+                "\\psi"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@z", name =  "zeta"},
+                "\\zeta"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@D", name =  "Delta"},
+                "\\Delta"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@F", name =  "Phi"},
+                "\\Phi"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@G", name =  "Gamma"},
+                "\\Gamma"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@Q", name =  "Theta"},
+                "\\Theta"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@L", name =  "Lambda"},
+                "\\Lambda"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@X", name =  "Xi"},
+                "\\Xi"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@Y", name =  "Psi"},
+                "\\Psi"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@S", name =  "Sigma"},
+                "\\Sigma"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@U", name =  "Upsilon"},
+                "\\Upsilon"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@W", name =  "Omega"},
+                "\\Omega"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@(", name =  "left( ... right)"},
+                "\\left( ${1:${TM_SELECTED_TEXT}} \\right)"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@{", name =  "left{ ... right}"},
+                "\\left\\{ ${1:${TM_SELECTED_TEXT}} \\right\\\\\\}"
+        ),
+        ls.parser.parse_snippet(
+                { trig =  "@[", name =  "left[ ... right]"},
+                "\\left[ ${1:${TM_SELECTED_TEXT}} \\right]"
+        ),
 }
 
 return math_iA

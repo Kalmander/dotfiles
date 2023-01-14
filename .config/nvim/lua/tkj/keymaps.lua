@@ -12,24 +12,37 @@ vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
+
 ---- Keymap Definitions ------------------------------------------------------
 M.normal_mode_keymaps = {
-	["<leader>e"] = [[<cmd>silent Explore<cr>]],
+	["<leader>ge"] = [[<cmd>silent Explore<cr>]],
 	["<c-bs>"] = "<c-6>",
 	["<leader>zm"] = utils.toggle_zen,
+	["<leader>za"] = utils.toggle_zen_ataraxis,
 	["<A-j>"] = ":m .+1<CR>==",
 	["<A-k>"] = ":m .-2<CR>==",
-	["<leader>sr"] = "<cmd>source ~/.config/nvim/lua/user/math-snippets/init.lua<CR>",
 	["<leader>cp"] = "<cmd>PickColor<cr>",
-	["<leader>cc"] = "<cmd>ConvertHEXandRGB<cr>",
-	["<leader>rr"] = utils.reload_lua,
+	["<leader>ci"] = "<cmd>ConvertHEXandRGB<cr>",
+	["<leader>cl"] = utils.toggle_conceallevel,
+	["<leader>cc"] = utils.toggle_concealcursor,
+	["<leader>r"] = utils.reload_lua,
 	["<leader>tt"] = utils.toggle_diagnostics,
+        ["<C-CR>"] = "<cmd>nohlsearch<CR><cmd>echo<CR>",
+        ["<A-1>"] = function() require("harpoon.ui").nav_file(1) end,
+        ["<A-2>"] = function() require("harpoon.ui").nav_file(2) end,
+        ["<A-3>"] = function() require("harpoon.ui").nav_file(3) end,
+        ["<A-4>"] = function() require("harpoon.ui").nav_file(4) end,
+        ["<A-w>"] = require("harpoon.mark").add_file,
+        ["<A-q>"] = require("harpoon.ui").toggle_quick_menu,
+        ["<BS>"] = "<C-6>",
+        ["<leader>t"] = require('toggle-checkbox').toggle
 }
 
 M.visualselect_keymaps = {
 	[">"] = ">gv",
 	["<"] = "<gv",
-	["<leader>p"] = '"_dP',
+	["p"] = '"_dP',
 }
 
 M.visual_mode_keymaps = {
@@ -44,37 +57,28 @@ M.terminal_mode_keymaps = {
 M.telescope_keymaps = {
 	["<leader>F"] = tele.resume,
 	["<leader>fk"] = tele.keymaps,
-	["<leader>fm"] = function()
-		tele.marks(dropdown({}))
-	end,
-	["<leader>ft"] = function()
-		tele.builtin(dropdown({}))
-	end,
+	["<leader>fp"] = require("telescope").extensions.projects.projects,
+	["<leader>fr"] = require("telescope.builtin").registers,
+	["<leader>fh"] = function() tele.help_tags(dropdown()) end,
+	["<leader>fg"] = function() tele.live_grep(ivy()) end,
+	["<leader>fm"] = function() tele.marks(dropdown()) end,
+	["<leader>ft"] = function() tele.builtin(dropdown()) end,
 	["<leader>fb"] = function()
 		tele.buffers(dropdown({ previewer = false }))
 	end,
 	["<leader>ff"] = function()
 		tele.find_files(dropdown({ previewer = false }))
 	end,
-	["<leader>fg"] = function()
-		tele.live_grep(ivy({}))
-	end,
 	["<leader>fe"] = function()
 		tele.current_buffer_fuzzy_find(
 			ivy({ sorting_strategy = "ascending", layout_config = { prompt_position = "top" } })
 		)
-	end,
-	["<leader>fh"] = function()
-		tele.help_tags(dropdown({}))
 	end,
 	["<leader>fn"] = function()
 		tele.find_files(dropdown({ previewer = false, cwd = "~/.config/nvim/" }))
 	end,
 	["<leader>fl"] = function()
 		tele.find_files(dropdown({ previewer = false, cwd = "~/.local/share/nvim/site/pack/packer/" }))
-	end,
-	["<leader>fp"] = function()
-		require("telescope").extensions.projects.projects()
 	end,
 }
 
@@ -110,5 +114,8 @@ multimap("t", M.terminal_mode_keymaps, noremap_silent)
 
 ---- Misc Keymaps ------------------------------------------------------------
 map({ "n", "v" }, "<leader>i", require("nvim-toggler").toggle)
+-- vim.keymap.set("n", "gf", ":echo GAAA<cr>", {noremap = false, buffer = 0})
+vim.keymap.set("n", "gf", utils.obsidian_link, {noremap = false, expr = true})
+-- vim.keymap.set("n", "gf", utils.obsidian_link, {noremap = false, expr = true, buffer = 0})
 
 return M

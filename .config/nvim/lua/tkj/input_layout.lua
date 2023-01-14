@@ -38,7 +38,7 @@ end
 vim.api.nvim_create_autocmd(
         {"CursorMovedI", "CursorHoldI", "InsertEnter", "TextChangedI"},
         {
-                pattern = {"*.tex", "*.sty"},
+                pattern = {"*.tex", "*.sty", "*.md"},
                 callback =toggle_mathmode_input
         }
 )

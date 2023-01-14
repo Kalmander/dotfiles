@@ -11,8 +11,9 @@ local options = {
 	virtualedit = "none",
 	scrolloff = 6,
 	sidescrolloff = 1,
-	textwidth = 80,
-	conceallevel = 1,
+	-- textwidth = 80,
+	conceallevel = 2,
+        concealcursor = 'n',
 	-- fileencoding = "utf-8",
 	ignorecase = true,
 	smartcase = true,
@@ -24,7 +25,7 @@ local options = {
 	-- foldmethod = "indent",
 	foldlevel = 10,
 	hlsearch = true, -- highlight all matches on previous search pattern
-	cursorline = false,
+	cursorline = true,
 	laststatus = 3, -- default er 2
 
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
@@ -41,8 +42,11 @@ local options = {
 
 	list = true,
 }
-vim.opt.listchars:append("space:⋅")
+-- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
+vim.g.vim_markdown_math = 1 -- fyrir markdown.vim
+vim.g['pencil#conceallevel'] = options.conceallevel
+vim.g['pencil#concealcursor'] = options.concealcursor
 
 local neovide_settings = {
 	guifont = { "FiraCode Nerd Font", ":h18" },

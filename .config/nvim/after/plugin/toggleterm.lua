@@ -1,5 +1,5 @@
 require("toggleterm").setup({
-	size = 20,
+	-- size = 20,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
@@ -18,5 +18,7 @@ require("toggleterm").setup({
 			border = "Normal",
 			background = "Normal",
 		},
+                width = 104,
+                height = 23,
 	},
 })

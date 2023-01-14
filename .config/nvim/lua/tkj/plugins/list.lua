@@ -3,6 +3,10 @@ return require("packer").startup(function(use)
 	use({ "dracula/vim", as = "dracula" })
 	use({ "sainnhe/sonokai" })
 	use({ "navarasu/onedark.nvim" })
+	use({ "rose-pine/neovim", as = "rose-pine" })
+	use({ "sainnhe/everforest" })
+	use({ "shaunsingh/nord.nvim" })
+	use({ "sonph/onehalf" })
 
 	-- Vim motions/operators etc
 	use({ "michaeljsmith/vim-indent-object" })
@@ -57,15 +61,28 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use("nvim-treesitter/nvim-treesitter-textobjects")
+        use("ThePrimeagen/harpoon")
+        use("tpope/vim-unimpaired")
+        use("terryma/vim-expand-region")
+        use("maxbrunsfeld/vim-yankstack")
+        use("tpope/vim-fugitive")
+
+	-- Obsidian og markdown
+	use("epwalsh/obsidian.nvim")
+        use("godlygeek/tabular")
+        use("preservim/vim-markdown")
+        use("opdavies/toggle-checkbox.nvim")
+        use("preservim/vim-pencil")
+        use("tommcdo/vim-exchange")
 
 	-- Misc
 	use({ "lervag/vimtex" })
 	use("nguyenvukhang/nvim-toggler")
 	use("ThePrimeagen/vim-be-good")
 	use("mbbill/undotree")
+        use("itchyny/calendar.vim")
 end)
 
 ---- Shortlist ----------------------------------
---BRRRRRRRRRRRRRRRRRRRUH harpoon
 -- use({ "mrjones2014/legendary.nvim" }) -- Lítur mjög vel út en virðist vera
 -- maus að stilla almennilega

@@ -4,7 +4,7 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "latex", "css" }, -- list of language that will be disabled
-		--additional_vim_regex_highlighting = {"latex"},
+		additional_vim_regex_highlighting = {"markdown"},
 	},
 	autopairs = {
 		enable = true,
