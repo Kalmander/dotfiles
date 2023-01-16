@@ -44,9 +44,16 @@ require("obsidian").setup({
 	disable_frontmatter = true,
 })
 
--- Yankstack
-vim.cmd([[
-let g:yankstack_map_keys = 0 "defaultin nota meta
-nmap <a-p> <Plug>yankstack_substitute_older_paste
-nmap <a-P> <Plug>yankstack_substitute_newer_paste
-]])
+-- -- Vimwiki
+-- vim.cmd([[
+-- " let g:vimwiki_list = [{'path': '~/vimwiki/',
+-- "                       \ 'syntax': 'markdown', 'ext': '.md'}]
+-- let g:vimwiki_global_ext = 0
+-- let wiki_1 = {}
+-- let wiki_1.path = '~/vimwiki/'
+-- let wiki_1.syntax = 'markdown'
+-- let wiki_1.ext = '.md'
+--
+-- let g:vimwiki_list = [wiki_1]
+-- let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+-- ]])

@@ -374,15 +374,15 @@ _G.packer_plugins = {
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
     url = "https://github.com/tpope/vim-unimpaired"
   },
-  ["vim-yankstack"] = {
-    loaded = true,
-    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vim-yankstack",
-    url = "https://github.com/maxbrunsfeld/vim-yankstack"
-  },
   vimtex = {
     loaded = true,
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vimtex",
     url = "https://github.com/lervag/vimtex"
+  },
+  vimwiki = {
+    loaded = true,
+    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vimwiki",
+    url = "https://github.com/vimwiki/vimwiki"
   }
 }
 

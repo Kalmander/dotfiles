@@ -78,7 +78,7 @@ M.obsidian_link = function()
         if require('obsidian').util.cursor_on_markdown_link() then
                 return "<cmd>ObsidianFollowLink<CR>"
         else
-                return "gf"
+                return "<CR>"
         end
 end
 

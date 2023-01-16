@@ -28,15 +28,16 @@ M.normal_mode_keymaps = {
 	["<leader>cc"] = utils.toggle_concealcursor,
 	["<leader>r"] = utils.reload_lua,
 	["<leader>tt"] = utils.toggle_diagnostics,
-        ["<C-CR>"] = "<cmd>nohlsearch<CR><cmd>echo<CR>",
+        ["<A-/>"] = "<cmd>nohlsearch<CR><cmd>echo<CR>",
         ["<A-1>"] = function() require("harpoon.ui").nav_file(1) end,
         ["<A-2>"] = function() require("harpoon.ui").nav_file(2) end,
         ["<A-3>"] = function() require("harpoon.ui").nav_file(3) end,
         ["<A-4>"] = function() require("harpoon.ui").nav_file(4) end,
         ["<A-w>"] = require("harpoon.mark").add_file,
         ["<A-q>"] = require("harpoon.ui").toggle_quick_menu,
-        ["<BS>"] = "<C-6>",
-        ["<leader>t"] = require('toggle-checkbox').toggle
+        ["<C-BS>"] = "<C-6>",
+        ["<leader>t"] = require('toggle-checkbox').toggle,
+        ["<C-W>N"] = "<cmd>vnew<CR>",
 }
 
 M.visualselect_keymaps = {
@@ -77,6 +78,9 @@ M.telescope_keymaps = {
 	["<leader>fn"] = function()
 		tele.find_files(dropdown({ previewer = false, cwd = "~/.config/nvim/" }))
 	end,
+	["<leader>fs"] = function()
+		tele.live_grep(dropdown({ previewer = false, cwd = "~/.config/nvim/lua/tkj/math-snippets/" }))
+	end,
 	["<leader>fl"] = function()
 		tele.find_files(dropdown({ previewer = false, cwd = "~/.local/share/nvim/site/pack/packer/" }))
 	end,
@@ -115,7 +119,6 @@ multimap("t", M.terminal_mode_keymaps, noremap_silent)
 ---- Misc Keymaps ------------------------------------------------------------
 map({ "n", "v" }, "<leader>i", require("nvim-toggler").toggle)
 -- vim.keymap.set("n", "gf", ":echo GAAA<cr>", {noremap = false, buffer = 0})
-vim.keymap.set("n", "gf", utils.obsidian_link, {noremap = false, expr = true})
 -- vim.keymap.set("n", "gf", utils.obsidian_link, {noremap = false, expr = true, buffer = 0})
 
 return M

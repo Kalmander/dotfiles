@@ -27,6 +27,7 @@ local options = {
 	hlsearch = true, -- highlight all matches on previous search pattern
 	cursorline = true,
 	laststatus = 3, -- default er 2
+        splitright = true,
 
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	pumheight = 10, -- pop up menu height
@@ -47,6 +48,7 @@ vim.opt.listchars:append("eol:↴")
 vim.g.vim_markdown_math = 1 -- fyrir markdown.vim
 vim.g['pencil#conceallevel'] = options.conceallevel
 vim.g['pencil#concealcursor'] = options.concealcursor
+vim.g['pencil#cursorwrap'] = 0 -- sleppir því að fokka í defaultinu
 
 local neovide_settings = {
 	guifont = { "FiraCode Nerd Font", ":h18" },
@@ -75,3 +77,17 @@ end
 -- set signcolumn=yes
 -- autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 -- ]])
+
+-- Vimwiki
+vim.cmd([[
+" let g:vimwiki_list = [{'path': '~/vimwiki/',
+"                       \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
+let wiki_1 = {}
+let wiki_1.path = '~/vimwiki/'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
+
+let g:vimwiki_list = [wiki_1]
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+]])

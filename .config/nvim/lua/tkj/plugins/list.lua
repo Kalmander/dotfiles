@@ -64,7 +64,6 @@ return require("packer").startup(function(use)
         use("ThePrimeagen/harpoon")
         use("tpope/vim-unimpaired")
         use("terryma/vim-expand-region")
-        use("maxbrunsfeld/vim-yankstack")
         use("tpope/vim-fugitive")
 
 	-- Obsidian og markdown
@@ -81,6 +80,7 @@ return require("packer").startup(function(use)
 	use("ThePrimeagen/vim-be-good")
 	use("mbbill/undotree")
         use("itchyny/calendar.vim")
+        use("vimwiki/vimwiki")
 end)
 
 ---- Shortlist ----------------------------------
