@@ -1,6 +1,6 @@
 set selection-clipboard clipboard
 set smooth-scroll "true"
-set font "fira code regular 17"
+set font "fira code regular 16"
 
 # Litir
 set recolor-lightcolor "#1f1f1f" #00

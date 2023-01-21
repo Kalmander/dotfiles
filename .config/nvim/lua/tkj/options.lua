@@ -45,10 +45,11 @@ local options = {
 }
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
-vim.g.vim_markdown_math = 1 -- fyrir markdown.vim
+vim.g.vim_markdown_math = 1
 vim.g['pencil#conceallevel'] = options.conceallevel
 vim.g['pencil#concealcursor'] = options.concealcursor
 vim.g['pencil#cursorwrap'] = 0 -- sleppir því að fokka í defaultinu
+vim.g['netrw_liststyle'] = 3
 
 local neovide_settings = {
 	guifont = { "FiraCode Nerd Font", ":h18" },
@@ -78,16 +79,40 @@ end
 -- autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 -- ]])
 
--- Vimwiki
-vim.cmd([[
-" let g:vimwiki_list = [{'path': '~/vimwiki/',
-"                       \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_global_ext = 0
-let wiki_1 = {}
-let wiki_1.path = '~/vimwiki/'
-let wiki_1.syntax = 'markdown'
-let wiki_1.ext = '.md'
 
-let g:vimwiki_list = [wiki_1]
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+vim.cmd([[
+let g:wiki_root = '~/hrafnatinna'
+let g:wiki_filetypes = ['md']
+let g:wiki_link_extension = '.md'
+" autocmd BufRead,BufNewFile *.Rmd set filetype=wiki
+" autocmd BufRead,BufNewFile *.md set filetype=wiki
 ]])
+--
+-- Vimwiki
+-- vim.cmd([[
+-- " let g:vimwiki_list = [{'path': '~/vimwiki/',
+-- "                       \ 'syntax': 'markdown', 'ext': '.md'}]
+-- let wiki_1 = {}
+-- let wiki_1.path = '~/riker/'
+-- let wiki_1.syntax = 'markdown'
+-- let wiki_1.ext = '.md'
+--
+-- let wiki_2 = {}
+-- let wiki_2.path = '~/hrafnatinna/'
+-- let wiki_2.syntax = 'markdown'
+-- let wiki_2.ext = '.md'
+--
+-- let g:vimwiki_global_ext = 0
+-- let g:vimwiki_list = [wiki_1, wiki_2]
+-- let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+-- ]])
+--
+-- vim.cmd([[
+-- autocmd VimEnter * let g:vimwiki_syntaxlocal_vars['markdown']['Link1'] = g:vimwiki_syntaxlocal_vars['default']['Link1']
+-- " Þetta gerir latex syntax en fokkar upp hlekkja syntaxinum
+-- " augroup Mkd
+-- " au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn} setlocal syntax=markdown
+-- " au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn}.{des3,des,bf,bfa,aes,idea,cast,rc2,rc4,rc5,desx} setlocal syntax=markdown
+-- " augroup END
+-- ]])
+--

@@ -239,11 +239,6 @@ _G.packer_plugins = {
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["obsidian.nvim"] = {
-    loaded = true,
-    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
-    url = "https://github.com/epwalsh/obsidian.nvim"
-  },
   ["onedark.nvim"] = {
     loaded = true,
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/onedark.nvim",
@@ -379,10 +374,15 @@ _G.packer_plugins = {
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vimtex",
     url = "https://github.com/lervag/vimtex"
   },
-  vimwiki = {
+  ["wiki-ft.vim"] = {
     loaded = true,
-    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vimwiki",
-    url = "https://github.com/vimwiki/vimwiki"
+    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/wiki-ft.vim",
+    url = "https://github.com/lervag/wiki-ft.vim"
+  },
+  ["wiki.vim"] = {
+    loaded = true,
+    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/wiki.vim",
+    url = "https://github.com/lervag/wiki.vim"
   }
 }
 

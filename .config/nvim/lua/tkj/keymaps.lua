@@ -17,7 +17,6 @@ vim.g.maplocalleader = " "
 ---- Keymap Definitions ------------------------------------------------------
 M.normal_mode_keymaps = {
 	["<leader>ge"] = [[<cmd>silent Explore<cr>]],
-	["<c-bs>"] = "<c-6>",
 	["<leader>zm"] = utils.toggle_zen,
 	["<leader>za"] = utils.toggle_zen_ataraxis,
 	["<A-j>"] = ":m .+1<CR>==",
@@ -38,6 +37,8 @@ M.normal_mode_keymaps = {
         ["<C-BS>"] = "<C-6>",
         ["<leader>t"] = require('toggle-checkbox').toggle,
         ["<C-W>N"] = "<cmd>vnew<CR>",
+        ["<C-d>"] = "<C-d>zz",
+        ["<C-u>"] = "<C-u>zz",
 }
 
 M.visualselect_keymaps = {

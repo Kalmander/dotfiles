@@ -18,7 +18,8 @@ vim.g.sonokai_diagnostic_virtual_text = 'colored' -- grey eða  colored
 	-- "sainnhe/everforest"
 	-- "shaunsingh/nord.nvim"
         -- "sonph/onehalf"  -> onehalfdark
-vim.cmd.colorscheme('sonokai')
+-- vim.cmd.colorscheme('sonokai')
+vim.cmd.colorscheme('onedark')
 -- vim.cmd('hi CursorLine gui=bold')
 vim.cmd('hi IlluminatedWordText gui=bold')
 vim.cmd('hi IlluminatedWordRead gui=bold')
@@ -26,6 +27,8 @@ vim.cmd('hi IlluminatedWordWrite gui=bold')
 
 -- vim.cmd('hi clear Conceal') -- til að latex conceal verði ekki grátt á gráum bakgrunn
 -- vim.cmd([[hi Conceal guifg=#6bc3cc]]) -- Gerir conceal mjög líkt highlightinu á textanum í tex
+
+vim.cmd([[hi clear Conceal]])
 vim.cmd([[hi Conceal guifg=#acd8dc]])
 
 

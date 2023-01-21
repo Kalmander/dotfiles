@@ -74,13 +74,13 @@ M.toggle_diagnostics = function()
 	end
 end
 
-M.obsidian_link = function()
-        if require('obsidian').util.cursor_on_markdown_link() then
-                return "<cmd>ObsidianFollowLink<CR>"
-        else
-                return "<CR>"
-        end
-end
+-- M.obsidian_link = function()
+--         if require('obsidian').util.cursor_on_markdown_link() then
+--                 return "<cmd>ObsidianFollowLink<CR>"
+--         else
+--                 return "<CR>"
+--         end
+-- end
 
 M.toggle_conceallevel = function()
         if vim.opt.conceallevel:get() == 0 then

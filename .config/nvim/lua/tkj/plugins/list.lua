@@ -67,7 +67,7 @@ return require("packer").startup(function(use)
         use("tpope/vim-fugitive")
 
 	-- Obsidian og markdown
-	use("epwalsh/obsidian.nvim")
+	-- use("epwalsh/obsidian.nvim")
         use("godlygeek/tabular")
         use("preservim/vim-markdown")
         use("opdavies/toggle-checkbox.nvim")
@@ -80,7 +80,11 @@ return require("packer").startup(function(use)
 	use("ThePrimeagen/vim-be-good")
 	use("mbbill/undotree")
         use("itchyny/calendar.vim")
-        use("vimwiki/vimwiki")
+        -- use("vimwiki/vimwiki")
+        use("lervag/wiki.vim")
+        use("lervag/wiki-ft.vim")
+        -- use("jakewvincent/mkdnflow.nvim")
+        -- use("vim-pandoc/vim-pandoc-syntax")
 end)
 
 ---- Shortlist ----------------------------------
