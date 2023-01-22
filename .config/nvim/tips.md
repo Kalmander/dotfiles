@@ -1,8 +1,10 @@
+- Algjör óþarfi að hafa whole doc textobj, nota frekar bara :%y (hvað ertað fara gera annað en yank?)
+
 - Muna markin S(nippets)/S(tærðfræði), I(celandic layout), 
     K(eymaps), O(ptions), P(lugins), etc
 
 - Getur gert 
-   echo join(map(split(globpath(&rtp, 'ftplugin/*.vim'), '\n'), 'fnamemodify(v:val, ":t:r")'), "\n") 
+   echo join(map(split(globpath(&rtp, 'ftplugin/*.vim'), '\n'), 'fnamemodify(v:val, ":t:r")'), "\n") * seinni stjarnan bara til að fokka ekki upp highlighting á þessu skjali
    til að sjá allar ftplugin gerðirnar
 
 - Getur valið kóða og gert !python td fyrir python kóða, 
@@ -23,6 +25,7 @@
   gætir íhugað að remappa / í /\v og gera shortcut fyrir :%s/\v
 
 - Nokkrir hlutir ólíkir milli vim regex og venjulegs:
+
 Perl    Vim     Explanation
 ---------------------------
 x?      x\=     Match 0 or 1 of x

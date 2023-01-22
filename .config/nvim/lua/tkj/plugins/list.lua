@@ -51,7 +51,7 @@ return require("packer").startup(function(use)
 	use({ "lewis6991/impatient.nvim" }) -- Bætir startup hraða (supposably)
 	use({ "tpope/vim-repeat" })
 	use({ "nvim-lua/plenary.nvim" })
-	use({ "p00f/nvim-ts-rainbow" })
+	-- use({ "p00f/nvim-ts-rainbow" })
 	use({ "ahmedkhalf/project.nvim" })
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -65,12 +65,14 @@ return require("packer").startup(function(use)
         use("tpope/vim-unimpaired")
         use("terryma/vim-expand-region")
         use("tpope/vim-fugitive")
+        use("tpope/vim-sleuth")
+	use("tpope/vim-vinegar")
+	use("andymass/vim-matchup")
 
 	-- Obsidian og markdown
 	-- use("epwalsh/obsidian.nvim")
         use("godlygeek/tabular")
         use("preservim/vim-markdown")
-        use("opdavies/toggle-checkbox.nvim")
         use("preservim/vim-pencil")
         use("tommcdo/vim-exchange")
 
@@ -83,8 +85,19 @@ return require("packer").startup(function(use)
         -- use("vimwiki/vimwiki")
         use("lervag/wiki.vim")
         use("lervag/wiki-ft.vim")
+        use("lervag/lists.vim")
+        use("kana/vim-textobj-user")
+        use("asiryk/auto-hlsearch.nvim")
+        -- use("preservim/vim-textobj-sentence")
+        -- use("edluffy/hologram.nvim") -- highly experimental, til að byrta myndir
         -- use("jakewvincent/mkdnflow.nvim")
         -- use("vim-pandoc/vim-pandoc-syntax")
+	use("folke/twilight.nvim")
+	use("folke/noice.nvim")
+	use("MunifTanjim/nui.nvim")
+	-- use("rcarriga/nvim-notify")
+	-- use("kevinhwang91/nvim-ufo")
+	-- use("stevearc/oil.nvim") -- filesystem dótið
 end)
 
 ---- Shortlist ----------------------------------

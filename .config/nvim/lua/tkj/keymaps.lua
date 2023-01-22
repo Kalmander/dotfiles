@@ -35,10 +35,12 @@ M.normal_mode_keymaps = {
         ["<A-w>"] = require("harpoon.mark").add_file,
         ["<A-q>"] = require("harpoon.ui").toggle_quick_menu,
         ["<C-BS>"] = "<C-6>",
-        ["<leader>t"] = require('toggle-checkbox').toggle,
         ["<C-W>N"] = "<cmd>vnew<CR>",
-        ["<C-d>"] = "<C-d>zz",
-        ["<C-u>"] = "<C-u>zz",
+        ["<leader>go"] = [[<cmd>silent !vimiv -s statusbar.show false -f <cfile><CR>]],
+        -- ["<leader>lw"] = [[<cmd>%s/\s\+$//e<cr>]],
+        ["<leader>lw"] = [[<cmd>%s#\($\n\s*\)\+\%$##<cr><cmd>%s/\s\+$//e<cr><cmd>noh<cr>]],
+	["<leader>ss"] = "<cmd>call SynStack()<CR>",
+	["<leader>st"] = utils.get_ts_hl_group,
 }
 
 M.visualselect_keymaps = {
@@ -105,6 +107,11 @@ M.lsp_keymaps = {
 	["<leader>lq"] = "<cmd>lua vim.diagnostic.setloclist()<CR>",
 }
 
+M.text_objects = {
+        -- ["il"] = ":<C-u>norm! _vg_<cr>",
+        -- ["al"] = ":<C-u>norm! 0v$<cr>",
+}
+
 M.set_lsp_keymaps = function(self, bufnr)
 	for lhs, rhs in pairs(self.lsp_keymaps) do
 		vim.keymap.set("n", lhs, rhs, { noremap = true, silent = true, buffer = bufnr })
@@ -116,6 +123,7 @@ multimap("v", M.visualselect_keymaps, noremap_silent)
 multimap("x", M.visual_mode_keymaps, noremap_silent)
 multimap("n", M.telescope_keymaps, {})
 multimap("t", M.terminal_mode_keymaps, noremap_silent)
+multimap({"o", "x"}, M.text_objects, noremap_silent)
 
 ---- Misc Keymaps ------------------------------------------------------------
 map({ "n", "v" }, "<leader>i", require("nvim-toggler").toggle)

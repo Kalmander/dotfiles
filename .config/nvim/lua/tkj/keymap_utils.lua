@@ -98,4 +98,14 @@ M.toggle_concealcursor = function()
 	end
 end
 
+M.get_ts_hl_group = function()
+	-- Gæinn sem prentast lengst til hægri er ráðandi svo vilt 
+	-- breyta honum til að breyta litnum 
+	-- Gætir þurft að bæta @ framan við nafnið í nvim_hl allinu td 
+	-- vim.api.nvim_set_hl(0, "@variable",              { <colors-here> })
+	-- veit ekki hvenær þetta er the shit vs hvenær gamla SynStack dótið er málið
+	local result = vim.treesitter.get_captures_at_cursor(0)
+        print(vim.inspect(result))
+end
+
 return M

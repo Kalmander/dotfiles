@@ -5,7 +5,7 @@ local function searchcount_if_hi(str)
 	if vim.v.hlsearch == 1 then
 		return str
 	else
-		return ''
+		return ""
 	end
 end
 
@@ -31,7 +31,14 @@ lualine.setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = { {"searchcount", searchcount_if_hi} },
+		lualine_c = {
+			{
+				require("noice").api.statusline.mode.get,
+				cond = require("noice").api.statusline.mode.has,
+				color = { fg = "#ff9e64" },
+			},
+			{ "searchcount", searchcount_if_hi },
+		},
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },

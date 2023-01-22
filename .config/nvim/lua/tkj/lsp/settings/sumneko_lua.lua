@@ -11,6 +11,9 @@ return {
 					[vim.fn.stdpath("config") .. "/lua"] = true,
 				},
 			},
+			runtime = {
+				version = "Lua 5.1",
+			},
 		},
 	},
 }

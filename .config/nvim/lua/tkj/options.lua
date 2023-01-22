@@ -18,10 +18,8 @@ local options = {
 	ignorecase = true,
 	smartcase = true,
 	smartindent = true,
-	timeoutlen = 300, -- time to wait for a mapped sequence to complete (in milliseconds)
+	timeoutlen = 400, -- time to wait for a mapped sequence to complete (in milliseconds)
 	updatetime = 300, -- faster completion (4000ms default)
-	expandtab = true, -- convert tabs to spaces
-	signcolumn = "yes", -- shows sign column, otherwise shifts the text each time
 	-- foldmethod = "indent",
 	foldlevel = 10,
 	hlsearch = true, -- highlight all matches on previous search pattern
@@ -69,50 +67,25 @@ if vim.g.neovide then
 	end
 end
 
--- TKJ Þetta er frá rustmanninum:
--- Fixed column for diagnostics to appear
--- Show autodiagnostic popup on cursor hover_range
--- Goto previous / next diagnostic warning / error
--- Show inlay_hints more frequently
--- vim.cmd([[
--- set signcolumn=yes
--- autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
--- ]])
-
 
 vim.cmd([[
-let g:wiki_root = '~/hrafnatinna'
+let g:wiki_root = '~/'
 let g:wiki_filetypes = ['md']
 let g:wiki_link_extension = '.md'
-" autocmd BufRead,BufNewFile *.Rmd set filetype=wiki
-" autocmd BufRead,BufNewFile *.md set filetype=wiki
 ]])
---
--- Vimwiki
+
 -- vim.cmd([[
--- " let g:vimwiki_list = [{'path': '~/vimwiki/',
--- "                       \ 'syntax': 'markdown', 'ext': '.md'}]
--- let wiki_1 = {}
--- let wiki_1.path = '~/riker/'
--- let wiki_1.syntax = 'markdown'
--- let wiki_1.ext = '.md'
+-- augroup init_wiki
+--   autocmd!
+--   autocmd BufRead,BufNewFile *.md call PossiblyEnableWiki()
+--   " This may be slightly better than the above, not sure:
+--   " autocmd FileType markdown call PossiblyEnableWiki()
+-- augroup END
 --
--- let wiki_2 = {}
--- let wiki_2.path = '~/hrafnatinna/'
--- let wiki_2.syntax = 'markdown'
--- let wiki_2.ext = '.md'
---
--- let g:vimwiki_global_ext = 0
--- let g:vimwiki_list = [wiki_1, wiki_2]
--- let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+-- function! PossiblyEnableWiki()
+--   let l:wikis = ["~/hrafnatinna/", "~/riker/"]
+--   if index(l:wikis, wiki#get_root()) >= 0
+--     WikiEnable
+--   endif
+-- endfunction
 -- ]])
---
--- vim.cmd([[
--- autocmd VimEnter * let g:vimwiki_syntaxlocal_vars['markdown']['Link1'] = g:vimwiki_syntaxlocal_vars['default']['Link1']
--- " Þetta gerir latex syntax en fokkar upp hlekkja syntaxinum
--- " augroup Mkd
--- " au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn} setlocal syntax=markdown
--- " au BufRead,BufWinEnter,BufNewFile *.{md,mdx,mdown,mkd,mkdn,markdown,mdwn}.{des3,des,bf,bfa,aes,idea,cast,rc2,rc4,rc5,desx} setlocal syntax=markdown
--- " augroup END
--- ]])
---

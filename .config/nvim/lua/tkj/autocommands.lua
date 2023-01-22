@@ -6,6 +6,7 @@ augroup _general_settings
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro " Lagar comment haldi áfram í newline
     autocmd BufWinEnter * :set formatoptions+=t "Þarft fyrir tw, mælt með að nota += 
+    autocmd BufRead,BufNewFile *.md ListsEnable
 augroup end
 ]])
 
