@@ -37,10 +37,11 @@ M.normal_mode_keymaps = {
         ["<C-BS>"] = "<C-6>",
         ["<C-W>N"] = "<cmd>vnew<CR>",
         ["<leader>go"] = [[<cmd>silent !vimiv -s statusbar.show false -f <cfile><CR>]],
-        -- ["<leader>lw"] = [[<cmd>%s/\s\+$//e<cr>]],
-        ["<leader>lw"] = [[<cmd>%s#\($\n\s*\)\+\%$##<cr><cmd>%s/\s\+$//e<cr><cmd>noh<cr>]],
+        ["<leader>lw"] = [[<cmd>%s/\s\+$//e<cr>]],
+        -- ["<leader>lw"] = [[<cmd>%s#\($\n\s*\)\+\%$##<cr><cmd>%s/\s\+$//e<cr><cmd>noh<cr>]], -- líka aftast en hendir í villu ef ekekrt
 	["<leader>ss"] = "<cmd>call SynStack()<CR>",
 	["<leader>st"] = utils.get_ts_hl_group,
+	["<leader>h"] = utils.hide_cursor,
 }
 
 M.visualselect_keymaps = {

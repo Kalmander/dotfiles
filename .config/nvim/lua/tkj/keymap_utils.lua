@@ -99,13 +99,28 @@ M.toggle_concealcursor = function()
 end
 
 M.get_ts_hl_group = function()
-	-- Gæinn sem prentast lengst til hægri er ráðandi svo vilt 
-	-- breyta honum til að breyta litnum 
-	-- Gætir þurft að bæta @ framan við nafnið í nvim_hl allinu td 
+	-- Gæinn sem prentast lengst til hægri er ráðandi svo vilt
+	-- breyta honum til að breyta litnum
+	-- Gætir þurft að bæta @ framan við nafnið í nvim_hl allinu td
 	-- vim.api.nvim_set_hl(0, "@variable",              { <colors-here> })
 	-- veit ekki hvenær þetta er the shit vs hvenær gamla SynStack dótið er málið
 	local result = vim.treesitter.get_captures_at_cursor(0)
         print(vim.inspect(result))
+end
+
+local cursor_hidden = false
+M.hide_cursor = function()
+	-- Ætti að bæta þetta með því að stela frá
+	-- auto hl search plugininu góða
+	if cursor_hidden then
+		-- vim.api.nvim_set_hl(0, "Cursor", {blend=0})
+		vim.cmd([[hi Cursor blend=0]])
+		cursor_hidden = false
+	else
+		-- vim.api.nvim_set_hl(0, "Cursor", {blend=100})
+		vim.cmd([[hi Cursor blend=100]])
+		cursor_hidden = true
+	end
 end
 
 return M
