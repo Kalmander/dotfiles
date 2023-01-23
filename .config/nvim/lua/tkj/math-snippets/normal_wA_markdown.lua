@@ -6,6 +6,7 @@ local normal_wA = {
 	ls.parser.parse_snippet({ trig = "-ð", name = "Checkbox" }, "- [ ] $0"),
 	ls.parser.parse_snippet({ trig = "gaboo", name = "Setning" }, [[\setning{$1}{$0}]]),
 	ls.parser.parse_snippet({ trig = "þþaa", name = "þþaa stytting" }, [[þ.þ.a.a.]]),
+	ls.parser.parse_snippet({ trig = "!pom", name = "Tómatur" }, [[🍅]]),
 }
 
 return normal_wA

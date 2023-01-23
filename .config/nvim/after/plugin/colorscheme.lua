@@ -44,8 +44,6 @@ set_hl("IlluminatedWordText", { bold = true })
 set_hl("IlluminatedWordRead", { bold = true })
 set_hl("IlluminatedWordWrite", { bold = true })
 
--- set_hl("Cursor", { blend = 100 }) -- Veitiggi akkuru virkarekki
-
 local function deluminator(info)
 	if info.file:match('.md$') or info.file:match('.txt$') then
 		set_hl("IlluminatedWordText", {})
@@ -69,6 +67,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 -- líkir eftir bakgrunni og það sést stundum illa í insert mode
 set_hl("Cursor2", { fg = "white", bg = "white" })
 vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50"
+
 
 -----------------------------------------------------------------------------------------
 -- Sonokai litirnir:
