@@ -344,11 +344,6 @@ _G.packer_plugins = {
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vim-exchange",
     url = "https://github.com/tommcdo/vim-exchange"
   },
-  ["vim-expand-region"] = {
-    loaded = true,
-    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vim-expand-region",
-    url = "https://github.com/terryma/vim-expand-region"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vim-fugitive",

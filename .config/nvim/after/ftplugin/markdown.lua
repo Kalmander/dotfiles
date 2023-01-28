@@ -6,6 +6,7 @@ vim.keymap.set("n", "<leader>gp", "mygg/mynd:<CR><cmd>noh<cr>2w<cmd>silent !vimi
 local filename = vim.api.nvim_buf_get_name(0)
 if filename:match("kanban") then
 	vim.keymap.set("n", "o", "o<esc>i- [ ] ", { noremap = true, silent = true, buffer = 0 })
+	vim.keymap.set("n", "O", "O<esc>i- [ ] ", { noremap = true, silent = true, buffer = 0 })
 end
 if filename:match("hrafnatinna") then
         -- hendir línu neðst í næsta eða fyrra ## heading

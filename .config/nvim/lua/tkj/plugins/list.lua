@@ -63,7 +63,6 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter-textobjects")
         use("ThePrimeagen/harpoon")
         use("tpope/vim-unimpaired")
-        use("terryma/vim-expand-region")
         use("tpope/vim-fugitive")
         use("tpope/vim-sleuth")
 	use("tpope/vim-vinegar")
@@ -104,3 +103,4 @@ end)
 ---- Shortlist ----------------------------------
 -- use({ "mrjones2014/legendary.nvim" }) -- Lítur mjög vel út en virðist vera
 -- maus að stilla almennilega
+        -- use("terryma/vim-expand-region")
