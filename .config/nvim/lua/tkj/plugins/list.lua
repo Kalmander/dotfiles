@@ -75,6 +75,7 @@ return require("packer").startup(function(use)
         use("preservim/vim-markdown")
         use("preservim/vim-pencil")
         use("tommcdo/vim-exchange")
+	use("dhruvasagar/vim-table-mode")
 
 	-- Misc
 	use({ "lervag/vimtex" })

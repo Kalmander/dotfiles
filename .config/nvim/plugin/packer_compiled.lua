@@ -389,6 +389,11 @@ _G.packer_plugins = {
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vim-sleuth",
     url = "https://github.com/tpope/vim-sleuth"
   },
+  ["vim-table-mode"] = {
+    loaded = true,
+    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vim-table-mode",
+    url = "https://github.com/dhruvasagar/vim-table-mode"
+  },
   ["vim-textobj-user"] = {
     loaded = true,
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vim-textobj-user",

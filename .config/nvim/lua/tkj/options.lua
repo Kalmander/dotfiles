@@ -1,45 +1,40 @@
 local options = {
-	clipboard = "unnamedplus",
-	number = true,
-	relativenumber = true,
-	termguicolors = true,
-	wrap = false,
-	linebreak = true, -- companion to wrap, don't split words
-	cmdheight = 1,
+	clipboard       = "unnamedplus",
+	number          = true,
+	relativenumber  = true,
+	termguicolors   = true,
+	wrap            = false,
+	linebreak       = true, -- companion to wrap, don't split words
+	cmdheight       = 1,
 	-- showtabline  = 2,
-	undofile = true,
-	virtualedit = "none",
-	scrolloff = 6,
-	sidescrolloff = 1,
-	-- textwidth = 80,
-	conceallevel = 2,
-        concealcursor = 'n',
+	undofile        = true,
+	virtualedit     = "none",
+	scrolloff       = 6,
+	sidescrolloff   = 1,
+	-- textwidth    = 80,
+	conceallevel    = 2,
+        concealcursor   = 'n',
 	-- fileencoding = "utf-8",
-	ignorecase = true,
-	smartcase = true,
-	smartindent = true,
-	timeoutlen = 400, -- time to wait for a mapped sequence to complete (in milliseconds)
-	updatetime = 300, -- faster completion (4000ms default)
-	-- foldmethod = "indent",
-	foldlevel = 10,
-	hlsearch = true, -- highlight all matches on previous search pattern
-	cursorline = true,
-	laststatus = 3, -- default er 2
-        splitright = true,
-
-	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-	pumheight = 10, -- pop up menu height
-
-	swapfile = true,
-	backup = true,
-	backupdir = vim.fn.expand("~/backups/backup//"),
-	directory = vim.fn.expand("~/backups/swp//"),
-
-	-- Í boði rustmannsins:
-	foldmethod = "expr",
-	foldexpr = "nvim_treesitter#foldexpr()",
-
-	list = true,
+	ignorecase      = true,
+	smartcase       = true,
+	smartindent     = true,
+	timeoutlen      = 400, -- time to wait for a mapped sequence to complete (in milliseconds)
+	updatetime      = 300, -- faster completion (4000ms default)
+	-- foldmethod   = "indent",
+	foldlevel       = 10,
+	hlsearch        = true, -- highlight all matches on previous search pattern
+	cursorline      = true,
+	laststatus      = 3, -- default er 2
+        splitright      = true,
+	completeopt     = { "menuone", "noselect" }, -- mostly just for cmp
+	pumheight       = 10, -- pop up menu height
+	swapfile        = true,
+	backup          = true,
+	backupdir       = vim.fn.expand("~/backups/backup//"),
+	directory       = vim.fn.expand("~/backups/swp//"),
+	foldmethod      = "expr",
+	foldexpr        = "nvim_treesitter#foldexpr()",
+	list            = true,
 }
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
