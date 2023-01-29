@@ -102,5 +102,3 @@ end)
 
 ---- Shortlist ----------------------------------
 -- use({ "mrjones2014/legendary.nvim" }) -- Lítur mjög vel út en virðist vera
--- maus að stilla almennilega
-        -- use("terryma/vim-expand-region")

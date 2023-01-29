@@ -35,6 +35,7 @@ local options = {
 	foldmethod      = "expr",
 	foldexpr        = "nvim_treesitter#foldexpr()",
 	list            = true,
+	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 }
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")

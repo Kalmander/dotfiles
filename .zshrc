@@ -14,12 +14,13 @@ ZSH="/home/kalman/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 #Plugins
-# plugins=(git zsh-autosuggestions)
+plugins=(zsh-autosuggestions)
 plugins+=(zsh-vi-mode)
+plugins+=(colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 # <<< Oh My Zsh <<<
-
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'
 
 #Star Ship
 # eval "$(starship init zsh)"
@@ -41,7 +42,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 
 export EDITOR='nvim'

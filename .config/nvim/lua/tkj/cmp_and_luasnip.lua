@@ -91,7 +91,7 @@ cmp.setup({
 	sources = {
 		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lsp_signature_help" }, -- display function signatures with current parameter emphasized
+		-- { name = "nvim_lsp_signature_help" }, -- display function signatures with current parameter emphasized, ÓÞARFI noice.nvim dekkar betur
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "path" },
 	},
