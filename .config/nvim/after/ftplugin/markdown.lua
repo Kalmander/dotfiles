@@ -28,3 +28,32 @@ vim.cmd([[SoftPencil]]) -- laggy af yo
 
 vim.api.nvim_set_hl(0, "Pomodorro", {fg="#fc5d7c"})
 vim.fn.matchadd('Pomodorro', [[🍅]])
+
+vim.cmd([[
+call vimtex#options#init()
+call vimtex#text_obj#init_buffer()
+
+omap <silent><buffer> id <plug>(vimtex-id)
+omap <silent><buffer> ad <plug>(vimtex-ad)
+xmap <silent><buffer> id <plug>(vimtex-id)
+xmap <silent><buffer> ad <plug>(vimtex-ad)
+
+omap <silent><buffer> i$ <plug>(vimtex-i$)
+omap <silent><buffer> a$ <plug>(vimtex-a$)
+xmap <silent><buffer> i$ <plug>(vimtex-i$)
+xmap <silent><buffer> a$ <plug>(vimtex-a$)
+
+" *<plug>(vimtex-ac)*   Commands
+" *<plug>(vimtex-ic)*
+" *<plug>(vimtex-ad)*   Delimiters
+" *<plug>(vimtex-id)*
+" *<plug>(vimtex-ae)*   Environments (except top-level `document`)
+" *<plug>(vimtex-ie)*
+" *<plug>(vimtex-a$)*   Math environments
+" *<plug>(vimtex-i$)*
+" *<plug>(vimtex-aP)*   Sections
+" *<plug>(vimtex-iP)*
+" *<plug>(vimtex-am)*   Items
+" *<plug>(vimtex-im)*
+ 
+]])
