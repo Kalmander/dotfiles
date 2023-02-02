@@ -418,6 +418,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kalman/.local/share/nvim/site/pack/packer/start/wiki.vim",
     url = "https://github.com/lervag/wiki.vim"
+  },
+  ["zephyr-nvim"] = {
+    loaded = true,
+    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/zephyr-nvim",
+    url = "https://github.com/glepnir/zephyr-nvim"
   }
 }
 

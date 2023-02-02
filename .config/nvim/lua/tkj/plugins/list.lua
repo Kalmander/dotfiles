@@ -7,6 +7,7 @@ return require("packer").startup(function(use)
 	use({ "sainnhe/everforest" })
 	use({ "shaunsingh/nord.nvim" })
 	use({ "sonph/onehalf" })
+	use("glepnir/zephyr-nvim")
 
 	-- Vim motions/operators etc
 	use({ "michaeljsmith/vim-indent-object" })
