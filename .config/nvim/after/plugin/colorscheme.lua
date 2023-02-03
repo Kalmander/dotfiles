@@ -44,24 +44,6 @@ set_hl("IlluminatedWordText", { bold = true })
 set_hl("IlluminatedWordRead", { bold = true })
 set_hl("IlluminatedWordWrite", { bold = true })
 
-local function deluminator(info)
-	if info.file:match('.md$') or info.file:match('.txt$') then
-		set_hl("IlluminatedWordText", {})
-		set_hl("IlluminatedWordRead", {})
-		set_hl("IlluminatedWordWrite", {})
-	else
-		set_hl("IlluminatedWordText", { bold = true })
-		set_hl("IlluminatedWordRead", { bold = true })
-		set_hl("IlluminatedWordWrite", { bold = true })
-	end
-end
-
--- Það eru til namespaces fyrir highlights, kannski er það rétta leiðin til að gera þetta?
-local md_delumination = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	callback = deluminator,
-	group = md_delumination,
-})
 
 -- til að gera cursorinn hvítann í insert mode því ég nota kitty litinn sem
 -- líkir eftir bakgrunni og það sést stundum illa í insert mode

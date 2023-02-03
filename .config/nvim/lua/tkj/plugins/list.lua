@@ -7,6 +7,7 @@ return require("packer").startup(function(use)
 	use({ "sainnhe/everforest" })
 	use({ "shaunsingh/nord.nvim" })
 	use({ "sonph/onehalf" })
+	use("glepnir/zephyr-nvim")
 
 	-- Vim motions/operators etc
 	use({ "michaeljsmith/vim-indent-object" })
@@ -63,7 +64,6 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter-textobjects")
         use("ThePrimeagen/harpoon")
         use("tpope/vim-unimpaired")
-        use("terryma/vim-expand-region")
         use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
 	use("junegunn/gv.vim")
@@ -79,6 +79,7 @@ return require("packer").startup(function(use)
         use("preservim/vim-markdown")
         use("preservim/vim-pencil")
         use("tommcdo/vim-exchange")
+	use("dhruvasagar/vim-table-mode")
 
 	-- Misc
 	use({ "lervag/vimtex" })
@@ -106,4 +107,3 @@ end)
 
 ---- Shortlist ----------------------------------
 -- use({ "mrjones2014/legendary.nvim" }) -- Lítur mjög vel út en virðist vera
--- maus að stilla almennilega
