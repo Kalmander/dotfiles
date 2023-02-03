@@ -4,7 +4,7 @@ require("leap").add_default_mappings()
 require("nvim-autopairs").setup()
 require("color-picker")
 require("auto-hlsearch").setup()
-require("tkj.textobjs").setup({ useDefaultKeymaps = true })
+-- require("tkj.textobjs").setup({ useDefaultKeymaps = true })
 -- require("fidget").setup({})
 
 require("nvim-toggler").setup({

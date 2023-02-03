@@ -65,9 +65,13 @@ return require("packer").startup(function(use)
         use("tpope/vim-unimpaired")
         use("terryma/vim-expand-region")
         use("tpope/vim-fugitive")
+	use("lewis6991/gitsigns.nvim")
+	use("junegunn/gv.vim")
+	use("tpope/vim-rhubarb")
         use("tpope/vim-sleuth")
 	use("tpope/vim-vinegar")
 	use("andymass/vim-matchup")
+
 
 	-- Obsidian og markdown
 	-- use("epwalsh/obsidian.nvim")

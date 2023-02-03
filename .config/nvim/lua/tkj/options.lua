@@ -40,6 +40,7 @@ local options = {
 	foldexpr = "nvim_treesitter#foldexpr()",
 
 	list = true,
+	signcolumn = 'yes',
 }
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")

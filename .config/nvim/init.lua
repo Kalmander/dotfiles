@@ -1,5 +1,5 @@
-require("tkj.keymaps")
 require("tkj.plugins")
+require("tkj.keymaps")
 require("tkj.options")
 require("tkj.commands")
 require("tkj.autocommands")

@@ -18,6 +18,7 @@ require("noice").setup({
 		inc_rename = false, -- enables an input dialog for inc-rename.nvim
 		lsp_doc_border = false, -- add a border to hover docs and signature help
 	},
+	messages = { enabled = false },
 	views = {
 		split = { size = "auto" },
 		cmdline_popup = {
@@ -32,16 +33,16 @@ require("noice").setup({
 		},
 	},
 	routes = {
-		{
-			filter = {
-				event = "msg_show",
-				kind = "search_count",
-			},
-			opts = { skip = true },
-		},
-		{
-			view = "split",
-			filter = { event = "msg_show", find = "git" },
-		},
+		-- {
+		-- 	filter = {
+		-- 		event = "msg_show",
+		-- 		kind = "search_count",
+		-- 	},
+		-- 	opts = { skip = true },
+		-- },
+		-- {
+		-- 	view = "split",
+		-- 	filter = { event = "msg_show", find = "git" },
+		-- },
 	},
 })

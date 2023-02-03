@@ -42,6 +42,8 @@ M.normal_mode_keymaps = {
 	["<leader>ss"] = "<cmd>call SynStack()<CR>",
 	["<leader>st"] = utils.get_ts_hl_group,
 	["<leader>h"] = utils.hide_cursor,
+	["<leader>["] = [[<cmd>set cmdheight+=1<cr>]],
+	["<leader>]"] = [[<cmd>set cmdheight-=1<cr>]],
 }
 
 M.visualselect_keymaps = {
@@ -111,6 +113,27 @@ M.lsp_keymaps = {
 M.text_objects = {
         -- ["il"] = ":<C-u>norm! _vg_<cr>",
         -- ["al"] = ":<C-u>norm! 0v$<cr>",
+}
+
+M.gitsigns_keymaps = {
+	-- eru í gitsigns.lua
+		-- map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+		-- map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+		-- map("n", "<leader>hS", gs.stage_buffer)
+		-- map("n", "<leader>hu", gs.undo_stage_hunk)
+		-- map("n", "<leader>hR", gs.reset_buffer)
+		-- map("n", "<leader>hp", gs.preview_hunk)
+		-- map("n", "<leader>hb", function()
+		-- 	gs.blame_line({ full = true })
+		-- end)
+		-- map("n", "<leader>tb", gs.toggle_current_line_blame)
+		-- map("n", "<leader>hd", gs.diffthis)
+		-- map("n", "<leader>hD", function()
+		-- 	gs.diffthis("~")
+		-- end)
+		-- map("n", "<leader>td", gs.toggle_deleted)
+		-- -- Text object
+		-- map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 }
 
 M.set_lsp_keymaps = function(self, bufnr)

@@ -20,9 +20,8 @@ if filename:match("hrafnatinna") then
 	-- stylua: ignore ends
 end
 
--- AAAA virkar ekki samtímis!
-vim.api.nvim_set_hl(0, "Pomodoro", {fg="#fc5d7c"})
-vim.cmd([[match Pomodoro '🍅']])
+vim.api.nvim_set_hl(0, "kanTagBoys", {fg="#595f6f", italic=true})
+vim.fn.matchadd('kanTagBoys', [[\<\#\{1\}\w\+\>]])
 
-vim.api.nvim_set_hl(0, "kanTag", {fg="#595f6f", italic=true})
-vim.cmd([[match kanTag '\<\#\{1\}\w\+\>']])
+vim.api.nvim_set_hl(0, "Pomodorro", {fg="#fc5d7c"})
+vim.fn.matchadd('Pomodorro', [[🍅]])

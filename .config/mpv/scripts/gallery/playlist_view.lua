@@ -231,6 +231,10 @@ do
         bindings_repeat[opts.DOWN]      = function() increment_func(  gallery.geometry.columns, false) end
         bindings_repeat[opts.LEFT]      = function() increment_func(- 1, false) end
         bindings_repeat[opts.RIGHT]     = function() increment_func(  1, false) end
+        bindings_repeat["UP"]        = function() increment_func(- gallery.geometry.columns, false) end
+        bindings_repeat["DOWN"]      = function() increment_func(  gallery.geometry.columns, false) end
+        bindings_repeat["LEFT"]      = function() increment_func(- 1, false) end
+        bindings_repeat["RIGHT"]     = function() increment_func(  1, false) end
         bindings_repeat[opts.PAGE_UP]   = function() increment_func(- gallery.geometry.columns * gallery.geometry.rows, true) end
         bindings_repeat[opts.PAGE_DOWN] = function() increment_func(  gallery.geometry.columns * gallery.geometry.rows, true) end
         bindings_repeat["CTRL+left"]    = function() turn_page('previous') end
