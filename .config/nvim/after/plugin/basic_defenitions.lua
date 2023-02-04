@@ -1,11 +1,22 @@
 require("nvim-surround").setup({ move_cursor = false })
 require("Comment").setup()
-require("leap").add_default_mappings()
 require("nvim-autopairs").setup()
 require("color-picker")
 -- require("auto-hlsearch").setup()
 require("tkj.textobjs").setup({ useDefaultKeymaps = true })
 -- require("fidget").setup({})
+
+
+require("leap").add_default_mappings()
+require("leap").opts.equivalence_classes = {
+	' \t\r\n',
+	'áa',
+	'ée',
+	'íi',
+	'óo',
+	'úu',
+	'ýy',
+}
 
 require("nvim-toggler").setup({
 	inverses = {

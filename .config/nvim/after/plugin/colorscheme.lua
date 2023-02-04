@@ -45,6 +45,9 @@ set_hl("IlluminatedWordRead", { bold = true })
 set_hl("IlluminatedWordWrite", { bold = true })
 
 
+-- vim.api.nvim_set_hl(0, "LeapLabelPrimary", {fg = "red", bold = true, nocombine = true })
+-- vim.api.nvim_set_hl(0, "LeapLabelSecondary", {fg = "blue", bold = true, nocombine = true })
+
 -- til að gera cursorinn hvítann í insert mode því ég nota kitty litinn sem
 -- líkir eftir bakgrunni og það sést stundum illa í insert mode
 set_hl("Cursor2", { fg = "white", bg = "white" })

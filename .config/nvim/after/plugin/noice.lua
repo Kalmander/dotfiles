@@ -37,17 +37,18 @@ require("noice").setup({
 			timeout = 3000 -- default: 2000
 		}
 	},
+	messages = { enable = false },
 	routes = {
-		{
-			filter = {
-				event = "msg_show",
-				kind = "search_count",
-			},
-			opts = { skip = true },
-		},
-		{
-			view = "split",
-			filter = { event = "msg_show", find = "git" },
-		},
+		-- {
+		-- 	filter = {
+		-- 		event = "msg_show",
+		-- 		kind = "search_count",
+		-- 	},
+		-- 	opts = { skip = true },
+		-- },
+		-- {
+		-- 	view = "split",
+		-- 	filter = { event = "msg_show", find = "git" },
+		-- },
 	},
 })
