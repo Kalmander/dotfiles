@@ -15,12 +15,10 @@ local function bookmarks_open_file()
     end
 end
 
-bookmarks_list.keybinds = {
-    {'DOWN', 'scroll_down', function() bookmarks_list:scroll_down() end, {repeatable = true}},
-    {'UP', 'scroll_up', function() bookmarks_list:scroll_up() end, {repeatable = true}},
-    {'ENTER', 'bookmarks_open_file', bookmarks_open_file, {} },
-    {'ESC', 'close_browser', function() bookmarks_list:close() end, {}}
-}
+local function add_keybind(keybind)
+    table.insert(bookmarks_list.keybinds, keybind)
+end
+add_keybind({'ENTER', 'bookmarks_open_file', bookmarks_open_file, {} })
 
 local function read_bookmarks_log()
     local copyLogAdd = io.open(bookmarks_path, 'r+')

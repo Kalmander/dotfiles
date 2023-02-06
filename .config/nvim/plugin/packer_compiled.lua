@@ -234,6 +234,11 @@ _G.packer_plugins = {
     path = "/home/kalmander/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-highlight-colors"] = {
+    loaded = true,
+    path = "/home/kalmander/.local/share/nvim/site/pack/packer/start/nvim-highlight-colors",
+    url = "https://github.com/brenoprata10/nvim-highlight-colors"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/kalmander/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -354,11 +359,6 @@ _G.packer_plugins = {
     path = "/home/kalmander/.local/share/nvim/site/pack/packer/start/vim-exchange",
     url = "https://github.com/tommcdo/vim-exchange"
   },
-  ["vim-expand-region"] = {
-    loaded = true,
-    path = "/home/kalmander/.local/share/nvim/site/pack/packer/start/vim-expand-region",
-    url = "https://github.com/terryma/vim-expand-region"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/kalmander/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -406,7 +406,7 @@ _G.packer_plugins = {
   },
   ["vim-table-mode"] = {
     loaded = true,
-    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/vim-table-mode",
+    path = "/home/kalmander/.local/share/nvim/site/pack/packer/start/vim-table-mode",
     url = "https://github.com/dhruvasagar/vim-table-mode"
   },
   ["vim-textobj-user"] = {
@@ -441,7 +441,7 @@ _G.packer_plugins = {
   },
   ["zephyr-nvim"] = {
     loaded = true,
-    path = "/home/kalman/.local/share/nvim/site/pack/packer/start/zephyr-nvim",
+    path = "/home/kalmander/.local/share/nvim/site/pack/packer/start/zephyr-nvim",
     url = "https://github.com/glepnir/zephyr-nvim"
   }
 }

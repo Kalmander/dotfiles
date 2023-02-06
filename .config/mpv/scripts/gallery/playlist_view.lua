@@ -17,7 +17,7 @@ local thumbnails_dir
 if ON_WINDOWS then 
     thumbnails_dir = mp.command_native({"expand-path", "~~exe_dir/thumbnails_gallery/"})
 else
-    thumbnails_dir = mp.command_native({"expand-path", "~~/thumbnails_gallery/"})
+    thumbnails_dir = mp.command_native({"expand-path", "/mnt/derichet/mpv_thumbnails_etc/thumbnails_gallery/"})
 end
 local misc = require 'miscellaneous.lua'
 

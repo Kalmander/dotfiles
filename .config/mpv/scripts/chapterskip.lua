@@ -46,6 +46,12 @@ local skipped = {}
 local parsed = {}
 
 function chapterskip(_, current)
+        local dispath = mp.get_property('filename')
+        if dispath ~= nil then 
+                if dispath:match('Critical Role') then
+                        return
+                end
+        end
     mp.options.read_options(options, "chapterskip")
     if not options.enabled then return end
     for category in string.gmatch(options.categories, "([^;]+)") do

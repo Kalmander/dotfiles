@@ -685,7 +685,7 @@ local thumbnails_dir
 if ON_WINDOWS then 
     thumbnails_dir = mp.command_native({"expand-path", "~~exe_dir/thumbnails_seekbar/"})
 else
-    thumbnails_dir = mp.command_native({"expand-path", "~~/thumbnails_seekbar/"})
+    thumbnails_dir = mp.command_native({"expand-path", "/mnt/derichet/mpv_thumbnails_etc/thumbnails_seekbar/"})
 end
 local thumbnailer_options = {
     -- The thumbnail directory

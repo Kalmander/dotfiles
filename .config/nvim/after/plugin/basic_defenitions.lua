@@ -5,6 +5,7 @@ require("nvim-autopairs").setup()
 require("color-picker")
 require("auto-hlsearch").setup()
 require("tkj.textobjs").setup({ useDefaultKeymaps = true })
+require("nvim-highlight-colors").setup()
 -- require("fidget").setup({})
 
 require("nvim-toggler").setup({

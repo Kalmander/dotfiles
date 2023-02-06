@@ -7,6 +7,7 @@ local options = {
 	linebreak       = true, -- companion to wrap, don't split words
 	cmdheight       = 1,
 	-- showtabline  = 2,
+	expandtab	= true,
 	undofile        = true,
 	virtualedit     = "none",
 	scrolloff       = 6,

@@ -204,7 +204,11 @@ end
 local function get_ytid()
     local url = get_url()
     if url == nil then return end
-    return url:match("[?&]v=(...........)") 
+    local ytid = url:match("[?&]v=(...........)")
+    if ytid == nil then 
+        ytid = url:match("youtu%.be/(...........)")
+    end
+    return ytid
 end
 
 local function clean_url(url)
@@ -959,6 +963,11 @@ local function write_commands_to_list()
     local item
 
     item = {}
+    item.ass = [[{\q2\fs20\i1}]] .. 'Fetch infojson with 1000 comments' .. [[{\i0}]] --{\\c&3471bf&}
+    list.list[ind] = item
+    ind = ind + 1
+
+    item = {}
     item.ass = [[{\q2\fs20\i1}]] .. 'Copy YouTube URL if available' .. [[{\i0}]] --{\\c&3471bf&}
     list.list[ind] = item
     ind = ind + 1
@@ -976,12 +985,17 @@ local function write_commands_to_list()
     ind = ind + 1
 
     item = {}
-    item.ass = [[{\q2\fs20\i1}]] .. 'Fetch infojson with 100 comments and thumbnail' .. [[{\i0}]] --{\\c&3471bf&}
+    item.ass = [[{\q2\fs20\i1}]] .. 'Fetch infojson with no comments' .. [[{\i0}]] --{\\c&3471bf&}
     list.list[ind] = item
     ind = ind + 1
 
     item = {}
-    item.ass = [[{\q2\fs20\i1}]] .. 'Fetch infojson with no comments' .. [[{\i0}]] --{\\c&3471bf&}
+    item.ass = [[{\q2\fs20\i1}]] .. 'Fetch infojson with all comments' .. [[{\i0}]] --{\\c&3471bf&}
+    list.list[ind] = item
+    ind = ind + 1
+
+    item = {}
+    item.ass = [[{\q2\fs20\i1}]] .. 'Fetch infojson with 3000 comments' .. [[{\i0}]] --{\\c&3471bf&}
     list.list[ind] = item
     ind = ind + 1
 
@@ -990,11 +1004,6 @@ local function write_commands_to_list()
     list.list[ind] = item
     ind = ind + 1
 
-    item = {}
-    item.ass = [[{\q2\fs20\i1}]] .. 'Fetch infojson with all comments' .. [[{\i0}]] --{\\c&3471bf&}
-    list.list[ind] = item
-    ind = ind + 1
-    
     item = {}
     item.ass = [[{\q2\fs20\i1}]] .. 'Fetch thumbnail' .. [[{\i0}]] --{\\c&3471bf&}
     list.list[ind] = item
@@ -1053,7 +1062,12 @@ local function write_comments_to_list()
 
         local comment = ''
         local timestamp = os.date("%Y.%m.%d", com['timestamp'])
-        local author = author_padding .. [[{\b1}]] .. com['author'] .. [[{\b0}  ]]
+        local author = ''
+        if com['author'] == nil then 
+            author = author_padding .. [[{\b1}]] .. 'NO AUTHOR' .. [[{\b0}  ]]
+        else 
+            author = author_padding .. [[{\b1}]] .. com['author'] .. [[{\b0}  ]]
+        end
         if com['author_is_uploader'] then 
             author = author_padding .. [[{\c&]] .. '8ca2c2' .. [[&}]] .. [[{\b1}]] .. com['author'] .. [[{\b0}  ]]
         end
@@ -1207,6 +1221,7 @@ local function load_tags_from_json(metatable)
     local vid_dir, vid_path = utils.split_path(mp.get_property('path'))
     local infojson_dir, _ = utils.join_path(utils.join_path(vid_dir, '.metadata'), 'infojsons')
     local yt_id = get_ytid()
+
     if yt_id == nil then return metatable end
 
     infojsons = {}
@@ -1332,10 +1347,10 @@ local function download_yt_metadata(what_to_download)
         what_to_download = 'infojson_100comments thumbnail'
     end
 
-    if url == nil then 
+    -- if url == nil then 
         url = get_url()
         if url == nil then return end
-    end
+    -- end
     url = clean_url(url)
     timestamp = os.date('%Y%m%d%H%M%S')
 
@@ -1356,13 +1371,29 @@ local function download_yt_metadata(what_to_download)
         table.insert(args, "--sponsorblock-mark")
         table.insert(args, "sponsor")
 
-    elseif what_to_download:match('infojson_100comments') then 
+elseif what_to_download:match('infojson_100comments') then 
         table.insert(args, "--write-info-json")
         table.insert(args, "--sponsorblock-mark")
         table.insert(args, "sponsor")
         table.insert(args, "--write-comments")
         table.insert(args, "--extractor-args")
         table.insert(args, "youtube:comment_sort=top;max_comments=100")
+
+elseif what_to_download:match('infojson_1000comments') then 
+        table.insert(args, "--write-info-json")
+        table.insert(args, "--sponsorblock-mark")
+        table.insert(args, "sponsor")
+        table.insert(args, "--write-comments")
+        table.insert(args, "--extractor-args")
+        table.insert(args, "youtube:comment_sort=top;max_comments=1000")
+
+elseif what_to_download:match('infojson_3000comments') then 
+        table.insert(args, "--write-info-json")
+        table.insert(args, "--sponsorblock-mark")
+        table.insert(args, "sponsor")
+        table.insert(args, "--write-comments")
+        table.insert(args, "--extractor-args")
+        table.insert(args, "youtube:comment_sort=top;max_comments=3000")
 
     elseif what_to_download:match('infojson_allcomments') then 
         table.insert(args, "--write-info-json")
@@ -1449,6 +1480,7 @@ local function collapse_comment()
     if not (metatable['metadata_type'] == 'infojson') then return end
     local selected = list.list[list.selected]
 
+    if selected['metadata'] == nil then return end 
     local comment_id = selected['metadata']['id']
     if not setContains(collapsed_comments, comment_id) then 
         addToSet(collapsed_comments, comment_id)
@@ -1501,6 +1533,14 @@ local function execute_command_page1()
     elseif selected_text:match('Fetch infojson with 100 comments') then  
         download_yt_metadata('infojson_100comments')
         display_centered_message('Fetching infojson with 100 comments')
+
+    elseif selected_text:match('Fetch infojson with 1000 comments') then  
+        download_yt_metadata('infojson_1000comments')
+        display_centered_message('Fetching infojson with 1000 comments')
+
+    elseif selected_text:match('Fetch infojson with 3000 comments') then  
+        download_yt_metadata('infojson_3000comments')
+        display_centered_message('Fetching infojson with 3000 comments')
 
     elseif selected_text:match('Fetch infojson with all comments') then  
         download_yt_metadata('infojson_allcomments')
@@ -1578,17 +1618,19 @@ list.selected_style = list.list_style
 list.empty_text = "No available metadata."
 list.wrap = false
 
-list.keybinds = {
-    {'DOWN',        'scroll_down',          function() list:scroll_down() end,      {repeatable = true}},
-    {'UP',          'scroll_up',            function() list:scroll_up() end,        {repeatable = true}},
-    {'ESC',         'close_browser',        function() list:close() end,            {}},
-    {'ENTER',       'execute_line',         execute_line,                           {}},
-    {'LEFT',        'change_overlay_left',  function() change_overlay('left') end,  {}},
-    {'RIGHT',       'change_overlay_right', function() change_overlay('right') end, {}},
-    {'CTRL+LEFT',   'goto_list_top',        goto_list_top,                          {}},
-    {'CTRL+RIGHT',  'goto_list_bottom',     goto_list_bottom,                       {}},
-    {'SHIFT+bs',    'collapse_all_comms',   collapse_all_comms,                  {}},
-}
+
+local function add_keybind(keybind)
+    table.insert(list.keybinds, keybind)
+end
+add_keybind({'ENTER',       'execute_line',         execute_line,                           {}})
+add_keybind({'LEFT',        'change_overlay_left',  function() change_overlay('left') end,  {}})
+add_keybind({'RIGHT',       'change_overlay_right', function() change_overlay('right') end, {}})
+add_keybind({'h',           'change_overlay_left_vim',  function() change_overlay('left') end,  {}})
+add_keybind({'l',           'change_overlay_right_vim', function() change_overlay('right') end, {}})
+-- add_keybind({'CTRL+LEFT',   'goto_list_top',        goto_list_top,                          {}})
+-- add_keybind({'CTRL+RIGHT',  'goto_list_bottom',     goto_list_bottom,                       {}})
+add_keybind({'bs',    'collapse_all_comms',   collapse_all_comms,                  {}})
+
 -- table.insert(list.keybinds, {'ENTER', 'execute_line', execute_line, {} })
 -- table.insert(list.keybinds, {'LEFT', 'execute_line', function() change_overlay('left') end, {} })
 -- table.insert(list.keybinds, {'RIGHT', 'execute_line', function() change_overlay('left') end, {} })

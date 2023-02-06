@@ -8,8 +8,8 @@ local utils = require("mp.utils")
 local history_path = mp.command_native({"expand-path", "~~/mpvHistory.log"})
 local only_this_file = false
 
-local function history_open_file() 
-    if only_this_file == true then 
+local function history_open_file()
+    if only_this_file == true then
         mp.commandv('seek', history_list.list[history_list.selected].timestamp, 'absolute', 'exact')
     else
         if history_list.list[history_list.selected] then
@@ -22,8 +22,8 @@ end
 local function history_open_file_timestamped()
     if history_list.list[history_list.selected] then
         mp.command_native({
-            name='loadfile', 
-            url=history_list.list[history_list.selected].filePath, 
+            name='loadfile',
+            url=history_list.list[history_list.selected].filePath,
             options='start=' .. tostring(history_list.list[history_list.selected].timestamp)
             }
         )
@@ -36,23 +36,21 @@ local function history_open_file_append()
     end
 end
 
-history_list.keybinds = {
-    {'j', 'scroll_down', function() history_list:scroll_down() end, {repeatable = true}},
-    {'k', 'scroll_up', function() history_list:scroll_up() end, {repeatable = true}},
-    {'ENTER', 'history_open_file', history_open_file, {} },
-    {'BS', 'history_open_file_timestamped', history_open_file_timestamped, {} },
-    {'SHIFT+ENTER', 'history_open_file_append', history_open_file_append, {} },
-    {'ESC', 'close_browser', function() history_list:close() end, {}}
-}
+local function add_keybind(keybind)
+    table.insert(history_list.keybinds, keybind)
+end
+add_keybind({'ENTER', 'history_open_file', history_open_file, {} })
+add_keybind({'BS', 'history_open_file_timestamped', history_open_file_timestamped, {} })
+add_keybind({'SHIFT+ENTER', 'history_open_file_append', history_open_file_append, {} })
 
 local function read_history_log()
     only_this_file = false
     local copyLogAdd = io.open(history_path, 'r+')
     local history = {}
     local item, b1_ind, b2_ind, l1_ind, l2_ind
-    local index = 1, maxind 
+    local index = 1, maxind
     for line in copyLogAdd:lines() do
-        item = {} 
+        item = {}
         b1_ind = line:find("%[")
         b2_ind = line:find("%]")
         l1_ind = line:find("|")
@@ -66,7 +64,7 @@ local function read_history_log()
         --time_in_clockform = time_in_clockform:gsub("00:","", 2) -- trims leading 0s hours and mins
         --time_in_clockform = time_in_clockform:gsub("00:","", 1) -- trims leading 0s just hours
         date = string.sub(item.date, 11, 15) .. ' ' .. string.sub(item.date, 1, 9)
-        if item.filePath:match('http') then 
+        if item.filePath:match('http') then
             title = [[{\i1}]] .. string.sub(line, l2_ind+2) .. [[{\i0}]]  -- Skáletra netvideo
         else
             title = string.sub(line, l2_ind+2)
@@ -78,23 +76,22 @@ local function read_history_log()
         --filePath = string.match(line, "%][^|]*|")
         --filePath = string.sub(filePath, 3, -3)
         history[index] = item
-        maxind = index 
+        maxind = index
         index = index + 1
     end
     copyLogAdd.close()
     return history, maxind
-end 
+end
 
 local function read_history_log_only_this()
     local this_filePath = mp.get_property('path')
     if this_filePath == nil then return false end
-    only_this_file = true
     local copyLogAdd = io.open(history_path, 'r+')
     local history = {}
     local item, b1_ind, b2_ind, l1_ind, l2_ind
-    local index = 1, maxind 
+    local index = 1, maxind
     for line in copyLogAdd:lines() do
-        item = {} 
+        item = {}
         b1_ind = line:find("%[")
         b2_ind = line:find("%]")
         l1_ind = line:find("|")
@@ -109,7 +106,7 @@ local function read_history_log_only_this()
         --time_in_clockform = time_in_clockform:gsub("00:","", 2) -- trims leading 0s hours and mins
         --time_in_clockform = time_in_clockform:gsub("00:","", 1) -- trims leading 0s just hours
         date = string.sub(item.date, 11, 15) .. ' ' .. string.sub(item.date, 1, 9)
-        if item.filePath:match('http') then 
+        if item.filePath:match('http') then
             title = [[{\i1}]] .. string.sub(line, l2_ind+2) .. [[{\i0}]]  -- Skáletra netvideo
         else
             title = string.sub(line, l2_ind+2)
@@ -121,29 +118,31 @@ local function read_history_log_only_this()
         --filePath = string.match(line, "%][^|]*|")
         --filePath = string.sub(filePath, 3, -3)
         history[index] = item
-        maxind = index 
+        maxind = index
         index = index + 1
         ::continue::
     end
     copyLogAdd.close()
     return history, maxind
-end 
+end
 
-local function make_list(only_this_file)
-    history_list.header = "History \\N ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾"
+local function make_list(this_file_only)
     local historytable, history_length
-    if only_this_file == 'only_this_file' then 
+    if this_file_only == 'this_file_only' then
+        history_list.header = "History (this file only) \\N ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾"
         historytable, history_length = read_history_log_only_this()
-        if historytable == false then 
+        if historytable == false then
             historytable, history_length = read_history_log()
         end
-    else 
+        only_this_file = true
+    else
+        history_list.header = "History \\N ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾"
         historytable, history_length = read_history_log()
     end
 
     history_list.list = {}
     local item
-    for k, v in pairs(historytable) do 
+    for k, v in pairs(historytable) do
         --item = {}
         --item.ass = v
         history_list.list[history_length + 1 - k] = v
@@ -157,10 +156,21 @@ local function toggle_history()
 end
 
 local function toggle_history_this_file()
-    make_list('only_this_file')
+    make_list('this_file_only')
     history_list:toggle()
 end
 
+local function toggle_histories()
+    if history_list.hidden then
+       toggle_history()
+    elseif not only_this_file then
+        history_list:toggle()
+        toggle_history_this_file()
+    else
+        history_list:toggle()
+    end
+end
 
 mp.add_key_binding(nil, "toggle-history", toggle_history)
 mp.add_key_binding(nil, "toggle-history-this-file", toggle_history_this_file)
+mp.add_key_binding(nil, "toggle-histories", toggle_histories)

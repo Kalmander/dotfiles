@@ -81,6 +81,59 @@ function spawn_window(vf_table)
     mp.add_timeout(1, sync_spawned_windows)
 end
 
+function critter_time()
+        if not mp.get_property("video-out-params", nil) then return end
+        local hwdec = mp.get_property("hwdec-current")
+        if hwdec and hwdec ~= "no" and not string.find(hwdec, "-copy$") then
+            mp.set_property("hwdec", "no")
+            --mp.osd_message("Cannot crop with hardware decoding active (ctrl+h cycles hwdec modes)") -- Ég bætti þessu við TKJ
+            --msg.error("Cannot crop with hardware decoding active (see manual)")
+            print('Turned of hwdec (to enable cropping)')
+            --return
+        end
+    
+        matt_params = {
+                y=111, 
+                x=26,
+                h=406,
+                w=560
+        }
+
+        matt_vf_table = {}
+        matt_vf_table[1] = {params=matt_params}
+        spawn_window(matt_vf_table)
+
+
+        upper_params = {
+                y=110, 
+                x=629,
+                h=415,
+                w=1264
+        }
+
+        upper_vf_table = {}
+        upper_vf_table[1] = {params=upper_params}
+        spawn_window(upper_vf_table)
+
+
+
+        local vf_table = mp.get_property_native("vf")
+        vf_table[#vf_table + 1] = {
+            name="crop",
+            params= {
+                x = '630',
+                y = '558',
+                w = '1259',
+                h = '411'
+            }
+        }
+        mp.set_property_native("vf", vf_table)
+    
+
+end
+
+
+
 ---- Window spawning ends -----------------------------------
 ---- Crop script proper -------------------------------------
 
@@ -540,3 +593,4 @@ end
 mp.add_key_binding(nil, "start-crop", start_crop)
 mp.add_key_binding(nil, "toggle-crop", toggle_crop)
 mp.add_key_binding(nil, "toggle-spawn-mode", toggle_spawn_mode)
+mp.add_key_binding(nil, 'critter-time', critter_time)

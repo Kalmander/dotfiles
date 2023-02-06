@@ -88,16 +88,36 @@ local keybinds = {
     {'UP', 'scroll_up', function() scroll_up() end, {repeatable = true}},
     {'l', 'down_dirv', function() down_dir() end, {}},
     {'h', 'up_dirv', function() up_dir() end, {}},
-    {'j', 'scroll_downv', function() scroll_down() end, {repeatable = true}},
-    {'k', 'scroll_upv', function() scroll_up() end, {repeatable = true}},
+    {'j', 'scroll_down_vim', function() scroll_down() end, {repeatable = true}},
+    {'k', 'scroll_up_vim', function() scroll_up() end, {repeatable = true}},
+    {'CTRL+RIGHT', 'scroll_down_large', function()
+            for i = 1,12 do
+                scroll_down()
+            end
+        end, {repeatable = true}},
+    {'CTRL+LEFT', 'scroll_up_large', function()
+            for i = 1,12 do
+                scroll_up()
+            end
+        end, {repeatable = true}},
+    {'CTRL+d', 'scroll_down_large_vim', function()
+            for i = 1,12 do
+                scroll_down()
+            end
+        end, {repeatable = true}},
+    {'CTRL+u', 'scroll_up_large_vim', function()
+            for i = 1,12 do
+                scroll_up()
+            end
+        end, {repeatable = true}},
     {'HOME', 'pwd', function() cache = {}; goto_current_dir() end, {}},
     {'Shift+HOME', 'root', function() goto_root() end, {}},
     {'Ctrl+r', 'reload', function() cache={}; update() end, {}},
     {'Ctrl+ENTER', 'select', function() toggle_selection() end, {}},
     {'Ctrl+DOWN', 'select_down', function() drag_down() end, {repeatable = true}},
     {'Ctrl+UP', 'select_up', function() drag_up() end, {repeatable = true}},
-    {'Ctrl+RIGHT', 'select_yes', function() state.selection[state.selected] = true ; update_ass() end, {}},
-    {'Ctrl+LEFT', 'select_no', function() state.selection[state.selected] = nil ; update_ass() end, {}},
+    -- {'Ctrl+RIGHT', 'select_yes', function() state.selection[state.selected] = true ; update_ass() end, {}},
+    -- {'Ctrl+LEFT', 'select_no', function() state.selection[state.selected] = nil ; update_ass() end, {}},
 
     {'F', 'message_set_filter', function() message_set_filter() end, {}},
     {'d', 'hide_directories', function() hide_directories() end, {}},

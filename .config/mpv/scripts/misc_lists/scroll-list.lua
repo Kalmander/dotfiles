@@ -168,7 +168,6 @@ local function overlay_maker()
                 this:update_ass()
             end
         end,
-    
         --adds the forced keybinds
         add_keybinds = function(this)
             for _,v in ipairs(this.keybinds) do
@@ -223,6 +222,28 @@ local function overlay_maker()
     overlay.keybinds = {
         {'DOWN', 'scroll_down', function() overlay:scroll_down() end, {repeatable = true}},
         {'UP', 'scroll_up', function() overlay:scroll_up() end, {repeatable = true}},
+        {'CTRL+RIGHT', 'scroll_down_large', function()
+                for i = 1,15 do
+                    overlay:scroll_down()
+                end
+            end, {repeatable = true}},
+        {'CTRL+LEFT', 'scroll_up_large', function()
+                for i = 1,15 do
+                    overlay:scroll_up()
+                end
+            end, {repeatable = true}},
+        {'j', 'scroll_down_vim', function() overlay:scroll_down() end, {repeatable = true}},
+        {'k', 'scroll_up_vim', function() overlay:scroll_up() end, {repeatable = true}},
+        {'CTRL+d', 'scroll_down_large_vim', function()
+                for i = 1,15 do
+                    overlay:scroll_down()
+                end
+            end, {repeatable = true}},
+        {'CTRL+u', 'scroll_up_large_vim', function()
+                for i = 1,15 do
+                    overlay:scroll_up()
+                end
+            end, {repeatable = true}},
         {'ESC', 'close_browser', function() overlay:close() end, {}}
     }
     return overlay 

@@ -24,7 +24,7 @@ local opts = {
     -- showcqtbar
     -- showwaves
 
-    quality = "medium",
+    quality = "veryhigh",
     -- verylow
     -- low
     -- medium
@@ -219,12 +219,12 @@ local function get_visualizer(name, quality)
         return ""
     end
 
-    h = w * opts.height / 10
+    h = w * opts.height / 16
     -- h = 1440
     -- w = 2560
-    -- h = 2160
-    -- w = 3840
-    -- fps = 80
+    h = 2160
+    w = 3840
+    fps = 80
 
     if name == "showcqt" then
         local count = math.ceil(w * 180 / 1920 / fps)
@@ -269,7 +269,7 @@ local function get_visualizer(name, quality)
                 -- lissajous_xy: rétthyrningur
                 -- polar: hálfhringur
             -- Sjálfvalið: lissajous
-        local mode = 'lissajous'
+        local mode = 'polar'
 
         -- Upplausnin og fpsið
         local size = w .. 'x' .. h
@@ -304,7 +304,7 @@ local function get_visualizer(name, quality)
         -- Leyfileg gildi: [0, 10]
         -- Default: 1
         -- Sýnist gildi undir 1 bara jafngilda 10?
-        local zoom = 6
+        local zoom = 1
 
         -- Leyfileg gildi:
             -- dot: einn punktur fyrir hvert sample

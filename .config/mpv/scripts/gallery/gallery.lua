@@ -6,8 +6,8 @@ package.path = misc_script .. ";" .. package.path
 local misc = require 'miscellaneous'
 
 local metadataLog = mp.command_native({'expand-path', '~~/mpvMetadata.log'})
-local duration_overlays = mp.command_native({'expand-path', '~~/overlays/durations/raw/'})
-local date_overlays = mp.command_native({'expand-path', '~~/overlays/dates/raw/'})
+local duration_overlays = mp.command_native({'expand-path', '/mnt/derichet/mpv_thumbnails_etc/overlays/durations/raw/'})
+local date_overlays = mp.command_native({'expand-path', '/mnt/derichet/mpv_thumbnails_etc/overlays/dates/raw/'})
 
 local gallery_mt = {}
 gallery_mt.__index = gallery_mt
