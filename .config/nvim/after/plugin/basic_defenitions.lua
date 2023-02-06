@@ -2,7 +2,7 @@ require("nvim-surround").setup({ move_cursor = false })
 require("Comment").setup()
 require("nvim-autopairs").setup()
 require("color-picker")
--- require("auto-hlsearch").setup()
+require("auto-hlsearch").setup()
 require("tkj.textobjs").setup({ useDefaultKeymaps = true })
 -- require("fidget").setup({})
 
