@@ -47,6 +47,7 @@ return require("packer").startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
 	use("brenoprata10/nvim-highlight-colors")
+	use({"kevinhwang91/nvim-ufo", requires = 'kevinhwang91/promise-async'})
 
 	-- Technical stuff
 	use({ "wbthomason/packer.nvim" })

@@ -11,7 +11,7 @@ end
 if filename:match("hrafnatinna") then
         -- hendir línu neðst í næsta eða fyrra ## heading
 	-- stylua: ignore start
-        vim.keymap.set( "n", "<a-]>", [[dd:<C-u>call search('##', 's')<CR>:call search('##')<CR>:<C-u>call search('^.\+', 'b')<CR>p'']], { noremap = true, silent = true, buffer = 0 })
+        vim.keymap.set( "n", "<a-]>", [[dd:<C-u>call search('##', 's')<CR>:call search('##')<CR>:<C-u>call search('^.\+', 'b')<CR>p''zt]], { noremap = true, silent = true, buffer = 0 })
         vim.keymap.set( "n", "<a-[>", [[dd:<C-u>call search('##', 'bs')<CR>:<C-u>call search('^.\+', 'b')<CR>p'']], { noremap = true, silent = true, buffer = 0 })
         vim.keymap.set( "n", "<leader><a-]>", [[dd:<C-u>call search('##', 's')<CR>:call search('##')<CR>:<C-u>call search('^.\+', 'b')<CR>p]], { noremap = true, silent = true, buffer = 0 })
         vim.keymap.set( "n", "<leader><a-[>", [[dd:<C-u>call search('##', 'bs')<CR>:<C-u>call search('^.\+', 'b')<CR>p]], { noremap = true, silent = true, buffer = 0 })

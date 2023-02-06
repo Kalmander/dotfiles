@@ -33,8 +33,8 @@ local options = {
 	backup          = true,
 	backupdir       = vim.fn.expand("~/backups/backup//"),
 	directory       = vim.fn.expand("~/backups/swp//"),
-	foldmethod      = "expr",
-	foldexpr        = "nvim_treesitter#foldexpr()",
+	-- foldmethod      = "expr",
+	-- foldexpr        = "nvim_treesitter#foldexpr()",
 	list            = true,
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 }
