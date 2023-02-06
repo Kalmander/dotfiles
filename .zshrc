@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # >>> Oh My Zsh >>>
-ZSH="/home/kalman/.oh-my-zsh"
+ZSH="$HOME/.oh-my-zsh"
 
 #Theme
 # ZSH_THEME=""
@@ -28,14 +28,14 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/kalman/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# __conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 # if [ $? -eq 0 ]; then
 #     eval "$__conda_setup"
 # else
-#     if [ -f "/home/kalman/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/kalman/anaconda3/etc/profile.d/conda.sh"
+#     if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "$HOME/anaconda3/etc/profile.d/conda.sh"
 #     else
-#         export PATH="/home/kalman/anaconda3/bin:$PATH"
+#         export PATH="$HOME/anaconda3/bin:$PATH"
 #     fi
 # fi
 # unset __conda_setup
@@ -50,17 +50,17 @@ zvm_vi_yank () {
 	printf %s "${CUTBUFFER}" |  wl-copy -n
 	zvm_exit_visual_mode
 }
-# my_zvm_vi_yank() {
-#   zvm_vi_yank
-#   echo -en "${CUTBUFFER}" | wl-copy -n
-#
-# }
-#
-# my_zvm_vi_delete() {
-#   zvm_vi_delete
-#   echo -en "${CUTBUFFER}" | wl-copy -n
-# }
-#
+my_zvm_vi_yank() {
+  zvm_vi_yank
+  echo -en "${CUTBUFFER}" | wl-copy -n
+
+}
+
+my_zvm_vi_delete() {
+  zvm_vi_delete
+  echo -en "${CUTBUFFER}" | wl-copy -n
+}
+
 # my_zvm_vi_change() {
 #   zvm_vi_change
 #   echo -en "${CUTBUFFER}" | wl-copy -n
