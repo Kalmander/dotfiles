@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # >>> Oh My Zsh >>>
-ZSH="/home/kalmander/.oh-my-zsh"
+ZSH="/home/kalman/.oh-my-zsh"
 
 #Theme
 # ZSH_THEME=""
@@ -28,14 +28,14 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/kalmander/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# __conda_setup="$('/home/kalman/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 # if [ $? -eq 0 ]; then
 #     eval "$__conda_setup"
 # else
-#     if [ -f "/home/kalmander/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/kalmander/anaconda3/etc/profile.d/conda.sh"
+#     if [ -f "/home/kalman/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/kalman/anaconda3/etc/profile.d/conda.sh"
 #     else
-#         export PATH="/home/kalmander/anaconda3/bin:$PATH"
+#         export PATH="/home/kalman/anaconda3/bin:$PATH"
 #     fi
 # fi
 # unset __conda_setup
@@ -112,6 +112,7 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden -g !'**/thumbnails_seekbar/**' -
 alias icat="kitty +kitten icat"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias how2='npx how2 -s'
+alias cal='calcurse -C ~/hrafnatinna/dagatal/calcurse_config -D ~/hrafnatinna/dagatal/calcurse_data'
 
 function y() {
   python ~/scripts/master_ytdl_script.py $1	

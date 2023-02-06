@@ -223,24 +223,24 @@ local function overlay_maker()
         {'DOWN', 'scroll_down', function() overlay:scroll_down() end, {repeatable = true}},
         {'UP', 'scroll_up', function() overlay:scroll_up() end, {repeatable = true}},
         {'CTRL+RIGHT', 'scroll_down_large', function()
-                for i = 1,15 do
+                for i = 1,12 do
                     overlay:scroll_down()
                 end
             end, {repeatable = true}},
         {'CTRL+LEFT', 'scroll_up_large', function()
-                for i = 1,15 do
+                for i = 1,12 do
                     overlay:scroll_up()
                 end
             end, {repeatable = true}},
         {'j', 'scroll_down_vim', function() overlay:scroll_down() end, {repeatable = true}},
         {'k', 'scroll_up_vim', function() overlay:scroll_up() end, {repeatable = true}},
         {'CTRL+d', 'scroll_down_large_vim', function()
-                for i = 1,15 do
+                for i = 1,12 do
                     overlay:scroll_down()
                 end
             end, {repeatable = true}},
         {'CTRL+u', 'scroll_up_large_vim', function()
-                for i = 1,15 do
+                for i = 1,12 do
                     overlay:scroll_up()
                 end
             end, {repeatable = true}},
