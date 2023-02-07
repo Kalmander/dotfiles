@@ -18,13 +18,13 @@ local function open_chapter()
     end
 end
 
---dynamic keybinds to bind when the list is open
-list.keybinds = {
-    {'DOWN', 'scroll_down', function() list:scroll_down() end, {repeatable = true}},
-    {'UP', 'scroll_up', function() list:scroll_up() end, {repeatable = true}},
-    {'ENTER', 'open_chapter', open_chapter, {} },
-    {'ESC', 'close_browser', function() list:close() end, {}}
-}
+local function add_keybind(keybind)
+    table.insert(list.keybinds, keybind)
+end
+add_keybind({'DOWN', 'scroll_down', function() list:scroll_down() end, {repeatable = true}})
+add_keybind({'UP', 'scroll_up', function() list:scroll_up() end, {repeatable = true}})
+add_keybind({'ENTER', 'open_chapter', open_chapter, {}})
+add_keybind({'ESC', 'close_browser', function() list:close() end, {}})
 
 --update the list when the current chapter changes
 mp.observe_property('chapter', 'number', function(_, curr_chapter)
