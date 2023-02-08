@@ -4,6 +4,7 @@ update_info=bismuth_shortcuts_category.upd:bismuth-shortcuts-category,bismuth_sh
 [ActivityManager]
 _k_friendly_name=Activity Manager
 switch-to-activity-43d125ce-9dbf-46ca-a1e9-45d8050bd0ff=none,none,Switch to activity "Default"
+switch-to-activity-5e6bd14b-a453-4593-970a-7ace3e972c03=none,none,Switch to activity "Default"
 switch-to-activity-d74e0976-3ac8-45d2-af12-19109c608fba=none,none,Switch to activity "Tvinnfallagreining"
 
 [KDE Keyboard Layout Switcher]
@@ -71,7 +72,6 @@ _launch=Meta+Y,none,keyra_ytdl_script.sh
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
-{15ef5bc8-cf91-4109-a8a2-553492e18eaa}=Meta+T,none,konsole
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
 [kitty.desktop]
@@ -114,7 +114,7 @@ MoveZoomUp=none,none,Move Zoomed Area Upwards
 Overview=none,Meta+W,Toggle Overview
 Setup Window Shortcut=none,,Setup Window Shortcut
 Show Desktop=none,Meta+D,Peek at Desktop
-ShowDesktopGrid=,Meta+F8,Show Desktop Grid
+ShowDesktopGrid=none,Meta+F8,Show Desktop Grid
 Suspend Compositing=Alt+Shift+F12,Alt+Shift+F12,Suspend Compositing
 Switch One Desktop Down=none,Meta+Ctrl+Down,Switch One Desktop Down
 Switch One Desktop Up=none,Meta+Ctrl+Up,Switch One Desktop Up
@@ -304,6 +304,10 @@ playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
 
+[mpv.desktop]
+_k_friendly_name=mpv Media Player
+_launch=Meta+Ctrl+Alt+3,none,mpv Media Player
+
 [org.kde.dolphin.desktop]
 _k_friendly_name=Dolphin
 _launch=none,Meta+E,Dolphin
@@ -380,7 +384,7 @@ show-on-mouse-pos=none,Meta+V,Open Klipper at Mouse Position
 stop current activity=none,Meta+S,Stop Current Activity
 switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
-toggle do not disturb=none,none,Toggle do not disturb
+toggle do not disturb=none,,Toggle do not disturb
 
 [systemsettings.desktop]
 _k_friendly_name=System Settings
