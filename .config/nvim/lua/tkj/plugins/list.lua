@@ -48,6 +48,7 @@ return require("packer").startup(function(use)
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
 	use("brenoprata10/nvim-highlight-colors")
 	use({"kevinhwang91/nvim-ufo", requires = 'kevinhwang91/promise-async'})
+	use("jbyuki/nabla.nvim")
 
 	-- Technical stuff
 	use({ "wbthomason/packer.nvim" })
