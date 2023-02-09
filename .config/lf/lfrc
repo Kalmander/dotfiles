@@ -134,12 +134,10 @@ map W set-wallpaper
 
 
 # Þarft að installa ctpv fyrir þetta (er á aurnum)
-# set previewer ctpv
-# set cleaner ctpvclear
-# &ctpv -s $id
-# &ctpvquit $id
-set previewer ~/.config/lf/lf_kitty_preview
-set cleaner ~/.config/lf/lf_kitty_clean
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
 
 
 cmd fzf_jump_max_1 ${{
