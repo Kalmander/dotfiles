@@ -70,28 +70,28 @@ cmd zip ${{
 
 
 # TKJ ----------------------------------------------------
+set icons true
+
 map u extract
 
 cmd trash %trash-put $fx
 map <delete> trash
 
-cmd open_vimiv %vimiv $(pwd)
-map v open_vimiv
+cmd open_dolphin %dolphin $(pwd) > /dev/null 2> /dev/null &
+map D open_dolphin 
 
 cmd mkdir %IFS=" "; mkdir -- "$*"
 map a push :mkdir<space>
 
-# Nýtt folder með selected items
-cmd newfold ${{
+cmd new_folder_from_selection %{{
     set -f
+    printf " Directory name: "
     read newd
-    printf "Directory name: "
     mkdir -- "$newd"
     mv -- $fx "$newd"
 }}
-map <c-a> newfold
+map <c-a> new_folder_from_selection 
 
-set icons true
 
 cmd bulk-rename ${{
     old="$(mktemp)"
@@ -151,8 +151,6 @@ cmd fzf_jump_max_1 ${{
     fi
     lf -remote "send $id $cmd \"$res\""
 }}
-
-
 cmd fzf_jump_max_3 ${{
     res="$(fd -E backups/ -H . --maxdepth 3 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
@@ -164,7 +162,6 @@ cmd fzf_jump_max_3 ${{
     fi
     lf -remote "send $id $cmd \"$res\""
 }}
-
 cmd fzf_jump ${{
     res="$(fd -E backups/ -H . | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
@@ -176,7 +173,6 @@ cmd fzf_jump ${{
     fi
     lf -remote "send $id $cmd \"$res\""
 }}
-
 map <c-f> :fzf_jump
 map t :fzf_jump_max_3
 map <c-t> :fzf_jump_max_1
