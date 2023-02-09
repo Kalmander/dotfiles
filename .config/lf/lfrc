@@ -71,6 +71,11 @@ cmd zip ${{
 
 # TKJ ----------------------------------------------------
 set icons true
+set incsearch
+set incfilter
+set relativenumber
+set promptfmt "\033[32;1m%u@%h\033[0m:\033[34;1m%d\033[0m\033[1m%f\033[0m" #default
+# set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
 
 map u extract
 
@@ -119,13 +124,7 @@ cmd bulk-rename ${{
 map R bulk-rename
 
 cmd yank-path $printf '%s' "$fx" | wl-copy -n
-cmd yank-basename $basename -a -- $fx | head -c-1 | wl-copy -n
-cmd yank-dirname $dirname -- "$f" | head -c-1 | wl-copy -n
-map y 
-map yf copy # default yankið
-map yy yank-path
-map yb yank-basename
-map yd yank-dirname
+map Y yank-path
 
 cmd set-wallpaper ${{
     plasma-apply-wallpaperimage $(realpath $f)
@@ -134,6 +133,8 @@ map W set-wallpaper
 
 
 # Þarft að installa ctpv fyrir þetta (er á aurnum)
+# Svo þarf líka sérstök forrit fyrir hverja gerð
+# af preview, sjá readmeið
 set previewer ctpv
 set cleaner ctpvclear
 &ctpv -s $id
@@ -141,7 +142,7 @@ set cleaner ctpvclear
 
 
 cmd fzf_jump_max_1 ${{
-    res="$(fd -E backups/ -H . --maxdepth 1 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    res="$(fd -E backups/ -H . --maxdepth 1 | fzf --reverse --header='Jump to location (max depth 1)' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
     elif [ -f "$res" ] ; then
@@ -152,7 +153,7 @@ cmd fzf_jump_max_1 ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 cmd fzf_jump_max_3 ${{
-    res="$(fd -E backups/ -H . --maxdepth 3 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    res="$(fd -E backups/ -H . --maxdepth 3 | fzf --reverse --header='Jump to location (max depth 3)' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
     elif [ -f "$res" ] ; then
@@ -163,7 +164,7 @@ cmd fzf_jump_max_3 ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 cmd fzf_jump ${{
-    res="$(fd -E backups/ -H . | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    res="$(fd -E backups/ -H . | fzf --reverse --header='Jump to location (no max depth)' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ] ; then
         cmd="cd"
     elif [ -f "$res" ] ; then
@@ -173,9 +174,8 @@ cmd fzf_jump ${{
     fi
     lf -remote "send $id $cmd \"$res\""
 }}
-map <c-f> :fzf_jump
 map t :fzf_jump_max_3
-map <c-t> :fzf_jump_max_1
+map <c-t> :fzf_jump
+map <a-t> :fzf_jump_max_1
 
-
-
+map <c-f> filter
