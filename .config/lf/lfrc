@@ -176,3 +176,6 @@ cmd fzf_jump ${{
 map <c-f> :fzf_jump
 map t :fzf_jump_max_3
 map <c-t> :fzf_jump_max_1
+
+
+
