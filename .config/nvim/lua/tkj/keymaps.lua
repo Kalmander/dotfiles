@@ -44,13 +44,24 @@ M.normal_mode_keymaps = {
 	["<leader>h"] = utils.hide_cursor,
 	["<leader>["] = [[<cmd>set cmdheight+=1<cr>]],
 	["<leader>]"] = [[<cmd>set cmdheight-=1<cr>]],
+	["<leader>c"] = utils.open_calendar,
 }
 
 M.visualselect_keymaps = {
-	[">"] = ">gv",
-	["<"] = "<gv",
-	["p"] = '"_dP',
+-- 	[">"] = ">gv",
+-- 	["<"] = "<gv",
+--	["p"] = '"_dP',
 }
+-- yanky keymaps
+vim.keymap.set({ 'n', 'x' }, 'y',	  '<Plug>(YankyYank)')
+vim.keymap.set({ 'n' },      'p',	  '<Plug>(YankyPutAfter)')
+vim.keymap.set({ 'x' },	     'p',	  '"_d<Plug>(YankyPutBefore)')
+vim.keymap.set({ 'x' },      '<leader>p', '<Plug>(YankyPutBefore)')
+vim.keymap.set({ 'n', 'x' }, 'P',         '<Plug>(YankyPutBefore)')
+vim.keymap.set({ 'n', 'x' }, 'gp',        '<Plug>(YankyGPutAfter)')
+vim.keymap.set({ 'n', 'x' }, 'gP',        '<Plug>(YankyGPutBefore)')
+vim.keymap.set({ 'n' },      '<c-n>',     '<Plug>(YankyCycleForward)')
+vim.keymap.set({ 'n' },      '<c-p>',     '<Plug>(YankyCycleBackward)')
 
 M.visual_mode_keymaps = {
 	["<A-j>"] = ":m '>+1<CR>gv-gv",

@@ -74,6 +74,7 @@ return require("packer").startup(function(use)
         use("tpope/vim-sleuth")
 	use("tpope/vim-vinegar")
 	use("andymass/vim-matchup")
+	use("gbprod/yanky.nvim")
 
 
 	-- Obsidian og markdown

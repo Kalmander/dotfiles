@@ -123,4 +123,10 @@ M.hide_cursor = function()
 	end
 end
 
+M.open_calendar = function()
+	vim.cmd([[:Calendar -position=here]])
+	require("true-zen.minimalist").on()
+	require("lualine").hide()
+end
+
 return M

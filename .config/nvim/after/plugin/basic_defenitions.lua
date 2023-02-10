@@ -7,16 +7,15 @@ require("tkj.textobjs").setup({ useDefaultKeymaps = true })
 require("nvim-highlight-colors").setup()
 -- require("fidget").setup({})
 
-
 require("leap").add_default_mappings()
 require("leap").opts.equivalence_classes = {
-	' \t\r\n',
-	'áa',
-	'ée',
-	'íi',
-	'óo',
-	'úu',
-	'ýy',
+	" \t\r\n",
+	"áa",
+	"ée",
+	"íi",
+	"óo",
+	"úu",
+	"ýy",
 }
 
 require("nvim-toggler").setup({
@@ -58,3 +57,23 @@ require("illuminate").configure({
 		"help",
 	},
 })
+
+require("yanky").setup({
+	ring = {
+		history_length = 100,
+		storage = "shada",
+		sync_with_numbered_registers = true,
+		cancel_event = "update",
+	},
+	system_clipboard = {
+		sync_with_ring = true,
+	},
+	preserve_cursor_position = {
+		enabled = true,
+	},
+	highlight = {
+		on_put = false,
+		on_yank = false,
+	},
+})
+-- Set keymaps í keymaps.lua
