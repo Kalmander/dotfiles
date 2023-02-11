@@ -42,7 +42,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'
 # # <<< conda initialize <<<
 
 
-export EDITOR='nvim'
+# jó stilla environment variables frekar 
+# í /etc/environment
+# export EDITOR='nvim'
 export VISUAL='nvim'
 export ZVM_VI_EDITOR='nvim'
 zvm_vi_yank () {
