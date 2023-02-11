@@ -17,6 +17,7 @@ require("leap").opts.equivalence_classes = {
 	'óo',
 	'úu',
 	'ýy',
+	'dð'
 }
 
 require("nvim-toggler").setup({

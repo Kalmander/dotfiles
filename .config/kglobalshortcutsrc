@@ -72,6 +72,7 @@ _launch=Meta+Y,none,keyra_ytdl_script.sh
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
+{15ef5bc8-cf91-4109-a8a2-553492e18eaa}=Meta+T,none,konsole
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
 [kitty.desktop]
@@ -388,7 +389,7 @@ show-on-mouse-pos=none,Meta+V,Open Klipper at Mouse Position
 stop current activity=none,Meta+S,Stop Current Activity
 switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
-toggle do not disturb=none,,Toggle do not disturb
+toggle do not disturb=none,none,Toggle do not disturb
 
 [systemsettings.desktop]
 _k_friendly_name=System Settings
