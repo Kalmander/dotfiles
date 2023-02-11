@@ -27,7 +27,7 @@ M.normal_mode_keymaps = {
 	["<leader>cc"] = utils.toggle_concealcursor,
 	["<leader>r"] = utils.reload_lua,
 	["<leader>tt"] = utils.toggle_diagnostics,
-        ["<A-/>"] = "<cmd>nohlsearch<CR><cmd>echo<CR>",
+        -- ["<A-/>"] = "<cmd>nohlsearch<CR><cmd>echo<CR>", -- óþarfi, <C-l> gerir þetta og meira native
         ["<A-1>"] = function() require("harpoon.ui").nav_file(1) end,
         ["<A-2>"] = function() require("harpoon.ui").nav_file(2) end,
         ["<A-3>"] = function() require("harpoon.ui").nav_file(3) end,
@@ -54,9 +54,7 @@ M.visualselect_keymaps = {
 }
 -- yanky keymaps
 vim.keymap.set({ 'n', 'x' }, 'y',	  '<Plug>(YankyYank)')
-vim.keymap.set({ 'n' },      'p',	  '<Plug>(YankyPutAfter)')
-vim.keymap.set({ 'x' },	     'p',	  '"_d<Plug>(YankyPutBefore)')
-vim.keymap.set({ 'x' },      '<leader>p', '<Plug>(YankyPutBefore)')
+vim.keymap.set({ 'n', 'x' }, 'p',	  '<Plug>(YankyPutAfter)')
 vim.keymap.set({ 'n', 'x' }, 'P',         '<Plug>(YankyPutBefore)')
 vim.keymap.set({ 'n', 'x' }, 'gp',        '<Plug>(YankyGPutAfter)')
 vim.keymap.set({ 'n', 'x' }, 'gP',        '<Plug>(YankyGPutBefore)')

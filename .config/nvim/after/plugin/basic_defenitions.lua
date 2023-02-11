@@ -9,13 +9,14 @@ require("nvim-highlight-colors").setup()
 
 require("leap").add_default_mappings()
 require("leap").opts.equivalence_classes = {
-	" \t\r\n",
-	"áa",
-	"ée",
-	"íi",
-	"óo",
-	"úu",
-	"ýy",
+	' \t\r\n',
+	'áa',
+	'ée',
+	'íi',
+	'óo',
+	'úu',
+	'ýy',
+	'dð'
 }
 
 require("nvim-toggler").setup({
