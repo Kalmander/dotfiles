@@ -1,112 +1,129 @@
-return require("packer").startup(function(use)
+require("lazy").setup({
 	-- Colorschemes
-	use({ "dracula/vim", as = "dracula" })
-	use({ "sainnhe/sonokai" })
-	use({ "navarasu/onedark.nvim" })
-	use({ "rose-pine/neovim", as = "rose-pine" })
-	use({ "sainnhe/everforest" })
-	use({ "shaunsingh/nord.nvim" })
-	use({ "sonph/onehalf" })
-	use("glepnir/zephyr-nvim")
+	{ "dracula/vim", as = "dracula" },
+	{ "sainnhe/sonokai" },
+	{ "navarasu/onedark.nvim" },
+	{ "rose-pine/neovim", as = "rose-pine" },
+	{ "sainnhe/everforest" },
+	{ "shaunsingh/nord.nvim" },
+	{ "sonph/onehalf" },
+	"glepnir/zephyr-nvim",
 
 	-- Vim motions/operators etc
-	use({ "michaeljsmith/vim-indent-object" })
-	use({ "kylechui/nvim-surround" })
-	use({ "numToStr/Comment.nvim" })
-	use({ "ggandor/leap.nvim" })
+	{ "michaeljsmith/vim-indent-object" },
+	{ "kylechui/nvim-surround" },
+	{ "numToStr/Comment.nvim" },
+	{ "ggandor/leap.nvim" },
 
 	-- Completions
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/nvim-cmp")
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-	use("rafamadriz/friendly-snippets")
-	use("windwp/nvim-autopairs")
-	use("hrsh7th/cmp-nvim-lsp-signature-help")
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/nvim-cmp",
+	"L3MON4D3/LuaSnip",
+	"saadparwaiz1/cmp_luasnip",
+	"rafamadriz/friendly-snippets",
+	"windwp/nvim-autopairs",
+	"hrsh7th/cmp-nvim-lsp-signature-help",
 
 	-- LSP
-	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/mason.nvim") -- simple to use language server installer
-	use("williamboman/mason-lspconfig.nvim")
-	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
-	use("RRethy/vim-illuminate")
-	use("simrat39/rust-tools.nvim")
-	use("j-hui/fidget.nvim")
+	"neovim/nvim-lspconfig", -- enable LSP
+	"williamboman/mason.nvim", -- simple to use language server installer
+	"williamboman/mason-lspconfig.nvim",
+	"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+	{ "folke/trouble.nvim", dependencies = "kyazdani42/nvim-web-devicons" },
+	"RRethy/vim-illuminate",
+	"simrat39/rust-tools.nvim",
+	"j-hui/fidget.nvim",
 
 	-- GUI
-	use({ "goolord/alpha-nvim" })
-	use({ "Pocco81/true-zen.nvim" })
-	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
-	use({ "nvim-telescope/telescope.nvim" })
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "ziontee113/color-picker.nvim" })
-	use("lukas-reineke/indent-blankline.nvim")
-	use({ "akinsho/toggleterm.nvim", tag = "*" })
-	use("brenoprata10/nvim-highlight-colors")
-	use({"kevinhwang91/nvim-ufo", requires = 'kevinhwang91/promise-async'})
-	use("jbyuki/nabla.nvim")
+	{ "goolord/alpha-nvim" },
+	{ "Pocco81/true-zen.nvim" },
+	{ "nvim-lualine/lualine.nvim", dependencies = { "kyazdani42/nvim-web-devicons", opt = true } },
+	{ "nvim-telescope/telescope.nvim" },
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{ "ziontee113/color-picker.nvim" },
+	"lukas-reineke/indent-blankline.nvim",
+	{ "akinsho/toggleterm.nvim" },
+	"brenoprata10/nvim-highlight-colors",
+	{"kevinhwang91/nvim-ufo", dependencies = 'kevinhwang91/promise-async'},
+	"jbyuki/nabla.nvim",
 
 	-- Technical stuff
-	use({ "wbthomason/packer.nvim" })
-	use({ "lewis6991/impatient.nvim" }) -- Bætir startup hraða (supposably)
-	use({ "tpope/vim-repeat" })
-	use({ "nvim-lua/plenary.nvim" })
-	-- use({ "p00f/nvim-ts-rainbow" })
-	use({ "ahmedkhalf/project.nvim" })
-	use({
+	-- { "wbthomason/packer.nvim" },
+	{ "lewis6991/impatient.nvim" }, -- Bætir startup hraða (supposably,
+	{ "tpope/vim-repeat" },
+	{ "nvim-lua/plenary.nvim" },
+	-- { "p00f/nvim-ts-rainbow" },
+	{ "ahmedkhalf/project.nvim" },
+	{
 		"nvim-treesitter/nvim-treesitter",
-		run = function()
+		build = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
 			ts_update()
 		end,
-	})
-	use("nvim-treesitter/nvim-treesitter-textobjects")
-        use("ThePrimeagen/harpoon")
-        use("tpope/vim-unimpaired")
-        use("tpope/vim-fugitive")
-	use("lewis6991/gitsigns.nvim")
-	use("junegunn/gv.vim")
-	use("tpope/vim-rhubarb")
-        use("tpope/vim-sleuth")
-	use("tpope/vim-vinegar")
-	use("andymass/vim-matchup")
+	},
+	"nvim-treesitter/nvim-treesitter-textobjects",
+        "ThePrimeagen/harpoon",
+        "tpope/vim-unimpaired",
+        "tpope/vim-fugitive",
+	"lewis6991/gitsigns.nvim",
+	"junegunn/gv.vim",
+	"tpope/vim-rhubarb",
+        "tpope/vim-sleuth",
+	"tpope/vim-vinegar",
+	"andymass/vim-matchup",
+	"gbprod/yanky.nvim",
 
 
 	-- Obsidian og markdown
-	-- use("epwalsh/obsidian.nvim")
-        use("godlygeek/tabular")
-        use("preservim/vim-markdown")
-        use("preservim/vim-pencil")
-        use("tommcdo/vim-exchange")
-	use("dhruvasagar/vim-table-mode")
+	-- "epwalsh/obsidian.nvim",
+        "godlygeek/tabular",
+        "preservim/vim-markdown",
+        "preservim/vim-pencil",
+        "tommcdo/vim-exchange",
+	"dhruvasagar/vim-table-mode",
 
 	-- Misc
-	use({ "lervag/vimtex" })
-	use("nguyenvukhang/nvim-toggler")
-	use("ThePrimeagen/vim-be-good")
-	use("mbbill/undotree")
-        use("itchyny/calendar.vim")
-        -- use("vimwiki/vimwiki")
-        use("lervag/wiki.vim")
-        use("lervag/wiki-ft.vim")
-        use("lervag/lists.vim")
-        use("kana/vim-textobj-user")
-        use("asiryk/auto-hlsearch.nvim")
-        -- use("preservim/vim-textobj-sentence")
-        -- use("edluffy/hologram.nvim") -- highly experimental, til að byrta myndir
-        -- use("jakewvincent/mkdnflow.nvim")
-        -- use("vim-pandoc/vim-pandoc-syntax")
-	use("folke/twilight.nvim")
-	use("folke/noice.nvim")
-	use("MunifTanjim/nui.nvim")
-	-- use("rcarriga/nvim-notify")
-	-- use("kevinhwang91/nvim-ufo")
-	-- use("stevearc/oil.nvim") -- filesystem dótið
-end)
+	{ "lervag/vimtex" },
+	"nguyenvukhang/nvim-toggler",
+	"ThePrimeagen/vim-be-good",
+	"mbbill/undotree",
+        "itchyny/calendar.vim",
+        -- "vimwiki/vimwiki",
+        "lervag/wiki.vim",
+        "lervag/wiki-ft.vim",
+        "lervag/lists.vim",
+        "kana/vim-textobj-user",
+        "asiryk/auto-hlsearch.nvim",
+        -- "preservim/vim-textobj-sentence",
+        -- "edluffy/hologram.nvim", -- highly experimental, til að byrta myndir
+        -- "jakewvincent/mkdnflow.nvim",
+        -- "vim-pandoc/vim-pandoc-syntax",
+	"folke/twilight.nvim",
+	"folke/noice.nvim",
+	"MunifTanjim/nui.nvim",
+	-- "rcarriga/nvim-notify",
+	-- "kevinhwang91/nvim-ufo",
+	-- "stevearc/oil.nvim", -- filesystem dótið
+	-- "ggandor/flit.nvim",
+	"folke/zen-mode.nvim",
+	"rhysd/clever-f.vim",
+})
 
 ---- Shortlist ----------------------------------
 -- use({ "mrjones2014/legendary.nvim" }) -- Lítur mjög vel út en virðist vera
+
+
+-- Ah ok, I will give this a try
+-- EDIT: now it works. Thanks. I should read the Readme more carefully.
+-- structure looks (roughly) like this now
+-- init.lua:
+-- require "user.lazy"
+-- lua/user/lazy.lua:
+-- require("lazy").setup("plugins")
+-- lua/plugins/init.lua:
+-- return { <plugin_author>/>plugin_name.nvim> }
+-- This works and reloads everything.
+-- Maybe I will break up the plugins/init.lua further.

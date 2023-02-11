@@ -39,12 +39,12 @@ cmp.setup({
 	},
 	mapping = {
 
-		["<c-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<c-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+		["<c-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+		["<c-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<c-d>"] = cmp.mapping.scroll_docs(4),
 		["<c-u>"] = cmp.mapping.scroll_docs(-4),
 		["<c-e>"] = cmp.mapping.abort(),
-		["<c-n>"] = cmp.mapping(
+		["<c-j>"] = cmp.mapping(
 			cmp.mapping.confirm({
 				behavior = cmp.ConfirmBehavior.Insert,
 				select = true,
@@ -123,7 +123,7 @@ vim.keymap.set({ "i", "s" }, "<c-l>", function()
 	end
 end, { silent = true })
 
-vim.keymap.set({ "i", "s" }, "<c-h>", function()
+vim.keymap.set({ "i", "s" }, "<c-k>", function()
 	if ls.jumpable(-1) then
 		ls.jump(-1)
 	end

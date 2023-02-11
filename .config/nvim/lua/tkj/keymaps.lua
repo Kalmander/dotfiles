@@ -27,7 +27,7 @@ M.normal_mode_keymaps = {
 	["<leader>cc"] = utils.toggle_concealcursor,
 	["<leader>r"] = utils.reload_lua,
 	["<leader>tt"] = utils.toggle_diagnostics,
-        ["<A-/>"] = "<cmd>nohlsearch<CR><cmd>echo<CR>",
+        -- ["<A-/>"] = "<cmd>nohlsearch<CR><cmd>echo<CR>", -- óþarfi, <C-l> gerir þetta og meira native
         ["<A-1>"] = function() require("harpoon.ui").nav_file(1) end,
         ["<A-2>"] = function() require("harpoon.ui").nav_file(2) end,
         ["<A-3>"] = function() require("harpoon.ui").nav_file(3) end,
@@ -44,13 +44,33 @@ M.normal_mode_keymaps = {
 	["<leader>h"] = utils.hide_cursor,
 	["<leader>["] = [[<cmd>set cmdheight+=1<cr>]],
 	["<leader>]"] = [[<cmd>set cmdheight-=1<cr>]],
+	["<leader>c"] = utils.open_calendar,
 }
 
 M.visualselect_keymaps = {
-	[">"] = ">gv",
-	["<"] = "<gv",
-	["p"] = '"_dP',
+-- 	[">"] = ">gv",
+-- 	["<"] = "<gv",
+--	["p"] = '"_dP',
 }
+-- yanky keymaps
+vim.keymap.set({ 'n', 'x' }, 'y',	  '<Plug>(YankyYank)')
+vim.keymap.set({ 'n', 'x' }, 'p',	  '<Plug>(YankyPutAfter)')
+vim.keymap.set({ 'n', 'x' }, 'P',         '<Plug>(YankyPutBefore)')
+vim.keymap.set({ 'n', 'x' }, 'gp',        '<Plug>(YankyGPutAfter)')
+vim.keymap.set({ 'n', 'x' }, 'gP',        '<Plug>(YankyGPutBefore)')
+vim.keymap.set({ 'n' },      '<c-n>',     '<Plug>(YankyCycleForward)')
+vim.keymap.set({ 'n' },      '<c-p>',     '<Plug>(YankyCycleBackward)')
+-- unimpaired yankings
+vim.keymap.set("n", "]p", "<Plug>(YankyPutIndentAfterLinewise)")
+vim.keymap.set("n", "[p", "<Plug>(YankyPutIndentBeforeLinewise)")
+vim.keymap.set("n", "]P", "<Plug>(YankyPutIndentAfterLinewise)")
+vim.keymap.set("n", "[P", "<Plug>(YankyPutIndentBeforeLinewise)")
+vim.keymap.set("n", ">p", "<Plug>(YankyPutIndentAfterShiftRight)")
+vim.keymap.set("n", "<p", "<Plug>(YankyPutIndentAfterShiftLeft)")
+vim.keymap.set("n", ">P", "<Plug>(YankyPutIndentBeforeShiftRight)")
+vim.keymap.set("n", "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)")
+vim.keymap.set("n", "=p", "<Plug>(YankyPutAfterFilter)")
+vim.keymap.set("n", "=P", "<Plug>(YankyPutBeforeFilter)")
 
 M.visual_mode_keymaps = {
 	["<A-j>"] = ":m '>+1<CR>gv-gv",
