@@ -1,3 +1,5 @@
+- enew|pu=execute('verbose map') til að fá output af command í nýjan buffer
+
 - Algjör óþarfi að hafa whole doc textobj, nota frekar bara :%y (hvað ertað fara gera annað en yank?)
 
 - Muna markin S(nippets)/S(tærðfræði), I(celandic layout), 

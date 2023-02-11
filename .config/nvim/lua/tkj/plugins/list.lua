@@ -47,7 +47,7 @@ require("lazy").setup({
 	"lukas-reineke/indent-blankline.nvim",
 	{ "akinsho/toggleterm.nvim" },
 	"brenoprata10/nvim-highlight-colors",
-	{"kevinhwang91/nvim-ufo", dependencies = 'kevinhwang91/promise-async'},
+	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 	"jbyuki/nabla.nvim",
 
 	-- Technical stuff
@@ -65,24 +65,23 @@ require("lazy").setup({
 		end,
 	},
 	"nvim-treesitter/nvim-treesitter-textobjects",
-        "ThePrimeagen/harpoon",
-        "tpope/vim-unimpaired",
-        "tpope/vim-fugitive",
+	"ThePrimeagen/harpoon",
+	"tpope/vim-unimpaired",
+	"tpope/vim-fugitive",
 	"lewis6991/gitsigns.nvim",
 	"junegunn/gv.vim",
 	"tpope/vim-rhubarb",
-        "tpope/vim-sleuth",
-	"tpope/vim-vinegar",
+	"tpope/vim-sleuth",
+	-- "tpope/vim-vinegar",
 	"andymass/vim-matchup",
 	"gbprod/yanky.nvim",
 
-
 	-- Obsidian og markdown
 	-- "epwalsh/obsidian.nvim",
-        "godlygeek/tabular",
-        "preservim/vim-markdown",
-        "preservim/vim-pencil",
-        "tommcdo/vim-exchange",
+	"godlygeek/tabular",
+	"preservim/vim-markdown",
+	"preservim/vim-pencil",
+	"tommcdo/vim-exchange",
 	"dhruvasagar/vim-table-mode",
 
 	-- Misc
@@ -90,17 +89,17 @@ require("lazy").setup({
 	"nguyenvukhang/nvim-toggler",
 	"ThePrimeagen/vim-be-good",
 	"mbbill/undotree",
-        "itchyny/calendar.vim",
-        -- "vimwiki/vimwiki",
-        "lervag/wiki.vim",
-        "lervag/wiki-ft.vim",
-        "lervag/lists.vim",
-        "kana/vim-textobj-user",
-        "asiryk/auto-hlsearch.nvim",
-        -- "preservim/vim-textobj-sentence",
-        -- "edluffy/hologram.nvim", -- highly experimental, til að byrta myndir
-        -- "jakewvincent/mkdnflow.nvim",
-        -- "vim-pandoc/vim-pandoc-syntax",
+	"itchyny/calendar.vim",
+	-- "vimwiki/vimwiki",
+	"lervag/wiki.vim",
+	"lervag/wiki-ft.vim",
+	"lervag/lists.vim",
+	"kana/vim-textobj-user",
+	"asiryk/auto-hlsearch.nvim",
+	-- "preservim/vim-textobj-sentence",
+	-- "edluffy/hologram.nvim", -- highly experimental, til að byrta myndir
+	-- "jakewvincent/mkdnflow.nvim",
+	-- "vim-pandoc/vim-pandoc-syntax",
 	"folke/twilight.nvim",
 	"folke/noice.nvim",
 	"MunifTanjim/nui.nvim",
@@ -110,11 +109,19 @@ require("lazy").setup({
 	-- "ggandor/flit.nvim",
 	"folke/zen-mode.nvim",
 	"rhysd/clever-f.vim",
+	"tpope/vim-rsi",
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			-- "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+	},
 })
 
 ---- Shortlist ----------------------------------
 -- use({ "mrjones2014/legendary.nvim" }) -- Lítur mjög vel út en virðist vera
-
 
 -- Ah ok, I will give this a try
 -- EDIT: now it works. Thanks. I should read the Readme more carefully.

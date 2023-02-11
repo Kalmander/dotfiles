@@ -45,7 +45,16 @@ M.normal_mode_keymaps = {
 	["<leader>["] = [[<cmd>set cmdheight+=1<cr>]],
 	["<leader>]"] = [[<cmd>set cmdheight-=1<cr>]],
 	["<leader>c"] = utils.open_calendar,
+	-- ["<leader>l"] = ':ls<cr>:b<space>' -- þetta er cool af en virkar ekki með noice atm, ætti að reynað laga
 }
+
+-- vim.cmd([[
+--     nnoremap / :Neotree toggle current reveal_force_cwd<cr>
+--     nnoremap | :Neotree reveal<cr>
+--     nnoremap gd :Neotree float reveal_file=<cfile> reveal_force_cwd<cr>
+--     nnoremap <leader>b :Neotree toggle show buffers right<cr>
+--     nnoremap <leader>s :Neotree float git_status<cr>
+-- ]])
 
 M.visualselect_keymaps = {
 -- 	[">"] = ">gv",

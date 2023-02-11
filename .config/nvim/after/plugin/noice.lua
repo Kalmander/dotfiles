@@ -20,23 +20,23 @@ require("noice").setup({
 	},
 	messages = { enabled = false },
 	views = {
-		split = {
-			size = "auto",
-			enter = true,
-		},
-		cmdline_popup = {
-			border = {
-				style = "none",
-				padding = { 1, 1 },
-			},
-			filter_options = {},
-			win_options = {
-				winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-			},
-		},
-		mini = {
-			timeout = 3000 -- default: 2000
-		}
+		-- split = {
+		-- 	size = "auto",
+		-- 	enter = true,
+		-- },
+		-- cmdline_popup = {
+		-- 	border = {
+		-- 		style = "none",
+		-- 		padding = { 1, 1 },
+		-- 	},
+		-- 	filter_options = {},
+		-- 	win_options = {
+		-- 		winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+		-- 	},
+		-- },
+		-- mini = {
+		-- 	timeout = 3000 -- default: 2000
+		-- }
 	},
 	-- messages = { enable = false },
 	routes = {
