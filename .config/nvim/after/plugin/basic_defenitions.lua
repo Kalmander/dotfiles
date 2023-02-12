@@ -26,13 +26,13 @@ require("nvim-toggler").setup({
 	remove_default_keybinds = true, -- removes the default <leader>i keymap
 })
 
-require("project_nvim").setup({
-	-- your configuration comes here
-	-- or leave it empty to use the default settings
-	-- All the patterns used to detect root dir, when **"pattern"** is in
-	-- detection_methods
-	patterns = { ">Latex", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" }, -- refer to the configuration section below
-})
+-- require("project_nvim").setup({
+-- 	-- your configuration comes here
+-- 	-- or leave it empty to use the default settings
+-- 	-- All the patterns used to detect root dir, when **"pattern"** is in
+-- 	-- detection_methods
+-- 	patterns = { ">Latex", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" }, -- refer to the configuration section below
+-- })
 
 require("trouble").setup({
 	-- your configuration comes here

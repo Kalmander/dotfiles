@@ -47,7 +47,7 @@ toggle_quarter_layout=Meta+R,,Toggle Quarter Layout
 toggle_spiral_layout=Meta+I,,Toggle Spiral Layout
 toggle_spread_layout=none,,Toggle Spread Layout
 toggle_stair_layout=none,,Toggle Stair Layout
-toggle_three_column_layout=none,,Toggle Three Column Layout
+toggle_three_column_layout=Meta+T,,Toggle Three Column Layout
 toggle_tile_layout=none,Meta+T,Toggle Tile Layout
 toggle_window_floating=Meta+G,Meta+F,Toggle Active Window Floating
 
@@ -72,7 +72,6 @@ _launch=Meta+Y,none,keyra_ytdl_script.sh
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
-{15ef5bc8-cf91-4109-a8a2-553492e18eaa}=Meta+T,none,konsole
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
 [kitty.desktop]
@@ -300,11 +299,11 @@ _launch=Meta+O,none,Obsidian
 
 [mediacontrol]
 _k_friendly_name=Media Controller
-mediavolumedown=none,,Media volume down
-mediavolumeup=none,,Media volume up
+mediavolumedown=none,none,Media volume down
+mediavolumeup=none,none,Media volume up
 nextmedia=Media Next,Media Next,Media playback next
 pausemedia=Media Pause,Media Pause,Pause media playback
-playmedia=none,,Play media playback
+playmedia=none,none,Play media playback
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
@@ -389,7 +388,7 @@ show-on-mouse-pos=none,Meta+V,Open Klipper at Mouse Position
 stop current activity=none,Meta+S,Stop Current Activity
 switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
-toggle do not disturb=none,none,Toggle do not disturb
+toggle do not disturb=none,,Toggle do not disturb
 
 [systemsettings.desktop]
 _k_friendly_name=System Settings

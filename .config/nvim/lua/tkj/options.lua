@@ -45,6 +45,8 @@ vim.g['pencil#conceallevel'] = options.conceallevel
 vim.g['pencil#concealcursor'] = options.concealcursor
 vim.g['pencil#cursorwrap'] = 0 -- sleppir því að fokka í defaultinu
 vim.g['netrw_liststyle'] = 3
+vim.g.lf_width = 1
+vim.g.lf_height = 1
 
 local neovide_settings = {
 	guifont = { "FiraCode Nerd Font", ":h18" },
@@ -86,3 +88,6 @@ let g:wiki_link_extension = '.md'
 --   endif
 -- endfunction
 -- ]])
+
+
+vim.g.neo_tree_remove_legacy_commands = 1

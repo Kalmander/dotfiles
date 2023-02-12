@@ -110,6 +110,8 @@ local keybinds = {
                 scroll_up()
             end
         end, {repeatable = true}},
+    {'c', 'pwd_c', function() cache = {}; goto_current_dir() end, {}},
+    {'H', 'root_H', function() goto_root() end, {}},
     {'HOME', 'pwd', function() cache = {}; goto_current_dir() end, {}},
     {'Shift+HOME', 'root', function() goto_root() end, {}},
     {'Ctrl+r', 'reload', function() cache={}; update() end, {}},

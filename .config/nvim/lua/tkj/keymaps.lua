@@ -46,6 +46,9 @@ M.normal_mode_keymaps = {
 	["<leader>]"] = [[<cmd>set cmdheight-=1<cr>]],
 	["<leader>c"] = utils.open_calendar,
 	-- ["<leader>l"] = ':ls<cr>:b<space>' -- þetta er cool af en virkar ekki með noice atm, ætti að reynað laga
+	[";"] = '<cmd>Lf<cr>',
+	-- ["<C-;>"] = '<cmd>Neotree toggle left<cr>',
+	-- ["<A-;>"] = '<cmd>Neotree toggle float reveal_force_cwd<cr>',
 }
 
 -- vim.cmd([[
@@ -93,7 +96,7 @@ M.terminal_mode_keymaps = {
 M.telescope_keymaps = {
 	["<leader>F"] = tele.resume,
 	["<leader>fk"] = tele.keymaps,
-	["<leader>fp"] = require("telescope").extensions.projects.projects,
+	--["<leader>fp"] = require("telescope").extensions.projects.projects,
 	["<leader>fr"] = require("telescope.builtin").registers,
 	["<leader>fh"] = function() tele.help_tags(dropdown()) end,
 	["<leader>fg"] = function() tele.live_grep(ivy()) end,

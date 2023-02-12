@@ -1,13 +1,4 @@
-require("lazy").setup({
-	-- Colorschemes
-	{ "dracula/vim", as = "dracula" },
-	{ "sainnhe/sonokai" },
-	{ "navarasu/onedark.nvim" },
-	{ "rose-pine/neovim", as = "rose-pine" },
-	{ "sainnhe/everforest" },
-	{ "shaunsingh/nord.nvim" },
-	{ "sonph/onehalf" },
-	"glepnir/zephyr-nvim",
+return {
 
 	-- Vim motions/operators etc
 	{ "michaeljsmith/vim-indent-object" },
@@ -53,10 +44,9 @@ require("lazy").setup({
 	-- Technical stuff
 	-- { "wbthomason/packer.nvim" },
 	{ "lewis6991/impatient.nvim" }, -- Bætir startup hraða (supposably,
-	{ "tpope/vim-repeat" },
 	{ "nvim-lua/plenary.nvim" },
 	-- { "p00f/nvim-ts-rainbow" },
-	{ "ahmedkhalf/project.nvim" },
+	-- { "ahmedkhalf/project.nvim" },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = function()
@@ -66,12 +56,8 @@ require("lazy").setup({
 	},
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	"ThePrimeagen/harpoon",
-	"tpope/vim-unimpaired",
-	"tpope/vim-fugitive",
 	"lewis6991/gitsigns.nvim",
 	"junegunn/gv.vim",
-	"tpope/vim-rhubarb",
-	"tpope/vim-sleuth",
 	-- "tpope/vim-vinegar",
 	"andymass/vim-matchup",
 	"gbprod/yanky.nvim",
@@ -118,7 +104,29 @@ require("lazy").setup({
 			"MunifTanjim/nui.nvim",
 		},
 	},
-})
+	{
+		"lmburns/lf.nvim",
+		lazy = false,
+		config = function()
+			-- This feature will not work if the plugin is lazy-loaded
+			-- vim.g.lf_netrw = 1
+
+			require("lf").setup({
+				escape_quit = false,
+				border = "solid",
+				-- highlights = { FloatBorder = { guifg = require("kimbox.palette").colors.magenta } },
+				direction = "float",
+				-- open_mapping = [[;]],
+				-- on_open = function() vim.cmd([[:Lf<cr>]]) end,
+				shade_terminals = false,
+				winblend = 0,
+				width = 1,
+				height = 1,
+			})
+		end,
+		dependencies = { "plenary.nvim", "toggleterm.nvim" },
+	},
+}
 
 ---- Shortlist ----------------------------------
 -- use({ "mrjones2014/legendary.nvim" }) -- Lítur mjög vel út en virðist vera
