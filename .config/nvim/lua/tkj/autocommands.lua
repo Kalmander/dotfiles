@@ -10,6 +10,9 @@ augroup _general_settings
 augroup end
 ]])
 
+vim.cmd([[autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown]])
+
+
 -- Show autodiagnostic popup on cursor hover_range
 -- Show inlay_hints more frequently
 -- vim.cmd([[
