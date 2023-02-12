@@ -181,3 +181,23 @@ map <c-t> :fzf_jump
 map <a-t> :fzf_jump_max_1
 
 map <c-f> filter
+
+cmd on-cd &{{
+    case "$PWD" in
+        /home/kalmander/bokasafn*)
+            lf -remote "send $id set ratios 1:3:3"
+            lf -remote "send $id echomsg changed ratios to 1:3:3"
+            ;;
+        *)
+            # restore sorting on directory exit
+            lf -remote "send $id set ratios 1:2:3"
+            lf -remote "send $id echomsg restored ratios to 1:2:3"
+            ;;
+    esac
+}}
+
+# run on startup too
+on-cd
+
+
+
