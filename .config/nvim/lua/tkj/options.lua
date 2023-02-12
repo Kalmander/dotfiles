@@ -47,6 +47,10 @@ vim.g['pencil#cursorwrap'] = 0 -- sleppir því að fokka í defaultinu
 vim.g['netrw_liststyle'] = 3
 vim.g.lf_width = 1
 vim.g.lf_height = 1
+vim.g.clever_f_smart_case = 1
+vim.g.clever_f_across_no_line = 1
+vim.g.clever_f_mark_char_color = 'NONE'
+
 
 local neovide_settings = {
 	guifont = { "FiraCode Nerd Font", ":h18" },
