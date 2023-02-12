@@ -1,8 +1,6 @@
-set forcechafa
+# set forcechafa
 
-# Chafa crashaði all systemið í að reyna við djvu skjöl
-# svo vildi bara slökkva á því yfirhöfuð amk meðan ég 
-# þarf að nota chafa
+# crashaði all systemið í að reyna við djvu skjöl
 preview book .djvu  {{
                 echo " "
 }}

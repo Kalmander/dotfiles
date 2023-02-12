@@ -36,7 +36,7 @@ return {
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{ "ziontee113/color-picker.nvim" },
 	"lukas-reineke/indent-blankline.nvim",
-	{ "akinsho/toggleterm.nvim" },
+	{ "akinsho/toggleterm.nvim", lazy=false },
 	"brenoprata10/nvim-highlight-colors",
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 	"jbyuki/nabla.nvim",
@@ -109,7 +109,7 @@ return {
 		lazy = false,
 		config = function()
 			-- This feature will not work if the plugin is lazy-loaded
-			-- vim.g.lf_netrw = 1
+			vim.g.lf_netrw = 1
 
 			require("lf").setup({
 				escape_quit = false,

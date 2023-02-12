@@ -1795,7 +1795,13 @@ encode = function(region, startTime, endTime)
       message("Encoded successfully! Saved to\\N" .. tostring(bold(out_path)))
       local out_dir
       out_dir, _ = utils.split_path(out_path)
-      args = {"powershell", "ii", [["]] .. out_dir .. [["]]}
+
+      local args = {}
+      if ON_WINDOWS then
+	args = {"powershell", "ii", [["]] .. out_dir .. [["]]}
+      else
+	args = {"dolphin", out_dir}
+      end
       mp.command_native({name = "subprocess", args = args})
     else
       message("Encode failed! Check the logs for details.")
