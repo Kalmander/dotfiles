@@ -27,18 +27,18 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'
 
 
 # # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "$HOME/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="$HOME/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="$HOME/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 # # <<< conda initialize <<<
 
 
@@ -115,6 +115,8 @@ alias icat="kitty +kitten icat"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias how2='npx how2 -s'
 alias cal='calcurse -C ~/hrafnatinna/dagatal/calcurse_config -D ~/hrafnatinna/dagatal/calcurse_data'
+alias zrc='nvim $HOME/.zshrc'
+alias zrcs='source $HOME/.zshrc'
 
 function y() {
   python ~/scripts/master_ytdl_script.py $1	

@@ -32,6 +32,7 @@ vim.g.calendar_date_full_month_name = 1
 vim.g.calendar_date_endian = 'big'
 vim.g.calendar_date_separator = " "
 vim.g.calendar_event_start_time_minwidth = 1
+vim.g.calendar_first_day = 'monday'
 -- ATHUGA: Til að breyta aðal foreground og background litunum
 --		(hefur m.a. áhrif á textalit events) þá þarftu að 
 --		fara í cache folderið í calendar.vim/local/calendarList

@@ -99,6 +99,9 @@ cmd new_folder_from_selection %{{
 }}
 map <c-a> new_folder_from_selection 
 
+cmd new_file %IFS=" "; touch -- "$*"
+map A push :new_file<space>
+
 
 cmd bulk-rename ${{
     old="$(mktemp)"
