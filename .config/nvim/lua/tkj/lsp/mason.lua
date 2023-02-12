@@ -1,6 +1,6 @@
 local servers = {
 	-- "lua_ls",
-	"lua-language-server",
+	-- "lua-language-server",
 	"cssls",
 	"html",
 	"tsserver",
