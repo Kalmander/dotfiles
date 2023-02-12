@@ -1480,6 +1480,7 @@ local function collapse_comment()
     if not (metatable['metadata_type'] == 'infojson') then return end
     local selected = list.list[list.selected]
 
+    if selected == nil then return end
     if selected['metadata'] == nil then return end 
     local comment_id = selected['metadata']['id']
     if not setContains(collapsed_comments, comment_id) then 

@@ -91,3 +91,19 @@ let g:wiki_link_extension = '.md'
 
 
 vim.g.neo_tree_remove_legacy_commands = 1
+
+
+-- þetta lagar bug í yanky.nvim
+vim.g.clipboard = {
+  name = "xsel_override",
+  copy = {
+    ["+"] = "xsel --input --clipboard",
+    ["*"] = "xsel --input --primary",
+  },
+  paste = {
+    ["+"] = "xsel --output --clipboard",
+    ["*"] = "xsel --output --primary",
+  },
+  cache_enabled = 1,
+}
+
