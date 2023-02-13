@@ -114,7 +114,7 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden -g !'**/thumbnails_seekbar/**' -
 alias icat="kitty +kitten icat"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias how2='npx how2 -s'
-alias cal='calcurse -C ~/hrafnatinna/dagatal/calcurse_config -D ~/hrafnatinna/dagatal/calcurse_data'
+alias cal='calcurse -C ~/hrafnatinna/dagatal/calcurse_config -D ~/hrafnatinna/dagatal/calcurse_data && python ~/hrafnatinna/dagatal/curse2vim.py'
 alias zrc='nvim $HOME/.zshrc'
 alias zrcs='source $HOME/.zshrc'
 
