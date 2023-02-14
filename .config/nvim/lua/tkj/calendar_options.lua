@@ -33,6 +33,7 @@ vim.g.calendar_date_endian = 'big'
 vim.g.calendar_date_separator = " "
 vim.g.calendar_event_start_time_minwidth = 1
 vim.g.calendar_first_day = 'monday'
+vim.g.calendar_views = { 'year', 'month', 'week', 'day_3', 'day', 'agenda', 'clock' }
 -- ATHUGA: Til að breyta aðal foreground og background litunum
 --		(hefur m.a. áhrif á textalit events) þá þarftu að 
 --		fara í cache folderið í calendar.vim/local/calendarList
@@ -66,7 +67,18 @@ vim.cmd([===[
 augroup calendar-mappings
 	autocmd!
 
-	autocmd FileType calendar nmap <buffer> [[ <Plug>(calendar_view_left)
-	autocmd FileType calendar nmap <buffer> ]] <Plug>(calendar_view_right)
+	autocmd FileType calendar nmap <buffer> H <Plug>(calendar_view_left)
+	autocmd FileType calendar nmap <buffer> L <Plug>(calendar_view_right)
+	autocmd FileType calendar nmap <buffer> { <Plug>(calendar_view_left)
+	autocmd FileType calendar nmap <buffer> } <Plug>(calendar_view_right)
+	autocmd FileType calendar nmap <buffer> q <Plug>(calendar_escape)
+	autocmd FileType calendar nmap <buffer> m <Plug>(calendar_down_large)
+	autocmd FileType calendar nmap <buffer> M <Plug>(calendar_up_large)
+	autocmd FileType calendar nmap <buffer> T <Plug>(calendar_left)
+	autocmd FileType calendar nmap <buffer> t <Plug>(calendar_right)
+	autocmd FileType calendar nmap <buffer> W <Plug>(calendar_up)
+	autocmd FileType calendar nmap <buffer> w <Plug>(calendar_down)
+	autocmd FileType calendar nmap <buffer> e <Plug>(calendar_event)
+	
 augroup END
 ]===])
