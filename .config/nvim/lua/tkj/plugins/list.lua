@@ -122,6 +122,11 @@ return {
 				winblend = 0,
 				width = 1,
 				height = 1,
+				default_actions = { -- default action keybindings
+					[";"] = "cd",
+					["<C-s>"] = "split", --defaultið er c-x
+				},
+
 			})
 		end,
 		dependencies = { "plenary.nvim", "toggleterm.nvim" },
