@@ -32,7 +32,7 @@ return {
 		"ahmedkhalf/project.nvim",
 		config = function()
 			require("project_nvim").setup({
-				manual_mode = true, -- þarft þá að nota :ProjectRoot
+				manual_mode = false, -- þarft þá að nota :ProjectRoot
 				detection_methods = { "pattern" }, -- be default er lsp primary og pattern 2nd
 				silent_chdir = false, -- true by default
 				scope_chdir = "tab", -- global by default
