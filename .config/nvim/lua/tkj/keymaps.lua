@@ -17,8 +17,11 @@ vim.g.maplocalleader = " "
 ---- Keymap Definitions ------------------------------------------------------
 M.normal_mode_keymaps = {
 	["<leader>ge"] = [[<cmd>silent Explore<cr>]],
-	["<leader>zm"] = utils.toggle_zen,
-	["<leader>za"] = utils.toggle_zen_ataraxis,
+	["<leader>mm"] = function() utils.set_zen_mode('off') end,
+	["<leader>mq"] = function() utils.set_zen_mode('normal') end,
+	["<leader>mw"] = function() utils.set_zen_mode('super') end,
+	["<leader>me"] = function() utils.set_zen_mode('centered') end,
+	["<leader>mr"] = function() utils.set_zen_mode('super_centered') end,
 	["<A-j>"] = ":m .+1<CR>==",
 	["<A-k>"] = ":m .-2<CR>==",
 	["<leader>cp"] = "<cmd>PickColor<cr>",

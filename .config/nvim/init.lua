@@ -34,3 +34,4 @@ require("tkj.calendar_options")
 
 -- var að laga toggle vs cd fyrir lf í list.lua 
 -- var svo annars þess utan að flokka pluginin ala folke
+-- lika laga ad alt-p i insert mode fer upp i stad paste, likl med yanky ad gera

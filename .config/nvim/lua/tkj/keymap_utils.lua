@@ -21,35 +21,79 @@ M.set_keymaps_multi = function(mode, map_table, options)
 	end
 end
 
-local zen_toggled = false
-M.toggle_zen = function(force)
-	if zen_toggled and force ~= 'on' then
-		zen_toggled = false
-		require("true-zen.minimalist").off()
-                require("lualine").hide({unhide=true})
-                -- vim.opt.cmdheight = 1
-        elseif force ~= 'off' then
-		zen_toggled = true
-                require("lualine").hide()
-		require("true-zen.minimalist").on()
-                vim.opt.number = true
-                vim.opt.relativenumber = true
-                -- vim.opt.cmdheight = 0
-	end
-end
+local zen_modes = {
+	normal = {
+		window = {
+			backdrop = 1,
+			width = .99,
+			height = .99,
+		},
+		plugins = {
+			twilight = { enabled = false },
+		},
+	},
 
-M.toggle_zen_ataraxis = function()
-	if zen_toggled then
-		zen_toggled = false
-		require("true-zen.ataraxis").off()
-                require("lualine").hide({unhide=true})
-                -- vim.opt.cmdheight = 1
-	else
-		zen_toggled = true
-                require("lualine").hide()
-		require("true-zen.ataraxis").on()
-                -- vim.opt.cmdheight = 0
+	super = {
+		window = {
+			backdrop = 1,
+			width = .99,
+			height = .99,
+			options = {
+				number = false,
+				relativenumber = false,
+				signcolumn = "no",
+				cursorline = false,
+				foldcolumn = "0",
+				list = false,
+
+			}
+		},
+		plugins = {
+			twilight = { enabled = false },
+		},
+	},
+
+	centered = {
+		window = {
+			backdrop = 1,
+			width = .7,
+			height = .99,
+		},
+		plugins = {
+			twilight = { enabled = false },
+		},
+	},
+
+	super_centered = {
+		window = {
+			backdrop = 1,
+			width = .7,
+			height = .99,
+			options = {
+				number = false,
+				relativenumber = false,
+				signcolumn = "no",
+				cursorline = false,
+				foldcolumn = "0",
+				list = false,
+
+			}
+		},
+		plugins = {
+			twilight = { enabled = false },
+		},
+	},
+}
+M.set_zen_mode = function(mode)
+	if mode == 'off' then 
+		require("zen-mode").close()
+		require("lualine").hide({ unhide = true })
+		return
 	end
+
+	require("zen-mode").close()
+	require("lualine").hide()
+	require("zen-mode").open(zen_modes[mode])
 end
 
 M.reload_lua = function()
@@ -83,7 +127,7 @@ end
 -- end
 
 M.toggle_conceallevel = function()
-        if vim.opt.conceallevel:get() == 0 then
+	if vim.opt.conceallevel:get() == 0 then
 		vim.opt.conceallevel = 2
 	else
 		vim.opt.conceallevel = 0
@@ -91,10 +135,10 @@ M.toggle_conceallevel = function()
 end
 
 M.toggle_concealcursor = function()
-        if vim.opt.concealcursor:get() == '' then
-		vim.opt.concealcursor = 'n'
+	if vim.opt.concealcursor:get() == "" then
+		vim.opt.concealcursor = "n"
 	else
-		vim.opt.concealcursor = ''
+		vim.opt.concealcursor = ""
 	end
 end
 
@@ -105,7 +149,7 @@ M.get_ts_hl_group = function()
 	-- vim.api.nvim_set_hl(0, "@variable",              { <colors-here> })
 	-- veit ekki hvenær þetta er the shit vs hvenær gamla SynStack dótið er málið
 	local result = vim.treesitter.get_captures_at_cursor(0)
-        print(vim.inspect(result))
+	print(vim.inspect(result))
 end
 
 local cursor_hidden = false

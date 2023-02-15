@@ -1,5 +1,4 @@
 vim.opt_local.keymap = "icelandic"
-require("tkj.keymap_utils").toggle_zen("on")
 vim.keymap.set({"x", "o"}, "iq", ":<c-u>normal! g_vF]2l<cr>", {silent=true})
 vim.keymap.set("n", "<leader>gp", "mygg/mynd:<CR><cmd>noh<cr>2w<cmd>silent !vimiv -s statusbar.show false -f <cfile><CR>`y<cmd>echo <CR>", { silent = true, buffer = 0 })
 
