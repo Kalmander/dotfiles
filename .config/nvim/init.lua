@@ -31,3 +31,6 @@ require("tkj.cmp_and_luasnip")
 require("tkj.input_layout")
 require("tkj.math-snippets").setup()
 require("tkj.calendar_options")
+
+-- var að laga toggle vs cd fyrir lf í list.lua 
+-- var svo annars þess utan að flokka pluginin ala folke

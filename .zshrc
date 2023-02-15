@@ -115,8 +115,13 @@ alias icat="kitty +kitten icat"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias how2='npx how2 -s'
 alias cal='calcurse -C ~/hrafnatinna/dagatal/calcurse_config -D ~/hrafnatinna/dagatal/calcurse_data && python ~/hrafnatinna/dagatal/curse2vim.py'
-alias zrc='nvim $HOME/.zshrc'
-alias zrcs='source $HOME/.zshrc'
+alias zzz='nvim $HOME/.zshrc'
+alias zzzs='source $HOME/.zshrc'
+alias cvim='nvim $HOME/.config/nvim/init.lua'
+
+function mvim() {
+  nvim -c "Man $1" +only
+}
 
 function y() {
   python ~/scripts/master_ytdl_script.py $1	

@@ -90,13 +90,13 @@ M.visual_mode_keymaps = {
 }
 
 M.terminal_mode_keymaps = {
-        ["<esc><esc>"] = [[<C-\><C-n>]],
+        -- ["<esc><esc>"] = [[<C-\><C-n>]],
 }
 
 M.telescope_keymaps = {
 	["<leader>F"] = tele.resume,
 	["<leader>fk"] = tele.keymaps,
-	--["<leader>fp"] = require("telescope").extensions.projects.projects,
+	["<leader>fp"] = require("telescope").extensions.projects.projects,
 	["<leader>fr"] = require("telescope.builtin").registers,
 	["<leader>fh"] = function() tele.help_tags(dropdown()) end,
 	["<leader>fg"] = function() tele.live_grep(ivy()) end,
