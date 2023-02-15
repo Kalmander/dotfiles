@@ -72,7 +72,7 @@ require("nvim-treesitter.configs").setup({
 			goto_next_start = {
 				["]m"] = "@function.outer",
 				["]c"] = "@comment.outer",
-				["]]"] = { query = "@class.outer", desc = "Next class start" },
+				-- ["]]"] = { query = "@class.outer", desc = "Next class start" },
 			},
 			goto_next_end = {
 				["]M"] = "@function.outer",
@@ -81,7 +81,7 @@ require("nvim-treesitter.configs").setup({
 			goto_previous_start = {
 				["[m"] = "@function.outer",
 				["[c"] = "@comment.outer",
-				["[["] = "@class.outer",
+				-- ["[["] = "@class.outer",
 			},
 			goto_previous_end = {
 				["[M"] = "@function.outer",

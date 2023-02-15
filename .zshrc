@@ -118,6 +118,7 @@ alias cal='calcurse -C ~/hrafnatinna/dagatal/calcurse_config -D ~/hrafnatinna/da
 alias zzz='nvim $HOME/.zshrc'
 alias zzzs='source $HOME/.zshrc'
 alias cvim='nvim $HOME/.config/nvim/init.lua'
+alias leitner='nvim $HOME/hrafnatinna/leitner_kanban.md'
 
 function mvim() {
   nvim -c "Man $1" +only
