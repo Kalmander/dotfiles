@@ -28,6 +28,12 @@
 
 - Nokkrir hlutir ólíkir milli vim regex og venjulegs:
 
+- Critrole renamer: 
+```
+%s/\(\[.\{10}\]\) \(.*\).\+Critical Role.\+Campaign \(\d\+\), Episode \(\d\+\)\(\)\(.*\)\.\(.*\)/\1 C\3E\4 \2Critical Role.\7
+
+- ætti að gera einvhers konar safn fyrir renamers
+
 Perl    Vim     Explanation
 ---------------------------
 x?      x\=     Match 0 or 1 of x
