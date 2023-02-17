@@ -7,7 +7,7 @@ local options = {
 	linebreak       = true, -- companion to wrap, don't split words
 	cmdheight       = 1,
 	-- showtabline  = 2,
-	expandtab	= true,
+	expandtab       = true,
 	undofile        = true,
 	virtualedit     = "none",
 	scrolloff       = 6,
@@ -33,10 +33,11 @@ local options = {
 	backup          = true,
 	backupdir       = vim.fn.expand("~/backups/backup//"),
 	directory       = vim.fn.expand("~/backups/swp//"),
-	-- foldmethod      = "expr",
-	-- foldexpr        = "nvim_treesitter#foldexpr()",
+	-- foldmethod   = "expr",
+	-- foldexpr     = "nvim_treesitter#foldexpr()",
 	list            = true,
-	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
+	signcolumn      = "yes", -- always show the sign column, otherwise it would shift the text each time
+	shada           = [[!,'1000,<50,s10,h]], -- breytti '100 í '1000 fyrir fleiri oldfiles
 }
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")

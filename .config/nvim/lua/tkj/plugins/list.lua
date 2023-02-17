@@ -1,7 +1,6 @@
 return {
 
 	"michaeljsmith/vim-indent-object",
-	"kylechui/nvim-surround",
 	"numToStr/Comment.nvim",
 	"ggandor/leap.nvim",
 	"windwp/nvim-autopairs",
@@ -19,7 +18,7 @@ return {
 	"ThePrimeagen/vim-be-good",
 	"mbbill/undotree",
 	"itchyny/calendar.vim",
-	"asiryk/auto-hlsearch.nvim",
+	-- "asiryk/auto-hlsearch.nvim",
 	"kana/vim-textobj-user",
 	"MunifTanjim/nui.nvim",
 	"rhysd/clever-f.vim",
@@ -27,6 +26,13 @@ return {
 	{ "nvim-lualine/lualine.nvim", dependencies = { "kyazdani42/nvim-web-devicons", opt = true } },
 	{ "akinsho/toggleterm.nvim", lazy = false },
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
+
+	{
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup({ move_cursor = false })
+		end,
+	},
 
 	{
 		"ahmedkhalf/project.nvim",

@@ -38,6 +38,9 @@ if current_scheme == "sonokai" then
 	set_hl("texMathOper", { fg = math_col })
 	set_hl("texMathArg", { fg = math_col })
 	set_hl("texMathCmd", { fg = math_col_2 })
+
+	set_hl("Search", { fg='#16181d', bg = '#eed581' })
+	set_hl("IncSearch", { fg='#16181d', bg = '#bbe89b' })
 end
 
 set_hl("IlluminatedWordText", { bold = true })
