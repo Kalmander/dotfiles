@@ -20,7 +20,9 @@ vim.g.sonokai_enable_italic = 1
 -- "sainnhe/everforest"
 -- "shaunsingh/nord.nvim"
 -- "sonph/onehalf"  -> onehalfdark
-local current_scheme = "sonokai"
+-- "rebelot/kanagawa.nvim",
+-- "catppuccin/nvim", catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+local current_scheme = "kanagawa"
 vim.cmd.colorscheme(current_scheme)
 
 if current_scheme == "sonokai" then

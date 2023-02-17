@@ -6,12 +6,14 @@ return {
 	{ "sonph/onehalf" },
 	{ "glepnir/zephyr-nvim" },
 
-	{ 
+	{
 		"sainnhe/sonokai",
-		opts = { style = atlantis },
+		opts = { style = "atlantis" },
 	},
-	{ 
+	{
 		"navarasu/onedark.nvim" ,
 		opts = { style = "warmer" },
 	},
+	"rebelot/kanagawa.nvim",
+	"catppuccin/nvim",
 }
