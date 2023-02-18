@@ -73,6 +73,7 @@
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
   "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
   "vimtex": { "branch": "master", "commit": "aa55f528d1a12ba2cdf7953639e5b6ced9aa1999" },
+  "which-key.nvim": { "branch": "main", "commit": "5224c261825263f46f6771f1b644cae33cd06995" },
   "wiki-ft.vim": { "branch": "master", "commit": "5d3624c1c88758a1db49b7b86ff930c54c6b2e42" },
   "wiki.vim": { "branch": "master", "commit": "295f968f56f76449a59dc1c93136352f7f093d72" },
   "yanky.nvim": { "branch": "main", "commit": "14b9c4cc572c3be5cf5b0a678e7ac240f08a8681" },

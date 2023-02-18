@@ -12,7 +12,7 @@ return {
 	"lewis6991/gitsigns.nvim",
 	"junegunn/gv.vim",
 	"andymass/vim-matchup",
-	"gbprod/yanky.nvim",
+	-- "gbprod/yanky.nvim",
 	"tommcdo/vim-exchange",
 	"nguyenvukhang/nvim-toggler",
 	"ThePrimeagen/vim-be-good",
