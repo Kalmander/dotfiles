@@ -1,61 +1,18 @@
-local set_hl = function(...)
-	local args = { ... }
-	vim.api.nvim_set_hl(0, unpack(args))
-end
-
-require("onedark").setup({
-	style = "warmer", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-	term_colors = true, -- Change terminal color as per the selected theme style-vim.cmd([[colorscheme sonokai]])
-})
-
-vim.g.sonokai_diagnostic_virtual_text = "colored" -- grey eða  colored
-vim.g.sonokai_style = "atlantis"
-vim.g.sonokai_enable_italic = 1
-
--- "dracula/vim" -> dracula
--- "sainnhe/sonokai"
---	`'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`,`'espresso'`
--- "navarasu/onedark.nvim"
--- "rose-pine/neovim" -> rose-pine
--- "sainnhe/everforest"
--- "shaunsingh/nord.nvim"
--- "sonph/onehalf"  -> onehalfdark
--- "rebelot/kanagawa.nvim",
--- "catppuccin/nvim", catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-local current_scheme = "kanagawa"
-vim.cmd.colorscheme(current_scheme)
-
-if current_scheme == "sonokai" then
-	set_hl("SpecialKey", { fg = "#b39df3" })
-	set_hl("CursorLineNR", { fg = "#b39df3" })
-	local conceal_col = "#85d3f2"
-	set_hl("Conceal", { fg = conceal_col })
-	local math_col = "#fc5d7c"
-	local math_col_2 = "#a7df78"
-	set_hl("mkdMath", { fg = math_col })
-	set_hl("texMathZoneTI", { fg = math_col })
-	set_hl("texMathDelimZoneTI", { fg = math_col })
-	-- set_hl("texMathDelim", {fg=math_col})
-	set_hl("texMathSuperSub", { fg = math_col })
-	set_hl("texMathOper", { fg = math_col })
-	set_hl("texMathArg", { fg = math_col })
-	set_hl("texMathCmd", { fg = math_col_2 })
-
-	set_hl("Search", { fg='#16181d', bg = '#eed581' })
-	set_hl("IncSearch", { fg='#16181d', bg = '#bbe89b' })
-end
-
-set_hl("IlluminatedWordText", { bold = true })
-set_hl("IlluminatedWordRead", { bold = true })
-set_hl("IlluminatedWordWrite", { bold = true })
+-- local set_hl = function(...)
+-- 	local args = { ... }
+-- 	vim.api.nvim_set_hl(0, unpack(args))
+-- end
+local set_hl = vim.api.nvim_set_hl
 
 
--- vim.api.nvim_set_hl(0, "LeapLabelPrimary", {fg = "red", bold = true, nocombine = true })
--- vim.api.nvim_set_hl(0, "LeapLabelSecondary", {fg = "blue", bold = true, nocombine = true })
+set_hl(0, "IlluminatedWordText", { bold = true })
+set_hl(0, "IlluminatedWordRead", { bold = true })
+set_hl(0, "IlluminatedWordWrite", { bold = true })
+
 
 -- til að gera cursorinn hvítann í insert mode því ég nota kitty litinn sem
 -- líkir eftir bakgrunni og það sést stundum illa í insert mode
-set_hl("Cursor2", { fg = "white", bg = "white" })
+set_hl(0, "Cursor2", { fg = "white", bg = "white" })
 vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50"
 
 

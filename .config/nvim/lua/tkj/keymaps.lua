@@ -1,5 +1,4 @@
 local utils = require("tkj.keymap_utils")
--- local map = utils.set_keymap
 local map = vim.keymap.set
 local multimap = utils.set_keymaps_multi
 local noremap_silent = { noremap = true, silent = true }
@@ -8,7 +7,7 @@ local M = {}
 
 vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = [[\]] -- helst hafa annað en leader fyrir r
 
 ---- Keymap Definitions ------------------------------------------------------
 M.normal_mode_keymaps = {
@@ -20,7 +19,7 @@ M.normal_mode_keymaps = {
 	["<leader>mr"] = function() utils.set_zen_mode('super_centered') end,
 	["<A-j>"] = ":m .+1<CR>==",
 	["<A-k>"] = ":m .-2<CR>==",
-	["<leader>cp"] = "<cmd>PickColor<cr>",
+	["<leader>cp"] = "<cmd>PickColor<cr>", -- color-picker pluginið
 	["<leader>ci"] = "<cmd>ConvertHEXandRGB<cr>",
 	["<leader>cl"] = utils.toggle_conceallevel,
 	["<leader>cc"] = utils.toggle_concealcursor,
@@ -51,41 +50,13 @@ M.normal_mode_keymaps = {
 	["<leader>bc"] = [[yypV:'<,'>!bc -l<cr>]],
 }
 
--- vim.cmd([[
---     nnoremap / :Neotree toggle current reveal_force_cwd<cr>
---     nnoremap | :Neotree reveal<cr>
---     nnoremap gd :Neotree float reveal_file=<cfile> reveal_force_cwd<cr>
---     nnoremap <leader>b :Neotree toggle show buffers right<cr>
---     nnoremap <leader>s :Neotree float git_status<cr>
--- ]])
-
 M.visualselect_keymaps = {
 	["<leader>bc"] = [[yPgv:'<,'>!bc -l<cr>]],
 -- 	[">"] = ">gv",
 -- 	["<"] = "<gv",
 --	["p"] = '"_dP',
 }
--- yanky keymaps
--- vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
--- vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
--- vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
--- vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
--- vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
--- vim.keymap.set({ "n" }, "<c-n>", "<Plug>(YankyCycleForward)")
--- vim.keymap.set({ "n" }, "<c-p>", "<Plug>(YankyCycleBackward)")
--- -- unimpaired yankings
--- vim.keymap.set("n", "]p", "<Plug>(YankyPutIndentAfterLinewise)")
--- vim.keymap.set("n", "[p", "<Plug>(YankyPutIndentBeforeLinewise)")
--- vim.keymap.set("n", "]P", "<Plug>(YankyPutIndentAfterLinewise)")
--- vim.keymap.set("n", "[P", "<Plug>(YankyPutIndentBeforeLinewise)")
--- vim.keymap.set("n", ">p", "<Plug>(YankyPutIndentAfterShiftRight)")
--- vim.keymap.set("n", "<p", "<Plug>(YankyPutIndentAfterShiftLeft)")
--- vim.keymap.set("n", ">P", "<Plug>(YankyPutIndentBeforeShiftRight)")
--- vim.keymap.set("n", "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)")
--- vim.keymap.set("n", "=p", "<Plug>(YankyPutAfterFilter)")
--- vim.keymap.set("n", "=P", "<Plug>(YankyPutBeforeFilter)")
--- vim.keymap.set("i", "<A-p>", "<esc><Plug>(YankyPutAfter)") -- þetta ætti að vera default behav anyway en hætti randomly að virka, mögulega yanky að kenna
---
+
 M.visual_mode_keymaps = {
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
@@ -98,7 +69,8 @@ M.terminal_mode_keymaps = {
 -- Telescope
 local dropdown = require("telescope.themes").get_dropdown
 local tel = require("telescope.builtin")
-bottom = { layout_strategy = "bottom_pane", sorting_strategy = "ascending", border = false }
+local tele = require("telescope").extensions
+local bottom = { layout_strategy = "bottom_pane", sorting_strategy = "ascending", border = false }
 
 map('n', '<leader>F', tel.resume, { desc = 'Resume Previous Telescope' })
 map('n', "<leader>fk", tel.keymaps, { desc = 'Telescope Keymaps' })
@@ -108,7 +80,12 @@ map('n', "<leader>fa", tel.man_pages, { desc = 'Telescope Man Pages' })
 map('n', "<leader>ft", tel.treesitter, { desc = 'Telescope Treesitter' })
 map('n', "<leader>fT", tel.builtin, { desc = 'Telescope Telescopes' })
 map('n', "<leader>fo", tel.vim_options, { desc = 'Telescope Vim Options' })
-map('n', "<leader>fc", tel.commands, { desc = 'Telescope User Commands' })
+map('n', "<leader>fC", tel.commands, { desc = 'Telescope User Commands' })
+map('n', "<leader>fE", tele.env.env, { desc = 'Telescope Environment Variables' })
+map('n', "<leader>fl", tele.lazy.lazy, { desc = "Telescope Lazy Plugins" })
+map('n', "<leader>fL", tele.luasnip.luasnip, { desc = "Telescope Plugins" })
+map('n', "<leader>fp", tele.projects.projects, { desc = 'Telescope Projects' })
+map('n', "<leader>fD", tele.dir.live_grep, { desc = 'Telescope Live Grep in Subdirectory' })
 map('n', "<leader>fh", function() tel.help_tags(bottom) end, { desc = 'Telescope Help Tags' })
 map('n', "<leader>fO", function() tel.oldfiles(bottom) end, { desc = 'Telescope Oldfiles' })
 map('n', "<leader>fg", function() tel.git_bcommits(bottom) end, { desc = 'Telescope Git Buffer Commits' })
@@ -120,11 +97,6 @@ map('n', "<leader>fb", function() tel.buffers(bottom) end, { desc = 'Telescope B
 map('n', "<leader>fd", function() tel.live_grep(bottom) end, { desc = 'Telescope Live Grep CWD' })
 map('n', "<leader>fe", function() tel.current_buffer_fuzzy_find(bottom) end, { desc = 'Telescope Current Buffer' })
 map('n', "<leader>fs", function() tel.live_grep(bottom) end, { desc = 'Telescope Latex Snippets' })
-map('n', "<leader>fp", require("telescope").extensions.projects.projects, { desc = 'Telescope Projects' })
-map('n', "<leader>fl",
-    function()
-	    tel.find_files({ cwd = "~/.local/share/nvim/lazy/", prompt_title = 'Search in Plugins Source Code' })
-    end, { desc = 'Telescope Plugins Directory' })
 map('n', "<leader>ff",
     function()
 	    tel.find_files(dropdown({ previewer = false, prompt_title = 'Find Files Under CWD' }))
@@ -133,6 +105,11 @@ map('n', "<leader>fn",
     function()
 	    tel.find_files(dropdown({ previewer = false, cwd = "~/.config/nvim/", prompt_title = 'Search Neovim Config' }))
     end, { desc = 'Telescope NeoVim Config' })
+map('n', "<leader>fN",
+    function()
+	    tel.live_grep( { cwd = '~/.config/nvim/', layout_strategy = "bottom_pane", sorting_strategy = "ascending", border = false } )
+    end, { desc = 'Telescope NeoVim Config' })
+map('n', "<leader>fc", "<cmd>Cheatsheet<cr>", { desc = 'Cheatsheet' })
 
 
 
@@ -196,8 +173,5 @@ multimap("t", M.terminal_mode_keymaps, noremap_silent)
 multimap({ "o", "x" }, M.text_objects, noremap_silent)
 
 ---- Misc Keymaps ------------------------------------------------------------
-map({ "n", "v" }, "<leader>i", require("nvim-toggler").toggle)
--- vim.keymap.set("n", "gf", ":echo GAAA<cr>", {noremap = false, buffer = 0})
--- vim.keymap.set("n", "gf", utils.obsidian_link, {noremap = false, expr = true, buffer = 0})
 
 return M

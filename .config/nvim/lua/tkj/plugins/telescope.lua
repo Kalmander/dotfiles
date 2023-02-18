@@ -11,8 +11,8 @@ return {
 					prompt_prefix = " ",
 					selection_caret = " ",
 					path_display = { "smart" },
-					layout_strategy = 'vertical',
-					scroll_strategy = 'limit', -- default er cycle
+					layout_strategy = "vertical",
+					scroll_strategy = "limit", -- default er cycle
 
 					mappings = {
 						i = {
@@ -50,6 +50,7 @@ return {
 						n = {
 							["<esc>"] = actions.close,
 							["<C-c>"] = actions.close,
+							["q"] = actions.close,
 							["<CR>"] = actions.select_default,
 							["<C-x>"] = actions.select_horizontal,
 							["<C-v>"] = actions.select_vertical,
@@ -108,11 +109,52 @@ return {
 						case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 						-- the default case_mode is "smart_case"
 					},
+					lazy = {
+						-- theme = 'ivy'
+						layout_strategy = "bottom_pane",
+						sorting_strategy = "ascending",
+						border = false,
+					},
 				},
 			})
 			telescope.load_extension("fzf")
 			telescope.load_extension("projects")
+			telescope.load_extension("env")
+			telescope.load_extension("lazy")
+			telescope.load_extension("luasnip")
+			telescope.load_extension("dir")
 		end,
 	},
+	{ "LinArcX/telescope-env.nvim" },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({
+				manual_mode = false, -- þarft þá að nota :ProjectRoot
+				detection_methods = { "pattern" }, -- be default er lsp primary og pattern 2nd
+				silent_chdir = false, -- true by default
+				scope_chdir = "tab", -- global by default
+				patterns = { ".git", "Makefile", ">.config", ">share" },
+			})
+		end,
+	},
+	{ "tsakirist/telescope-lazy.nvim" },
+	{ "benfowler/telescope-luasnip.nvim" },
+	{
+		"princejoogie/dir-telescope.nvim",
+		opts = {
+			layout_strategy = "bottom_pane",
+			sorting_strategy = "ascending",
+			border = false,
+		},
+	},
+	{
+		"sudormrfbin/cheatsheet.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/popup.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+	},
 }
