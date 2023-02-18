@@ -52,6 +52,7 @@ M.normal_mode_keymaps = {
 	[";"] = '<cmd>Lf<cr>',
 	-- ["<C-;>"] = '<cmd>Neotree toggle left<cr>',
 	-- ["<A-;>"] = '<cmd>Neotree toggle float reveal_force_cwd<cr>',
+	["<leader>bc"] = [[yypV:'<,'>!bc -l<cr>]],
 }
 
 -- vim.cmd([[
@@ -63,6 +64,7 @@ M.normal_mode_keymaps = {
 -- ]])
 
 M.visualselect_keymaps = {
+	["<leader>bc"] = [[yPgv:'<,'>!bc -l<cr>]],
 -- 	[">"] = ">gv",
 -- 	["<"] = "<gv",
 --	["p"] = '"_dP',

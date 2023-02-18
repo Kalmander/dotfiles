@@ -120,6 +120,7 @@ alias zzzs='source $HOME/.zshrc'
 alias cvim='nvim $HOME/.config/nvim/init.lua'
 alias leitner='nvim $HOME/hrafnatinna/leitner_kanban.md'
 alias cpv='nvim $HOME/.config/mpv'
+alias bc='bc -l'
 
 function nman() {
   nvim -c "Man $1" +only
