@@ -22,4 +22,5 @@ return {
 		end,
 	},
 	{ "folke/trouble.nvim", dependencies = "kyazdani42/nvim-web-devicons" },
+	{ "folke/which-key.nvim", config = function() require("which-key").setup() end }
 }

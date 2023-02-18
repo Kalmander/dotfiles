@@ -20,7 +20,9 @@ vim.g.sonokai_enable_italic = 1
 -- "sainnhe/everforest"
 -- "shaunsingh/nord.nvim"
 -- "sonph/onehalf"  -> onehalfdark
-local current_scheme = "sonokai"
+-- "rebelot/kanagawa.nvim",
+-- "catppuccin/nvim", catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+local current_scheme = "kanagawa"
 vim.cmd.colorscheme(current_scheme)
 
 if current_scheme == "sonokai" then
@@ -38,6 +40,9 @@ if current_scheme == "sonokai" then
 	set_hl("texMathOper", { fg = math_col })
 	set_hl("texMathArg", { fg = math_col })
 	set_hl("texMathCmd", { fg = math_col_2 })
+
+	set_hl("Search", { fg='#16181d', bg = '#eed581' })
+	set_hl("IncSearch", { fg='#16181d', bg = '#bbe89b' })
 end
 
 set_hl("IlluminatedWordText", { bold = true })

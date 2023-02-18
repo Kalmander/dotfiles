@@ -1,8 +1,7 @@
-require("nvim-surround").setup({ move_cursor = false })
 require("Comment").setup()
 require("nvim-autopairs").setup()
 require("color-picker")
-require("auto-hlsearch").setup()
+-- require("auto-hlsearch").setup()
 require("tkj.textobjs").setup({ useDefaultKeymaps = true })
 require("nvim-highlight-colors").setup()
 -- require("fidget").setup({})
@@ -59,24 +58,24 @@ require("illuminate").configure({
 	},
 })
 
-require("yanky").setup({
-	ring = {
-		history_length = 100,
-		storage = "shada",
-		sync_with_numbered_registers = true,
-		cancel_event = "update",
-	},
-	system_clipboard = {
-		sync_with_ring = true,
-	},
-	preserve_cursor_position = {
-		enabled = true,
-	},
-	highlight = {
-		on_put = false,
-		on_yank = false,
-	},
-})
+-- require("yanky").setup({
+-- 	ring = {
+-- 		history_length = 100,
+-- 		storage = "shada",
+-- 		sync_with_numbered_registers = true,
+-- 		cancel_event = "update",
+-- 	},
+-- 	system_clipboard = {
+-- 		sync_with_ring = true,
+-- 	},
+-- 	preserve_cursor_position = {
+-- 		enabled = true,
+-- 	},
+-- 	highlight = {
+-- 		on_put = false,
+-- 		on_yank = false,
+-- 	},
+-- })
 -- Set keymaps í keymaps.lua
 
 require("zen-mode").setup({
