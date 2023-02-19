@@ -1799,8 +1799,8 @@ encode = function(region, startTime, endTime)
       local args = {}
       if ON_WINDOWS then
 	args = {"powershell", "ii", [["]] .. out_dir .. [["]]}
-      else
-	args = {"dolphin", out_dir}
+ --      else
+	-- args = {"dolphin", out_dir}
       end
       mp.command_native({name = "subprocess", args = args})
     else
