@@ -1,6 +1,5 @@
 return {
 
-	"jamespeapen/Nvim-R",
 	"michaeljsmith/vim-indent-object",
 	"lukas-reineke/indent-blankline.nvim",
 	"jbyuki/nabla.nvim",

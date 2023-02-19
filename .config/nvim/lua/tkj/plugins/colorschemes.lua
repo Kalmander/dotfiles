@@ -1,4 +1,4 @@
-local current = "onedark"
+local current = 'sonokai'
 local set_hl = vim.api.nvim_set_hl
 local function false_if_current(colorscheme, curr)
 	if colorscheme == curr then

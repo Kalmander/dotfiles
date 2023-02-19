@@ -7,7 +7,7 @@ local M = {}
 
 vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
-vim.g.maplocalleader = [[\]] -- helst hafa annað en leader fyrir r
+vim.g.maplocalleader = [[;]] -- helst hafa annað en leader fyrir r
 
 ---- Keymap Definitions ------------------------------------------------------
 M.normal_mode_keymaps = {
@@ -44,7 +44,7 @@ M.normal_mode_keymaps = {
 	["<leader>]"] = [[<cmd>set cmdheight-=1<cr>]],
 	["<leader>c"] = utils.open_calendar,
 	-- ["<leader>l"] = ':ls<cr>:b<space>' -- þetta er cool af en virkar ekki með noice atm, ætti að reynað laga
-	[";"] = '<cmd>Lf<cr>',
+	["<C-;>"] = '<cmd>Lf<cr>',
 	-- ["<C-;>"] = '<cmd>Neotree toggle left<cr>',
 	-- ["<A-;>"] = '<cmd>Neotree toggle float reveal_force_cwd<cr>',
 	["<leader>bc"] = [[yypV:'<,'>!bc -l<cr>]],

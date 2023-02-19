@@ -1,7 +1,8 @@
 return {
 	"neovim/nvim-lspconfig", -- enable LSP
 	"williamboman/mason.nvim", -- simple to use language server installer
-	"williamboman/mason-lspconfig.nvim",
+	"williamboman/mason-lspconfig.nvim", -- bridge the gap between mason and lspconfig
+	--  bara prufa
 	"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
 	"j-hui/fidget.nvim",
 	{

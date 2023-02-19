@@ -27,7 +27,7 @@ M.setup = function()
 		signs = {
 			active = signs,
 		},
-		update_in_insert = true,
+		update_in_insert = false,
 		underline = true,
 		severity_sort = true,
 		float = {
@@ -62,11 +62,6 @@ M.on_attach = function(client, bufnr)
 	end
 
 	require("tkj.keymaps"):set_lsp_keymaps(bufnr)
-	-- local status_ok, illuminate = pcall(require, "illuminate")
-	-- if not status_ok then
-	-- 	return
-	-- end
-	-- illuminate.on_attach(client)
 end
 
 return M

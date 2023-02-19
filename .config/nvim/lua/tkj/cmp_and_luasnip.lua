@@ -91,6 +91,7 @@ cmp.setup({
 	sources = {
 		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
+		{ name = "cmp_nvim_r" },
 		-- { name = "nvim_lsp_signature_help" }, -- display function signatures with current parameter emphasized
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "path" },

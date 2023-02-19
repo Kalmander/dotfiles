@@ -61,7 +61,7 @@ return {
 				width = 1,
 				height = 1,
 				default_actions = { -- default action keybindings
-					[";"] = "cd",
+					["<C-;>"] = "cd",
 					["<C-s>"] = "split", --defaultið er c-x
 				},
 				on_open = function(term)
