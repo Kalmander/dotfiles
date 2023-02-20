@@ -1,5 +1,4 @@
 set selection-clipboard clipboard
-set smooth-scroll "true"
 set font "fira code regular 15"
 
 # Litir
