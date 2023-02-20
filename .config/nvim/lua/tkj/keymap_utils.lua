@@ -1,4 +1,3 @@
-local lualine = require("tkj.lualine_settings")
 M = {}
 
 M.set_keymap = function(mode, lhs, rhs, options)

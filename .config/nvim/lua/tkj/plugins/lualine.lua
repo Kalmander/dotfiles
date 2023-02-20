@@ -4,7 +4,6 @@ return {
 		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			local lualine = require("lualine")
-			local settings = require("tkj.lualine_settings")
 
 			local function searchcount_if_hi(str)
 				if vim.v.hlsearch == 1 then
@@ -57,7 +56,21 @@ return {
 					lualine_z = {},
 				},
 				tabline = {},
-				winbar = settings.winbar,
+				winbar = {
+					lualine_a = {},
+					lualine_b = {},
+					lualine_c = {
+						{
+							function()
+								return vim.loop.cwd()
+							end,
+							color = { fg = "#7d7d7d" },
+						},
+					},
+					lualine_x = {},
+					lualine_y = { { "filename", path = 1 } },
+					lualine_z = {},
+				},
 				inactive_winbar = {},
 				extensions = {},
 			})
