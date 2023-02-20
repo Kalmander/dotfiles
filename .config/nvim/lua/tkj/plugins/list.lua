@@ -67,7 +67,7 @@ return {
 		lazy = false,
 		config = function()
 			require("toggleterm").setup({
-				-- size = 20,
+				size = 20,
 				open_mapping = [[<c-\>]],
 				hide_numbers = true,
 				shade_filetypes = {},
@@ -76,6 +76,7 @@ return {
 				start_in_insert = true,
 				insert_mappings = true,
 				persist_size = true,
+				-- direction = "horizontal",
 				direction = "float",
 				close_on_exit = true,
 				shell = vim.o.shell,
@@ -86,8 +87,8 @@ return {
 						border = "Normal",
 						background = "Normal",
 					},
-					width = 104,
-					height = 23,
+					width = 240,
+					height = 34,
 				},
 			})
 		end,
