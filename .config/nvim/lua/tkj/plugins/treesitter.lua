@@ -105,4 +105,15 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
+	{
+		"Wansmer/treesj",
+		dependencies = { "nvim-treesitter" },
+		config = function()
+			require("treesj").setup({
+				--[[ your config ]]
+				-- (<space>m - toggle, <space>j - join, <space>s - split)
+				use_default_keymaps = false,
+			})
+		end,
+	},
 }

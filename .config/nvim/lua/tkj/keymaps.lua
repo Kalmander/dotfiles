@@ -48,6 +48,7 @@ M.normal_mode_keymaps = {
 	-- ["<C-;>"] = '<cmd>Neotree toggle left<cr>',
 	-- ["<A-;>"] = '<cmd>Neotree toggle float reveal_force_cwd<cr>',
 	["<leader>bc"] = [[yypV:'<,'>!bc -l<cr>]],
+	["<leader>lm"] = [[<cmd>TSJToggle<cr>]]
 }
 
 M.visualselect_keymaps = {
@@ -70,6 +71,7 @@ M.terminal_mode_keymaps = {
 local dropdown = require("telescope.themes").get_dropdown
 local tel = require("telescope.builtin")
 local tele = require("telescope").extensions
+local telem = require("telescope").extensions.menufacture
 local bottom = { layout_strategy = "bottom_pane", sorting_strategy = "ascending", border = false }
 
 map('n', '<leader>F', tel.resume, { desc = 'Resume Previous Telescope' })
@@ -94,20 +96,20 @@ map('n', "<leader>fS", function() tel.git_status(bottom) end, { desc = 'Telescop
 map('n', "<leader>fr", function() tel.lsp_references(bottom) end, { desc = 'Telescope LSP References' })
 map('n', "<leader>fH", function() tel.highlights(bottom) end, { desc = 'Telescope Highlights' })
 map('n', "<leader>fb", function() tel.buffers(bottom) end, { desc = 'Telescope Buffers' })
-map('n', "<leader>fd", function() tel.live_grep(bottom) end, { desc = 'Telescope Live Grep CWD' })
+map('n', "<leader>fd", function() telem.live_grep(bottom) end, { desc = 'Telescope Live Grep CWD' })
 map('n', "<leader>fe", function() tel.current_buffer_fuzzy_find(bottom) end, { desc = 'Telescope Current Buffer' })
-map('n', "<leader>fs", function() tel.live_grep(bottom) end, { desc = 'Telescope Latex Snippets' })
+map('n', "<leader>fs", function() telem.live_grep(bottom) end, { desc = 'Telescope Latex Snippets' })
 map('n', "<leader>ff",
     function()
-	    tel.find_files(dropdown({ previewer = false, prompt_title = 'Find Files Under CWD' }))
+	    telem.find_files(dropdown({ previewer = false, prompt_title = 'Find Files Under CWD' }))
     end, { desc = 'Telescope Files Under CWD' })
 map('n', "<leader>fn",
     function()
-	    tel.find_files(dropdown({ previewer = false, cwd = "~/.config/nvim/", prompt_title = 'Search Neovim Config' }))
+	    telem.find_files(dropdown({ previewer = false, cwd = "~/.config/nvim/", prompt_title = 'Search Neovim Config' }))
     end, { desc = 'Telescope NeoVim Config' })
 map('n', "<leader>fN",
     function()
-	    tel.live_grep( { cwd = '~/.config/nvim/', layout_strategy = "bottom_pane", sorting_strategy = "ascending", border = false } )
+	    telem.live_grep( { cwd = '~/.config/nvim/', layout_strategy = "bottom_pane", sorting_strategy = "ascending", border = false } )
     end, { desc = 'Telescope NeoVim Config' })
 map('n', "<leader>fc", "<cmd>Cheatsheet<cr>", { desc = 'Cheatsheet' })
 

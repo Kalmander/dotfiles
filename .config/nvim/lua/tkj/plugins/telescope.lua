@@ -115,6 +115,11 @@ return {
 						sorting_strategy = "ascending",
 						border = false,
 					},
+					menufacture = {
+						mappings = {
+							main_menu = { [{ "i", "n" }] = "<C-^>" },
+						},
+					},
 				},
 			})
 			telescope.load_extension("fzf")
@@ -123,6 +128,7 @@ return {
 			telescope.load_extension("lazy")
 			telescope.load_extension("luasnip")
 			telescope.load_extension("dir")
+			telescope.load_extension("menufacture")
 		end,
 	},
 	{ "LinArcX/telescope-env.nvim" },
@@ -157,4 +163,5 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 	},
+	{ "molecule-man/telescope-menufacture" },
 }

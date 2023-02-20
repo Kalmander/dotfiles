@@ -18,6 +18,12 @@ return {
 	{ "windwp/nvim-autopairs", config = true },
 	{ "numToStr/Comment.nvim", config = true },
 	{ "kylechui/nvim-surround", config = true },
+	{
+		"m4xshen/smartcolumn.nvim",
+		opts = {
+			limit_to_window = true,
+		},
+	},
 
 	{
 		"RRethy/vim-illuminate",
@@ -37,9 +43,9 @@ return {
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			-- var augljóslega þegar með termguicolors stillt í options en
-			-- þetta plugin þarf að hafa það laodað áður en pluginið er loadað
-			-- svo best að setja það hér
+			-- var augljóslega þegar með termguicolors stillt í 
+			-- options en þetta plugin þarf að hafa það laodað 
+			-- áður en pluginið er loadað svo best að setja það hér
 			vim.opt.termguicolors = true
 			require("colorizer").setup()
 		end,
