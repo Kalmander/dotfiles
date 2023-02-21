@@ -13,15 +13,21 @@ return {
 	"MunifTanjim/nui.nvim",
 	"rhysd/clever-f.vim",
 
-	{ "nguyenvukhang/nvim-toggler", config = true },
+	{ "nguyenvukhang/nvim-toggler",   config = true },
 	{ "ziontee113/color-picker.nvim", config = true },
-	{ "windwp/nvim-autopairs", config = true },
-	{ "numToStr/Comment.nvim", config = true },
-	{ "kylechui/nvim-surround", config = true },
+	{ "windwp/nvim-autopairs",        config = true },
+	{ "numToStr/Comment.nvim",        config = true },
+	{ "kylechui/nvim-surround",       config = true },
 	{
 		"m4xshen/smartcolumn.nvim",
 		opts = {
 			limit_to_window = true,
+			disabled_filetypes = {
+				"help",
+				"text",
+				"markdown",
+				"man",
+			},
 		},
 	},
 
@@ -43,8 +49,8 @@ return {
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			-- var augljóslega þegar með termguicolors stillt í 
-			-- options en þetta plugin þarf að hafa það laodað 
+			-- var augljóslega þegar með termguicolors stillt í
+			-- options en þetta plugin þarf að hafa það laodað
 			-- áður en pluginið er loadað svo best að setja það hér
 			vim.opt.termguicolors = true
 			require("colorizer").setup()
@@ -117,19 +123,34 @@ return {
 			-- Option 2: nvim lsp as LSP client
 			-- Tell the server the capability of foldingRange,
 			-- Neovim hasn't added foldingRange to default capabilities, users must add it manually
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities.textDocument.foldingRange = {
-				dynamicRegistration = false,
-				lineFoldingOnly = true,
-			}
-			local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
-			for _, ls in ipairs(language_servers) do
-				require("lspconfig")[ls].setup({
-					capabilities = capabilities,
-					-- you can add other fields for setting up lsp server in this table
-				})
-			end
-			require("ufo").setup()
+			-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+			-- capabilities.textDocument.foldingRange = {
+			-- 	dynamicRegistration = false,
+			-- 	lineFoldingOnly = true,
+			-- }
+			-- local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+			-- for _, ls in ipairs(language_servers) do
+			-- 	require("lspconfig")[ls].setup({
+			-- 		capabilities = capabilities,
+			-- 		-- you can add other fields for setting up lsp server in this table
+			-- 	})
+			-- end
+			-- require("ufo").setup()
+			require("ufo").setup({
+				provider_selector = function(bufnr, filetype, buftype)
+					return { "treesitter", "indent" }
+				end,
+			})
+			-- Að ofan notar lsp annars vegar og svo treesitter hins
+			-- vegar til að reikna folds, var að lenda í einhverjum
+			-- bugs með markdown folding svo ég slökkti á ufo
+			-- sem provider en vildi enn halda plugininu því 
+			-- það lítur svo miklu betur út
+			-- require('ufo').setup({
+			--     provider_selector = function(bufnr, filetype, buftype)
+			-- 	return ''
+			--     end
+			-- })
 		end,
 	},
 }

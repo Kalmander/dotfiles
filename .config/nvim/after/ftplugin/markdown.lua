@@ -1,13 +1,13 @@
 vim.opt_local.keymap = "icelandic"
 vim.keymap.set({"x", "o"}, "iq", ":<c-u>normal! g_vF]2l<cr>", {silent=true})
 vim.keymap.set("n", "<leader>gp", "mygg/mynd:<CR><cmd>noh<cr>2w<cmd>silent !vimiv -s statusbar.show false -f <cfile><CR>`y<cmd>echo <CR>", { silent = true, buffer = 0 })
+vim.keymap.set("n", "[[", "<Plug>Markdown_MoveToPreviousHeader|j", { noremap = true, silent = true, buffer = 0 })
+vim.keymap.set("n", "]]", "<Plug>Markdown_MoveToNextHeader|j", { noremap = true, silent = true, buffer = 0 })
 
 local filename = vim.api.nvim_buf_get_name(0)
 if filename:match("kanban") then
 	vim.keymap.set("n", "o", "o<esc>Di- [ ] ", { noremap = true, silent = true, buffer = 0 })
 	vim.keymap.set("n", "O", "O<esc>Di- [ ] ", { noremap = true, silent = true, buffer = 0 })
-	vim.keymap.set("n", "[[", "<Plug>Markdown_MoveToPreviousHeader|j", { noremap = true, silent = true, buffer = 0 })
-	vim.keymap.set("n", "]]", "<Plug>Markdown_MoveToNextHeader|j", { noremap = true, silent = true, buffer = 0 })
 end
 if filename:match("hrafnatinna") then
         -- hendir línu neðst í næsta eða fyrra ## heading
