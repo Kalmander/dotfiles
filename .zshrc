@@ -15,7 +15,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 #Plugins
 plugins=(zsh-autosuggestions)
-plugins+=(zsh-vi-mode)
+# plugins+=(zsh-vi-mode)
 plugins+=(colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
