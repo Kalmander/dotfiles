@@ -22,6 +22,8 @@ source $ZSH/oh-my-zsh.sh
 # <<< Oh My Zsh <<<
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'
 
+bindkey '^;' autosuggest-accept
+
 #Star Ship
 # eval "$(starship init zsh)"
 
@@ -115,8 +117,8 @@ alias icat="kitty +kitten icat"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias how2='npx how2 -s'
 alias cal='calcurse -C ~/hrafnatinna/dagatal/calcurse_config -D ~/hrafnatinna/dagatal/calcurse_data && python ~/hrafnatinna/dagatal/curse2vim.py'
-alias zzz='nvim $HOME/.zshrc'
-alias zzzs='source $HOME/.zshrc'
+alias zz='nvim $HOME/.zshrc'
+alias zzs='source $HOME/.zshrc'
 alias cvim='nvim $HOME/.config/nvim/init.lua'
 alias leitner='nvim $HOME/hrafnatinna/leitner_kanban.md'
 alias cpv='nvim $HOME/.config/mpv'
