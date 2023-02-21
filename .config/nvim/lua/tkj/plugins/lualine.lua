@@ -13,6 +13,14 @@ return {
 				end
 			end
 
+			local function keymap()
+				if vim.fn.mode() ~= 'i' then return '' end
+				if vim.opt.iminsert:get() > 0 and vim.b.keymap_name then
+					return "⌨ " .. vim.b.keymap_name
+				end
+				return ""
+			end
+
 			lualine.setup({
 				options = {
 					icons_enabled = true,
@@ -36,6 +44,7 @@ return {
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff", "diagnostics" },
 					lualine_c = {
+						{ keymap },
 						{
 							require("noice").api.statusline.mode.get,
 							cond = require("noice").api.statusline.mode.has,

@@ -38,6 +38,7 @@ local options = {
 	list            = true,
 	signcolumn      = "yes", -- always show the sign column, otherwise it would shift the text each time
 	shada           = [[!,'1000,<50,s10,h]], -- breytti '100 í '1000 fyrir fleiri oldfiles
+	showmode = false,
 }
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")

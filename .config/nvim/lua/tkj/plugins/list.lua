@@ -19,6 +19,13 @@ return {
 	{ "numToStr/Comment.nvim",        config = true },
 	{ "kylechui/nvim-surround",       config = true },
 	{
+		"nvim-zh/better-escape.vim",
+		init = function()
+			vim.g.better_escape_interval = 100
+			vim.g.better_escape_shortcut = { 'jk', 'jj', 'kj', }
+		end
+	},
+	{
 		"m4xshen/smartcolumn.nvim",
 		opts = {
 			limit_to_window = true,
