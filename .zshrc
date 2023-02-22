@@ -22,7 +22,11 @@ source $ZSH/oh-my-zsh.sh
 # <<< Oh My Zsh <<<
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'
 
-bindkey '^;' autosuggest-accept
+# vildi samþykkja autosuggest með ctrl+; sem er 
+# einn af þessum venses keycode tökkum svo ég lét kitty
+# senda F10 þegar ég ýti á ctrl+; og stilly svo hér 
+# F10 (sem hefur þennan keycode) á autosuggest-accept
+bindkey '\x1b[21~' autosuggest-accept
 
 #Star Ship
 # eval "$(starship init zsh)"
