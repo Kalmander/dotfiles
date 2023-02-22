@@ -187,14 +187,33 @@ map <c-f> filter
 
 cmd on-cd &{{
     case "$PWD" in
-        */bokasafn*)
+        $HOME/bokasafn*)
             lf -remote "send $id set ratios 1:3:3"
             lf -remote "send $id echomsg changed ratios to 1:3:3"
+            ;;
+        $HOME/Downloads)
+            lf -remote "send $id set user_prev_sortby $lf_sortby"
+            lf -remote "send $id set sortby time"
+
+            lf -remote "send $id set user_prev_info $lf_info"
+            lf -remote "send $id set info time"
+            lf -remote "send $id set reverse"
+
+            lf -remote "send $id echomsg changed sort to time"
             ;;
         *)
             # restore sorting on directory exit
             lf -remote "send $id set ratios 1:2:3"
             # lf -remote "send $id echomsg restored ratios to 1:2:3"
+
+            # restore sorting on directory exit
+            if [[ "$lf_user_prev_sortby" != "" ]]; then
+                lf -remote "send $id set sortby $lf_user_prev_sortby"
+                lf -remote "send $id set noreverse"
+
+                lf -remote "send $id echomsg restored sort to $lf_user_prev_sortby"
+                lf -remote "send $id set user_prev_sortby ''"
+            fi
             ;;
     esac
 }}
