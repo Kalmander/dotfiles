@@ -1,1 +1,1 @@
-vim.cmd([[setlocal keymap=icelandic]])
+vim.cmd([[setlocal keymap=ice]])

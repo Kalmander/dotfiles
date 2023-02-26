@@ -1,1 +1,1 @@
-vim.opt_local.keymap = 'icelandic'
+vim.opt_local.keymap = 'ice'

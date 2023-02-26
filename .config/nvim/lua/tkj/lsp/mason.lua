@@ -1,14 +1,14 @@
 local servers = {
 	"lua_ls",
-	"cssls",
-	"html",
-	"tsserver",
-	"pyright",
-	"bashls",
-	"jsonls",
-	"yamlls",
+	-- "cssls",
+	-- "html",
+	-- "tsserver",
+	-- "pyright",
+	-- "bashls",
+	-- "jsonls",
+	-- "yamlls",
 	"texlab",
-	"r_language_server",
+	-- "r_language_server",
 	-- "rust_analyzer", -- rust pluginið sér um þetta
 	-- "codelldb",
 }

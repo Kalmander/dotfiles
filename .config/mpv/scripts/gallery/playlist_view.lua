@@ -1,6 +1,15 @@
 local utils = require 'mp.utils'
 local msg = require 'mp.msg'
-local misc_script = mp.command_native({"expand-path", "~~/scripts/miscellaneous_scripts/miscellaneous.lua"})
+-- local misc_script = mp.command_native({"expand-path", "~~/scripts/miscellaneous_scripts/miscellaneous.lua"})
+local scripts = mp.command_native( { "expand-path", "~~/scripts/?.lua", })
+if not string.find(package.path, scripts) then
+    package.path = scripts .. ";" .. package.path
+end
+
+local paths = require("paths")
+local gallery = require 'gallery'
+local misc = require 'miscellaneous'
+
 
 --local lib = mp.find_config_file('scripts/lib.disable')
 local script_dir =  mp.get_script_directory() 
@@ -9,22 +18,14 @@ if not lib then
     return
 end
 -- lib can be nil if the folder does not exist or we're in --no-config mode
-package.path = package.path .. ';' .. lib .. '/?.lua;' .. misc_script .. ";"
-local gallery = require 'gallery'
-local ON_WINDOWS = (package.config:sub(1,1) ~= "/")
-
-local thumbnails_dir
-if ON_WINDOWS then 
-    thumbnails_dir = mp.command_native({"expand-path", "~~exe_dir/thumbnails_gallery/"})
-else
-    thumbnails_dir = mp.command_native({"expand-path", "/mnt/derichet/mpv_thumbnails_etc/thumbnails_gallery/"})
-end
-local misc = require 'miscellaneous.lua'
+-- package.path = package.path .. ';' .. lib .. '/?.lua;' .. misc_script .. ";"
+local thumbnails_dir = paths.gallery
+local on_windows = (package.config:sub(1,1) ~= "/")
 
 
 local opts = {
-    thumbs_dir = thumbnails_dir, --ON_WINDOWS and "%APPDATA%\\mpv\\gallery-thumbs-dir" or "~/.mpv_thumbs_dir/",
-    generate_thumbnails_with_mpv = ON_WINDOWS,
+    thumbs_dir = thumbnails_dir, --on_windows and "%APPDATA%\\mpv\\gallery-thumbs-dir" or "~/.mpv_thumbs_dir/",
+    generate_thumbnails_with_mpv = on_windows,
 
     gallery_position = "{ (ww - gw) / 2, (wh - gh) / 2}",
     gallery_size = "{ 9 * ww / 10, 9 * wh / 10 }",
@@ -85,7 +86,7 @@ local opts = {
 }
 (require 'mp.options').read_options(opts, "gallery")
 
-if ON_WINDOWS then
+if on_windows then
     opts.thumbs_dir = string.gsub(opts.thumbs_dir, "^%%APPDATA%%", os.getenv("APPDATA") or "%APPDATA%")
 else
     opts.thumbs_dir = string.gsub(opts.thumbs_dir, "^~", os.getenv("HOME") or "~")
@@ -169,7 +170,7 @@ gallery.item_to_text = function(index, item)
     else
         f = item.filename
         if opts.strip_directory then
-            if ON_WINDOWS then
+            if on_windows then
                 f = string.match(f, "([^\\/]+)$") or f
             else
                 f = string.match(f, "([^/]+)$") or f

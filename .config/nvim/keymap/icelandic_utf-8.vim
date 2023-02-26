@@ -1,6 +1,6 @@
 " Maintainer: TKJ
 
-let b:keymap_name = "icelandic"
+let b:keymap_name = "ice"
 
 loadkey
 @          "

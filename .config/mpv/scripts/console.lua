@@ -440,13 +440,17 @@ function handle_enter()
     if help then
         help_command(help)
     elseif copy_line then
+
         copy_line_no = tonumber(copy_line:sub(2,-1)) + log_buffer_blank_line_count
         copy_line  = log_buffer[copy_line_no].text
-        copy_line =  copy_line:gsub('%s+$', '') --fjarlægir bil og newline í lok línu
-        copy_line = copy_line:gsub('"', '""') -- Nauðsynlegt til að escape-a " í línunni
-        args = {"powershell", "-NoProfile", "set-clipboard", [["]] .. copy_line .. [["]]}
-        --args = {[[echo|set /p=]] .. copy_line .. [[|clip]]}
-        mp.command_native({name = "subprocess", args = args})
+        local ON_WINDOWS = (package.config:sub(1,1) ~= "/")
+        if ON_WINDOWS then
+            copy_line =  copy_line:gsub('%s+$', '') --fjarlægir bil og newline í lok línu
+            copy_line = copy_line:gsub('"', '""') -- Nauðsynlegt til að escape-a " í línunni
+            args = {"powershell", "-NoProfile", "set-clipboard", [["]] .. copy_line .. [["]]}
+        else
+            mp.command_native({"run", "wl-copy", "-n", copy_line})
+        end
         mp.osd_message('Just copied line ' .. copy_line:sub(1, 4))
     else
         mp.command(line)

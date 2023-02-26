@@ -54,7 +54,7 @@ end
 local exe_dir = mp.command_native({"expand-path", "~~exe_dir/"})
 exe_dir = exe_dir:gsub('/', '\\')
 local thumbnails_dir = join_paths(exe_dir, '..\\assets\\thumbnails_seekbar') 
-thumbnails_dir = "/mnt/derichet/mpv_thumbnails_etc/thumbnails_seekbar"
+thumbnails_dir = "~/mpv_thumbs/thumbnails_seekbar"
 
 
 -- Some helper functions needed to parse the options --
