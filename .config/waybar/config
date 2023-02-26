@@ -2,9 +2,9 @@
     "height": 45,
     "spacing": 5, // Gaps between modules (4px)
 
-    "modules-left": ["wlr/workspaces", ],
+    "modules-left": ["clock", "wlr/workspaces", ],
     "modules-center": ["hyprland/window"],
-    "modules-right": [ "mpris", "hyprland/language", "tray", "pulseaudio", "backlight", "keyboard-state", "battery", "clock"],
+    "modules-right": [ "hyprland/language", "tray", "battery", "backlight", "pulseaudio", ],
 
 
     "wlr/workspaces": {
@@ -39,7 +39,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%Y-%m-%d  %H:%M}",
+        "format": "{: %H:%M   %Y-%m-%d}",
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -62,7 +62,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
