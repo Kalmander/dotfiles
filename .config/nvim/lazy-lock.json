@@ -52,6 +52,7 @@
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
   "project.nvim": { "branch": "main", "commit": "685bc8e3890d2feb07ccf919522c97f7d33b94e4" },
   "promise-async": { "branch": "main", "commit": "7fa127fa80e7d4d447e0e2c78e99af4355f4247b" },
+  "rnoweb-nvim": { "branch": "master", "commit": "668d710e5df1e7edb226e5268bc07ab788d24be5" },
   "rust-tools.nvim": { "branch": "master", "commit": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f" },
   "smartcolumn.nvim": { "branch": "main", "commit": "1202b0741b87b0815bdc6fc6ebacb2df9e6628ee" },
   "sonokai": { "branch": "master", "commit": "c55985d5df53751a44fc532a53bed3be9f3b0d14" },

@@ -1,4 +1,4 @@
-local current = 'kanagawa'
+local current = 'sonokai'
 local set_hl = vim.api.nvim_set_hl
 local function false_if_current(colorscheme, curr)
 	if colorscheme == curr then
@@ -31,6 +31,7 @@ return {
 	        vim.g.sonokai_style = "atlantis"
 	        --	`'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`,`'espresso'`
 	        vim.g.sonokai_enable_italic = 1
+	        vim.g.sonokai_transparent_background = 1
 
 	        vim.cmd.colorscheme("sonokai")
 

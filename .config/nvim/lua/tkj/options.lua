@@ -42,7 +42,7 @@ local options = {
 }
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
-vim.g.vim_markdown_math = 1
+-- vim.g.vim_markdown_math = 1
 vim.g['pencil#conceallevel'] = options.conceallevel
 vim.g['pencil#concealcursor'] = options.concealcursor
 vim.g['pencil#cursorwrap'] = 0 -- sleppir því að fokka í defaultinu

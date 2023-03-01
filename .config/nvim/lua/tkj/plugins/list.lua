@@ -13,6 +13,25 @@ return {
 	"MunifTanjim/nui.nvim",
 	"rhysd/clever-f.vim",
 
+	{ 'bamonroe/rnoweb-nvim',
+		dependencies = {
+			'nvim-lua/plenary.nvim'
+		},
+		config = function()
+			local rnw = require('rnoweb-nvim')
+			rnw.setup()
+			-- Below is user-specific, put your own replacements here
+			-- rnw.symbols.set_sym("latex", "\\gi", { "g⁻¹" })
+			-- rnw.symbols.set_sym("latex", "\\@", { "" })
+			-- rnw.symbols.set_sym("latex", '\\CE', { "CE" })
+			-- rnw.symbols.set_sym("latex", '\\CS', { "CS" })
+			-- rnw.symbols.set_sym("latex", '\\Pr', { "Pr" })
+			-- rnw.symbols.set_sym("latex", '\\pr', { "Pr(", ")" })
+			-- rnw.symbols.set_sym("latex", "\\email", { "✉ :", "" })
+			-- rnw.symbols.set_sym("latex", "\\gbar", { "(", " ︳", ")" })
+			-- rnw.symbols.set_sym("latex", "\\gbar*", { "", " ︳", "" })
+		end
+	},
 	{ "nguyenvukhang/nvim-toggler",   config = true },
 	{ "ziontee113/color-picker.nvim", config = true },
 	{ "windwp/nvim-autopairs",        config = true },
@@ -151,7 +170,7 @@ return {
 			-- Að ofan notar lsp annars vegar og svo treesitter hins
 			-- vegar til að reikna folds, var að lenda í einhverjum
 			-- bugs með markdown folding svo ég slökkti á ufo
-			-- sem provider en vildi enn halda plugininu því 
+			-- sem provider en vildi enn halda plugininu því
 			-- það lítur svo miklu betur út
 			-- require('ufo').setup({
 			--     provider_selector = function(bufnr, filetype, buftype)

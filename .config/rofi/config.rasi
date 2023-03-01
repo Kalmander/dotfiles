@@ -51,7 +51,7 @@ configuration {
 	}
 
 	/*---------- History and Sorting ----------*/
-	sort: true;
+	/* sort: true; */
         sorting-method: "fzf";
 	disable-history: false;
 	sorting-method: "normal";

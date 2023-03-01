@@ -155,6 +155,7 @@ if [ -f "$LFCD" ]; then
 	    source "$LFCD"
 fi
 
+PATH=$PATH:~/.local/bin/
 
 
 # Fish like navigation
