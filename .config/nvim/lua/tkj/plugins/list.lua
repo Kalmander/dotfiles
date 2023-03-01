@@ -11,7 +11,18 @@ return {
 	"itchyny/calendar.vim",
 	"kana/vim-textobj-user",
 	"MunifTanjim/nui.nvim",
-	"rhysd/clever-f.vim",
+	-- "rhysd/clever-f.vim",
+	{
+		'echasnovski/mini.jump',
+		config = function()
+			local opts = {
+				mappings = {
+					repeat_jump = '',
+				}
+			}
+			require("mini.jump").setup(opts)
+		end
+	},
 
 	{ 'bamonroe/rnoweb-nvim',
 		dependencies = {
@@ -31,6 +42,10 @@ return {
 			-- rnw.symbols.set_sym("latex", "\\gbar", { "(", " ︳", ")" })
 			-- rnw.symbols.set_sym("latex", "\\gbar*", { "", " ︳", "" })
 		end
+	},
+	{
+		"lkhphuc/jupyter-kernel.nvim",
+		config = true
 	},
 	{ "nguyenvukhang/nvim-toggler",   config = true },
 	{ "ziontee113/color-picker.nvim", config = true },

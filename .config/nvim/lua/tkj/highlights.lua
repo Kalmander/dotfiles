@@ -9,6 +9,8 @@ set_hl(0, "IlluminatedWordText", { bold = true })
 set_hl(0, "IlluminatedWordRead", { bold = true })
 set_hl(0, "IlluminatedWordWrite", { bold = true })
 
+set_hl(0, "MiniJump", { bold = true, italic = true })
+
 
 -- til að gera cursorinn hvítann í insert mode því ég nota kitty litinn sem
 -- líkir eftir bakgrunni og það sést stundum illa í insert mode
