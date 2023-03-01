@@ -20,17 +20,14 @@ return {
 		config = function()
 			local rnw = require('rnoweb-nvim')
 			rnw.setup()
-			-- Below is user-specific, put your own replacements here
-			-- rnw.symbols.set_sym("latex", "\\gi", { "g⁻¹" })
-			-- rnw.symbols.set_sym("latex", "\\@", { "" })
-			-- rnw.symbols.set_sym("latex", '\\CE', { "CE" })
-			-- rnw.symbols.set_sym("latex", '\\CS', { "CS" })
-			-- rnw.symbols.set_sym("latex", '\\Pr', { "Pr" })
-			-- rnw.symbols.set_sym("latex", '\\pr', { "Pr(", ")" })
-			-- rnw.symbols.set_sym("latex", "\\email", { "✉ :", "" })
-			-- rnw.symbols.set_sym("latex", "\\gbar", { "(", " ︳", ")" })
-			-- rnw.symbols.set_sym("latex", "\\gbar*", { "", " ︳", "" })
 		end
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		build = function() vim.fn["mkdp#util#install"]() end,
+		-- build = "cd app && npm install",
+		-- setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+		-- ft = { "markdown" },
 	},
 	{ "nguyenvukhang/nvim-toggler",   config = true },
 	{ "ziontee113/color-picker.nvim", config = true },
