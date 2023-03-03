@@ -49,6 +49,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "190561df8995ff9526c06d33cf17416b9e0791e3" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "4b30081d2736e09f90c890a8a7adfe4df36f5b36" },
   "nvim-ufo": { "branch": "main", "commit": "9e829d5cfa3de6a2ff561d86399772b0339ae49d" },
+  "nvim-various-textobjs": { "branch": "main", "commit": "e5a3de2e38bc21b19e6137b789cb017b940451bc" },
   "nvim-web-devicons": { "branch": "master", "commit": "c2c2317f356c8b7da0252f5da758f71bb60bb6b2" },
   "onedark.nvim": { "branch": "master", "commit": "1fe908fb4acdcee26573e9ccde0de94ec77e5e84" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
@@ -90,6 +91,6 @@
   "vimtex": { "branch": "master", "commit": "b43770460eed7d86618c0128ab4499bf8aa9903e" },
   "which-key.nvim": { "branch": "main", "commit": "fb027738340502b556c3f43051f113bcaa7e8e63" },
   "wiki-ft.vim": { "branch": "master", "commit": "5d3624c1c88758a1db49b7b86ff930c54c6b2e42" },
-  "wiki.vim": { "branch": "master", "commit": "96bb3c921d369df3e089ff6af677b53fe8146166" },
+  "wiki.vim": { "branch": "master", "commit": "c3143806da2655f58ad0b919468adffa54d5d8dd" },
   "zen-mode.nvim": { "branch": "main", "commit": "4f2e70d75b7ece1c2a7c852664db492537078996" }
 }

@@ -11,14 +11,19 @@ return {
 	"itchyny/calendar.vim",
 	"kana/vim-textobj-user",
 	"MunifTanjim/nui.nvim",
-	-- "rhysd/clever-f.vim",
+	{
+		"chrisgrieser/nvim-various-textobjs",
+		opts = {
+			useDefaultKeymaps = true
+		},
+	},
 	{
 		'echasnovski/mini.indentscope',
 		config = function()
 			require("mini.indentscope").setup({
 				draw = {
 					animation = require("mini.indentscope").
-						gen_animation.quadratic({
+					gen_animation.quadratic({
 						easing = 'out',
 						duration = 100,
 						unit = 'total',
