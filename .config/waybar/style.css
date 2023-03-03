@@ -9,44 +9,25 @@
 
 window#waybar {
     background: rgba(21, 18, 27, 0);
-    color: #1c1e1f;
 }
 
-tooltip {
-    background: #1e1e2e;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+#workspaces {
+    padding: 0px 5px 0px 5px;
+    margin-left: 10px;
+    background-color: #222327;
 }
 
 #workspaces button {
     padding: 5px 10px 5px 10px;
-    /* color: #76cce0; */
-    color: #1c1e1f;
-    /* margin-right: 5px; */
-}
-
-#workspaces button{
-    /* color: #76cce0; */
+    /* color: #1382ae; */
 }
 
 #workspaces button.active {
-    background-color: #7eaaf1;
-}
-
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
-}
-
-#workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
-}
-
-#workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
+    /* padding: 10px 15px 10px 15px; */
+    /* color: #b39df3; */
+    color: #f39660;
+    /* margin: 5px 0px; */
+    margin-top: 3px;
 }
 
 #custom-language,
@@ -60,7 +41,7 @@ tooltip {
 #network,
 #workspaces,
 #tray,
-/* #mpd:not(.disconnected), */
+#mpd,
 #backlight {
     background: #222327;
     margin: 3px 0px;
@@ -70,18 +51,13 @@ tooltip {
 }
 
 #tray {
-    background: #414b53;
+    background: #222327;
     margin: 3px 0px;
     margin-top: 10px;
     padding: 0px 10px 0px 10px;
     border: 1px solid #181825;
 }
 
-#workspaces {
-    padding: 0px 5px 0px 5px;
-    margin-left: 10px;
-    background-color: #76cce0;
-}
 
 #language {
     color: #f38ba8;
@@ -101,11 +77,11 @@ tooltip {
 #window {
     margin-left: 60px;
     margin-right: 60px;
-    background-color: #b39df3;
+    color: #e2e2e3
 }
 
 #clock {
-    background-color: #e7c664;
+    color: #e7c664;
     padding: 5px 15px 5px 15px;
     /* margin: 0px 10px 0px 10px; */
     margin-left: 10px;
@@ -113,16 +89,10 @@ tooltip {
 }
 
 #pulseaudio {
-    background-color: #fc5d7c;
+    color: #fc5d7c;
     border-left: 0px;
     border-right: 0px;
     margin-right: 10px;
-}
-
-#pulseaudio.microphone {
-    color: #cba6f7;
-    border-left: 0px;
-    border-right: 0px;
 }
 
 #battery {
@@ -133,11 +103,12 @@ tooltip {
 }
 
 #mpd {
-    font-size: 14px;
-    background: #9ed072;
-    margin: 3px 0px;
-    margin-top: 10px;
-    padding: 0px 10px 0px 10px;
-    border: 1px solid #181825;
+    color: #b39df3;
+/*     font-size: 14px; */
+/*     background: #222327; */
+/*     margin: 3px 0px; */
+/*     margin-top: 10px; */
+/*     padding: 0px 10px 0px 10px; */
+/*     border: 1px solid #181825; */
 }
 
