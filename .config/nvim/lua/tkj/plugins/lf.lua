@@ -3,41 +3,41 @@
 -- svo ég koppíaði það hingað og þá virkaði allt
 local api = vim.api
 local fn = vim.fn
-local group = api.nvim_create_augroup("ReplaceNetrwWithLf", {clear = true})
+local group = api.nvim_create_augroup("ReplaceNetrwWithLf", { clear = true })
 api.nvim_create_autocmd(
-    "VimEnter",
-    {
-	pattern = "*",
-	group = group,
-	once = true,
-	callback = function()
-	    if fn.exists("#FileExplorer") then
-		vim.cmd("silent! autocmd! FileExplorer")
-	    end
-	end
-    }
+	"VimEnter",
+	{
+		pattern = "*",
+		group = group,
+		once = true,
+		callback = function()
+			if fn.exists("#FileExplorer") then
+				vim.cmd("silent! autocmd! FileExplorer")
+			end
+		end
+	}
 )
 api.nvim_create_autocmd(
-    "BufEnter",
-    {
-	pattern = "*",
-	group = group,
-	once = true,
-	callback = function()
-	    local bufnr = api.nvim_get_current_buf()
-	    local path = require("plenary.path"):new(fn.expand("%"))
-	    if path:is_dir() and fn.argc() ~= 0 then
-		vim.cmd(("sil! bwipeout! %s"):format(bufnr))
+	"BufEnter",
+	{
+		pattern = "*",
+		group = group,
+		once = true,
+		callback = function()
+			local bufnr = api.nvim_get_current_buf()
+			local path = require("plenary.path"):new(fn.expand("%"))
+			if path:is_dir() and fn.argc() ~= 0 then
+				vim.cmd(("sil! bwipeout! %s"):format(bufnr))
 
-		vim.defer_fn(
-		    function()
-			require("lf").start(path:absolute())
-		    end,
-		    1
-		)
-	    end
-	end
-    }
+				vim.defer_fn(
+					function()
+						require("lf").start(path:absolute())
+					end,
+					1
+				)
+			end
+		end
+	}
 )
 
 
@@ -52,14 +52,14 @@ return {
 			require("lf").setup({
 				escape_quit = false,
 				border = "solid",
-				-- highlights = { FloatBorder = { guifg = require("kimbox.palette").colors.magenta } },
-				direction = "float",
+				-- highlights = {}, -- þarf að vera tómt fyrir transparency
+				direction = "horizontal",
 				-- open_mapping = [[;]],
 				-- on_open = function() vim.cmd([[:Lf<cr>]]) end,
-				shade_terminals = false,
+				shade_terminals = true,
 				winblend = 0,
-				width = 1,
-				height = 1,
+				-- width = 1,
+				-- height = .8,
 				default_actions = { -- default action keybindings
 					["<C-;>"] = "cd",
 					["<C-s>"] = "split", --defaultið er c-x
