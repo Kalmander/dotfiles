@@ -28,7 +28,7 @@ return {
 
 			vim.g.sonokai_better_performance = 1
 			vim.g.sonokai_diagnostic_virtual_text = "colored" -- grey eða  colored
-			vim.g.sonokai_style = "atlantis"
+			vim.g.sonokai_style = "default"
 			--	`'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`,`'espresso'`
 			vim.g.sonokai_enable_italic = 1
 			vim.g.sonokai_transparent_background = 1
@@ -83,8 +83,9 @@ return {
 
 			-- Þarft ekki setupið nema þú viljir breyta settings
 			require("onedark").setup({
-				style = "deep",
 				--> 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+				style = "deep",
+				transparent = true,
 
 				-- toggle_style_key = "<leader>ts",
 			})

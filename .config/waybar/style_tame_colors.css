@@ -9,7 +9,7 @@
 
 window#waybar {
     background: rgba(21, 18, 27, 0);
-    color: #1c1e1f;
+    color: #cdd6f4;
 }
 
 tooltip {
@@ -21,17 +21,18 @@ tooltip {
 
 #workspaces button {
     padding: 5px 10px 5px 10px;
-    /* color: #76cce0; */
-    color: #1c1e1f;
-    /* margin-right: 5px; */
+    color: #313244;
+    margin-right: 5px;
 }
 
 #workspaces button{
-    /* color: #76cce0; */
+    color: #a6adc8;
+    /* color: #ff7d60; */
 }
 
 #workspaces button.active {
-    background-color: #7eaaf1;
+    /* color: #a6adc8; */
+    color: #fab387;
 }
 
 #workspaces button.focused {
@@ -60,9 +61,9 @@ tooltip {
 #network,
 #workspaces,
 #tray,
-/* #mpd:not(.disconnected), */
+#mpd:not(.disconnected),
 #backlight {
-    background: #222327;
+    background: #1e1e2e;
     margin: 3px 0px;
     margin-top: 10px;
     padding: 0px 10px 0px 10px;
@@ -70,17 +71,19 @@ tooltip {
 }
 
 #tray {
-    background: #414b53;
-    margin: 3px 0px;
-    margin-top: 10px;
-    padding: 0px 10px 0px 10px;
-    border: 1px solid #181825;
+    margin-right: 0px;
 }
 
 #workspaces {
     padding: 0px 5px 0px 5px;
+    background: #1e1e2e;
     margin-left: 10px;
-    background-color: #76cce0;
+}
+
+#custom-caffeine {
+    color: #89dceb;
+    border-right: 0px;
+    margin-left: 10px;
 }
 
 #language {
@@ -101,11 +104,10 @@ tooltip {
 #window {
     margin-left: 60px;
     margin-right: 60px;
-    background-color: #b39df3;
 }
 
 #clock {
-    background-color: #e7c664;
+    color: #fab387;
     padding: 5px 15px 5px 15px;
     /* margin: 0px 10px 0px 10px; */
     margin-left: 10px;
@@ -113,7 +115,7 @@ tooltip {
 }
 
 #pulseaudio {
-    background-color: #fc5d7c;
+    color: #89b4fa;
     border-left: 0px;
     border-right: 0px;
     margin-right: 10px;
@@ -134,10 +136,15 @@ tooltip {
 
 #mpd {
     font-size: 14px;
-    background: #9ed072;
-    margin: 3px 0px;
-    margin-top: 10px;
-    padding: 0px 10px 0px 10px;
-    border: 1px solid #181825;
+}
+
+#mpd.playing {
+    color: #b2e076;
+}
+
+#
+
+#mpd.paused {
+    color: #e37272;
 }
 
