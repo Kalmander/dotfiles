@@ -17,7 +17,8 @@ return {
 		config = function()
 			require("mini.indentscope").setup({
 				draw = {
-					animation = require("mini.indentscope").gen_animation.quadratic({
+					animation = require("mini.indentscope").
+						gen_animation.quadratic({
 						easing = 'out',
 						duration = 100,
 						unit = 'total',
@@ -73,6 +74,7 @@ return {
 	{
 		"m4xshen/smartcolumn.nvim",
 		opts = {
+			colorcolumn = 90,
 			limit_to_window = true,
 			disabled_filetypes = {
 				"help",
