@@ -123,10 +123,12 @@ alias how2='npx how2 -s'
 alias cal='calcurse -C ~/hrafnatinna/dagatal/calcurse_config -D ~/hrafnatinna/dagatal/calcurse_data && python ~/hrafnatinna/dagatal/curse2vim.py'
 alias zz='nvim $HOME/.zshrc'
 alias zzs='source $HOME/.zshrc'
+alias hh='nvim $HOME/.config/hypr/hyprland.conf'
 alias cvim='nvim $HOME/.config/nvim/init.lua'
 alias leitner='nvim $HOME/hrafnatinna/leitner_kanban.md'
 alias cpv='nvim $HOME/.config/mpv'
 alias bc='bc -l'
+alias mpdmpd='mpd && mpDris2 & ncmpcpp'
 
 function nman() {
   nvim -c "Man $1" +only

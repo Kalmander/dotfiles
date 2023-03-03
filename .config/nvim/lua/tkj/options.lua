@@ -42,6 +42,7 @@ local options = {
 }
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
+vim.opt.listchars:remove("tab:>")
 -- vim.g.vim_markdown_math = 1
 vim.g['pencil#conceallevel'] = options.conceallevel
 vim.g['pencil#concealcursor'] = options.concealcursor

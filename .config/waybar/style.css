@@ -7,6 +7,18 @@
     min-height: 0;
 }
 
+#mpd {
+    font-size: 14px;
+}
+
+#mpd.playing {
+    color: #b2e076;
+}
+
+#mpd.paused {
+    color: #e37272;
+}
+
 window#waybar {
     background: rgba(21, 18, 27, 0);
     color: #cdd6f4;
@@ -61,6 +73,7 @@ tooltip {
 #network,
 #workspaces,
 #tray,
+#mpd,
 #backlight {
     background: #1e1e2e;
     margin: 3px 0px;
