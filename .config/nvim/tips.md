@@ -1,3 +1,11 @@
+- Breyta fjolda spaces i indent! Fyrst geriru
+:set ts=2 sts=2 noet
+:retab!
+til að breyta öllu í tabs og svo
+:set ts=4 sts=4 et
+:retab
+til að breyta tabs í spaces
+
 - enew|pu=execute('verbose map') til að fá output af command í nýjan buffer
 
 - Algjör óþarfi að hafa whole doc textobj, nota frekar bara :%y (hvað ertað fara gera annað en yank?)
