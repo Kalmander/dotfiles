@@ -50,7 +50,7 @@ return {
 			vim.g.lf_netrw = 1
 
 			require("lf").setup({
-				escape_quit = false,
+				escape_quit = true,
 				border = "solid",
 				-- highlights = {}, -- þarf að vera tómt fyrir transparency
 				direction = "horizontal",
@@ -58,21 +58,19 @@ return {
 				-- on_open = function() vim.cmd([[:Lf<cr>]]) end,
 				shade_terminals = true,
 				winblend = 0,
-				-- width = 1,
-				-- height = .8,
 				default_actions = { -- default action keybindings
 					["<C-;>"] = "cd",
 					["<C-s>"] = "split", --defaultið er c-x
 				},
-				on_open = function(term)
-					vim.api.nvim_buf_set_keymap(
-						term.bufnr,
-						"t",
-						"a",
-						"<cmd>close<CR>",
-						{ noremap = true, silent = true }
-					)
-				end,
+				-- on_open = function(term)
+				-- 	vim.api.nvim_buf_set_keymap(
+				-- 		term.bufnr,
+				-- 		"t",
+				-- 		";",
+				-- 		"<cmd>close<CR>",
+				-- 		{ noremap = true, silent = true }
+				-- 	)
+				-- end,
 			})
 		end,
 		dependencies = { "plenary.nvim", "toggleterm.nvim" },
