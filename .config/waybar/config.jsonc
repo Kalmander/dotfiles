@@ -1,10 +1,10 @@
 {
     "height": 45,
-    "spacing": 5, // Gaps between modules (4px)
+    "spacing": 7, // Gaps between modules (4px)
 
     "modules-left": [ "clock", "wlr/workspaces", ],
     "modules-center": [ "hyprland/window" ],
-    "modules-right": [ "tray", "hyprland/language", "mpd", "battery", "backlight", "pulseaudio", ],
+    "modules-right": [ "mpd", "tray", "hyprland/language", "battery", "backlight", "pulseaudio", ],
 
     "mpd": {
             "format": "󰽰 {artist}: {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})  ",

@@ -11,25 +11,6 @@ window#waybar {
     background: rgba(21, 18, 27, 0);
 }
 
-#workspaces {
-    padding: 0px 5px 0px 5px;
-    margin-left: 10px;
-    background-color: #222327;
-}
-
-#workspaces button {
-    padding: 5px 10px 5px 10px;
-    /* color: #1382ae; */
-}
-
-#workspaces button.active {
-    /* padding: 10px 15px 10px 15px; */
-    /* color: #b39df3; */
-    color: #f39660;
-    /* margin: 5px 0px; */
-    margin-top: 3px;
-}
-
 #custom-language,
 #custom-updates,
 #custom-caffeine,
@@ -42,12 +23,50 @@ window#waybar {
 #workspaces,
 #tray,
 #mpd,
+#language,
 #backlight {
     background: #222327;
-    margin: 3px 0px;
     margin-top: 10px;
     padding: 0px 10px 0px 10px;
     border: 1px solid #181825;
+}
+
+#clock {
+    color: #76cce0;
+    padding: 5px 15px 5px 15px;
+    margin-left: 12px;
+}
+
+#workspaces {
+    padding: 0px 5px 0px 5px;
+    background-color: #222327;
+}
+
+#workspaces button {
+    padding: 5px 10px 5px 10px;
+}
+
+#workspaces button.active {
+    color: #f39660;
+    margin-top: 3px;
+}
+
+#window {
+    padding: 0px 15px 0px 15px;
+    margin-left: 60px;
+    margin-right: 60px;
+    color: #e2e2e3
+}
+
+#mpd {
+    color: #b39df3;
+}
+
+#mpd.disconnected {
+    background: #00000000;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
 }
 
 #tray {
@@ -58,57 +77,17 @@ window#waybar {
     border: 1px solid #181825;
 }
 
-
-#language {
-    color: #f38ba8;
-    border-left: 0px;
-    border-right: 0px;
-    margin-top: 6px;
-    margin-right: 6px;
-    font-size: 17px;
-}
-
-#custom-updates {
-    color: #f5c2e7;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-#window {
-    margin-left: 60px;
-    margin-right: 60px;
-    color: #e2e2e3
-}
-
-#clock {
-    color: #e7c664;
-    padding: 5px 15px 5px 15px;
-    /* margin: 0px 10px 0px 10px; */
-    margin-left: 10px;
-    border-right: 0px;
-}
-
-#pulseaudio {
-    color: #fc5d7c;
-    border-left: 0px;
-    border-right: 0px;
-    margin-right: 10px;
-}
-
 #battery {
     color: #a6e3a1;
-    /* margin-right: 10px; */
     border-right: 30px;
     padding: 0px 20px 0px 10px;
 }
 
-#mpd {
-    color: #b39df3;
-/*     font-size: 14px; */
-/*     background: #222327; */
-/*     margin: 3px 0px; */
-/*     margin-top: 10px; */
-/*     padding: 0px 10px 0px 10px; */
-/*     border: 1px solid #181825; */
+#backlight{
+    color: #e5c463;
 }
 
+#pulseaudio {
+    color: #fc5d7c;
+    margin-right: 12px;
+}
