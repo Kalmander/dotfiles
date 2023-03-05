@@ -22,8 +22,10 @@ configuration {
         anchor: north;
 
 	/*---------- Matching setting ----------*/
-	matching: "normal";
-	tokenize: true;
+	matching: "fuzzy";
+	sort: true;
+        sorting-method: "fzf";
+        tokenize: true;
 
 	/*---------- Drun settings ----------*/
 	drun-categories: "";
@@ -51,10 +53,7 @@ configuration {
 	}
 
 	/*---------- History and Sorting ----------*/
-	/* sort: true; */
-        sorting-method: "fzf";
 	disable-history: false;
-	sorting-method: "normal";
 	max-history-size: 125;
 
 	/*---------- Display setting ----------*/
