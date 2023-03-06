@@ -10,42 +10,17 @@ configuration {
 	/*---------- General setting ----------*/
 	modi: "drun,run";
 	case-sensitive: false;
-	cycle: true;
-	filter: "";
-	scroll-method: 0;
+	cycle: false;
 	normalize-match: true;
 	show-icons: true;
 	icon-theme: "Papirus";
-/*	cache-dir: ;*/
 	steal-focus: false;
-/*	dpi: -1;*/
-        anchor: north;
 
 	/*---------- Matching setting ----------*/
 	matching: "fuzzy";
 	sort: true;
         sorting-method: "fzf";
         tokenize: true;
-
-	/*---------- Drun settings ----------*/
-	drun-categories: "";
-	drun-match-fields: "name,generic,exec,categories,keywords";
-	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-	drun-show-actions: false;
-	drun-url-launcher: "xdg-open";
-	drun-use-desktop-cache: false;
-	drun-reload-desktop-cache: false;
-	drun {
-		/** Parse user desktop files. */
-		parse-user:   true;
-		/** Parse system desktop files. */
-		parse-system: true;
-    }
-
-	/*---------- Run settings ----------*/
-	run-command: "{cmd}";
-	run-list-command: "";
-	run-shell-command: "{terminal} -e {cmd}";
 
 	/*---------- Fallback Icon ----------*/
 	run,drun {
