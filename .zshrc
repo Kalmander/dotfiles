@@ -113,6 +113,7 @@ LFCD="$HOME/.config/lf/lfcd.sh"
 if [ -f "$LFCD" ]; then
         source "$LFCD"
 fi
+alias lf=ld
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g !'**/thumbnails_seekbar/**' -g !'**/backups/backup/**'"
 
