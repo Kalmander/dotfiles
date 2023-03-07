@@ -9,7 +9,7 @@ local clips_dir
 if ON_WINDOWS then
     clips_dir = mp.command_native({"expand-path", "~~exe_dir/clips/"})
 else
-    clips_dir = mp.command_native({"expand-path", "/mnt/derichet/mpv_thumbnails_etc/clips/"})
+    clips_dir = mp.command_native({"expand-path", "/mnt/derichet/clips"})
 end
 
 local options = {
