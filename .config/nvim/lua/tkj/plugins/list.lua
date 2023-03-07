@@ -12,6 +12,18 @@ return {
 	"kana/vim-textobj-user",
 	"MunifTanjim/nui.nvim",
 	{
+		"Julian/lean.nvim",
+		opts = {
+			abbreviations = { builtin = true },
+			lsp = {
+				on_attach = function(_, bufnr)
+						require("tkj.keymaps"):set_lsp_keymaps(bufnr)
+					end,
+			},
+			mappings = true,
+		}
+	},
+	{
 		"chrisgrieser/nvim-various-textobjs",
 		opts = {
 			useDefaultKeymaps = true
