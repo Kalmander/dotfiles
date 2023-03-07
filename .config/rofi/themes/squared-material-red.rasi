@@ -93,3 +93,23 @@ element-icon {
 element-text {
     text-color: inherit;
 }
+
+
+window {
+    anchor:   north;
+    location: north;
+    y-offset: 35%;
+    width: 25%;
+}
+
+
+configuration {
+	case-sensitive: false;
+	normalize-match: false;
+	show-icons: true;
+	matching: "prefix";
+	sort: true;
+        sorting-method: "levenshtein";
+        tokenize: true;
+        prompt: "Man-page search:";
+}
