@@ -1,12 +1,12 @@
 colors:
-  # Theme colors
+  # Theme colors b39df3
   background_color: '1a1a1a'
   purple: "ae81ff"
-  khaki: "e6db74"
-  pink: "f92672"
-  cyan: "66d9ef"
+  khaki: "fc5d7c"
+  pink: "fc5d7c"
+  cyan: "85d3f2"
   green: "a6e22e"
-  orange: "fd971f"
+  orange: "f39660"
 
   # Others
   white: "ffffff"
@@ -14,8 +14,9 @@ colors:
   red: "ff4a44"
   gray: "b6b6b6"
   dimgray: "7a7070"
-  gold: "e2d139"
-  springgreen: "2bb7ee"
+  gold: "a7df78"
+  # springgreen: "2bb7ee"
+  springgreen: "b39df3"
   darkgray: "333333"
 
 core:
