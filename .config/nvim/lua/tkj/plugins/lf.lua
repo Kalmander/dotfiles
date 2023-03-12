@@ -72,6 +72,8 @@ return {
 				-- 	)
 				-- end,
 			})
+
+			vim.keymap.set("n", ";", "<cmd>Lf<cr>")
 		end,
 		dependencies = { "plenary.nvim", "toggleterm.nvim" },
 	},

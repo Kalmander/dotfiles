@@ -1,32 +1,34 @@
+local function searchcount_if_hi(str)
+        if vim.v.hlsearch == 1 then
+                return str
+        else
+                return ""
+        end
+end
+
+local function keymap()
+        -- if vim.fn.mode() ~= 'i' then return '' end
+        if vim.opt.iminsert:get() > 0 and vim.b.keymap_name then
+                return "⌨ " .. vim.b.keymap_name
+        end
+        return ""
+end
+
 return {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
-			local lualine = require("lualine")
-
-			local function searchcount_if_hi(str)
-				if vim.v.hlsearch == 1 then
-					return str
-				else
-					return ""
-				end
-			end
-
-			local function keymap()
-				if vim.fn.mode() ~= 'i' then return '' end
-				if vim.opt.iminsert:get() > 0 and vim.b.keymap_name then
-					return "⌨ " .. vim.b.keymap_name
-				end
-				return ""
-			end
-
-			lualine.setup({
+			require("lualine").setup({
 				options = {
 					icons_enabled = true,
 					theme = "auto",
-					component_separators = { left = "", right = "" },
-					section_separators = { left = "", right = "" },
+					-- component_separators = { left = "", right = "" },
+					-- section_separators = { left = "", right = "" },
+                                        -- section_separators = { left = '', right = '' },
+                                        -- component_separators = { left = '', right = '' },
+					component_separators = { " ", " " },
+					section_separators = { left = "", right = "" },
 					disabled_filetypes = {
 						statusline = { "toggleterm" },
 						winbar = { "toggleterm" },
@@ -45,46 +47,28 @@ return {
 					lualine_b = { "branch", "diff", "diagnostics" },
 					lualine_c = {
 						{ keymap },
+						-- { "searchcount", searchcount_if_hi },
+						function()
+							return "%="
+						end,
 						{
-							require("noice").api.statusline.mode.get,
-							cond = require("noice").api.statusline.mode.has,
-							color = { fg = "#ff9e64" },
-						},
-						{ "searchcount", searchcount_if_hi },
+							"filename",
+							path = 1,
+							newfile_status = true,
+							shorting_target=1000,
+							symbols = {
+							  modified = "落",
+							  readonly = "",
+							  unnamed = "[No Name]",
+							  newfile = "[New]",
+							},
+						}
 					},
-					lualine_x = { "encoding", "fileformat", "filetype" },
+				        lualine_x = { "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
 				},
-				inactive_sections = {
-					lualine_a = {},
-					lualine_b = {},
-					lualine_c = { "filename" },
-					lualine_x = { "location" },
-					lualine_y = {},
-					lualine_z = {},
-				},
-				tabline = {},
-				winbar = {
-					lualine_a = {},
-					lualine_b = {},
-					lualine_c = {
-						{
-							function()
-								return vim.loop.cwd()
-							end,
-							color = { fg = "#7d7d7d" },
-						},
-					},
-					lualine_x = {},
-					lualine_y = { { "filename", path = 1 } },
-					lualine_z = {},
-				},
-				inactive_winbar = {},
-				extensions = {},
 			})
-
-			return M
 		end,
 	},
 }

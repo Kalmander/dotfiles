@@ -8,20 +8,21 @@ return {
 		end,
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = "all", -- one of "all" or a list of languages
-				ignore_install = { "phpdoc" }, -- List of parsers to ignore installing, phpdoc installið var eitthvað bugged og þarf það ekki
+				ensure_installed = "all",
+                                -- phpdoc installið var eitthvað bugged og þarf það ekki
+				ignore_install = { "phpdoc" }, 
 				highlight = {
-					enable = true, -- false will disable the whole extension
-					disable = { "latex", "css" }, -- list of language that will be disabled
+					enable = true,
+					-- disable = { "latex", "css" },
 					additional_vim_regex_highlighting = { "markdown", "rmd" },
 				},
 				autopairs = {
 					enable = true,
 				},
 				indent = { enable = true, disable = { "python", "css" } },
-				rainbow = {
-					enable = true,
-				},
+				-- rainbow = {
+				-- 	enable = true,
+				-- },
 				matchup = {
 					enable = true, -- mandatory, false will disable the whole extension
 				},
@@ -114,8 +115,8 @@ return {
 			})
 		end,
 	},
-	{
-		"HiPhish/nvim-ts-rainbow2",
-		dependencies = { "nvim-treesitter" },
-	}
+	-- {
+	-- 	"HiPhish/nvim-ts-rainbow2",
+	-- 	dependencies = { "nvim-treesitter" },
+	-- }
 }

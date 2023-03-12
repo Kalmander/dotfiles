@@ -1,4 +1,4 @@
-vim.cmd([[setlocal keymap=ice]])
+vim.opt_local.keymap = "ice"
 vim.g.vimtex_view_general_viewer='zathura'
 vim.g.vimtex_view_zathura_options = '-reuse-instance'
 vim.g.vimtex_compiler_latexmk = {build_dir= '../build'}

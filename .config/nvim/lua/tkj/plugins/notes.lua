@@ -1,13 +1,11 @@
 return {
-	"godlygeek/tabular",
 	{
 		"preservim/vim-markdown",
 		init = function()
-			-- gerði þetta því var að lenda í bugs vegna 
-			-- víxlverkunnar þessa plugins við ufo
-			vim.g.vim_markdown_folding_disabled = 1
+			vim.g.vim_markdown_folding_disabled = 1 -- fyrir ufo
+			vim.g.vim_markdown_math = 1
 		end,
 	},
-	"preservim/vim-pencil",
+	"godlygeek/tabular",
 	"dhruvasagar/vim-table-mode",
 }

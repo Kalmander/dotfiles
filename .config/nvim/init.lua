@@ -15,19 +15,14 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy er loadað
 vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- vim.g.maplocalleader = " "
 
 require('lazy').setup('tkj.plugins')
+require('tkj.options')
+require('tkj.keymaps')
+require('tkj.lsp')
+require('tkj.cmp')
 
-require('tkj.highlights')
-require("tkj.keymaps")
-require("tkj.options")
-require("tkj.commands")
-require("tkj.autocommands")
-
-require("tkj.lsp")
-require("tkj.cmp_and_luasnip")
-
-require("tkj.input_layout")
 require("tkj.math-snippets").setup()
+require("tkj.mathmode_keymap")
 require("tkj.calendar")
