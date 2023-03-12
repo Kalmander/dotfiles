@@ -31,6 +31,9 @@ m("n", "<leader>cc", function()
 		vim.opt.concealcursor = ""
 	end
 end, { desc = "Toggle conceal on cursorline" })
+-- Trikk frá TJ til að deala við jk í wrapped línum
+m('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+m('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 
 m("v", "<leader>bc", "yPgv:'<,'>!bc -l<cr>", { desc = "Call bc on current visualselection" })
@@ -38,7 +41,6 @@ m("v", "<leader>bc", "yPgv:'<,'>!bc -l<cr>", { desc = "Call bc on current visual
 
 m("x", "<A-j>", ":m '>+1<CR>gv-gv", { desc = "Move visual selection down"})
 m("x", "<A-k>", ":m '<-2<CR>gv-gv", { desc = "Move visual selection up"})
-
 
 
 vim.cmd([[
