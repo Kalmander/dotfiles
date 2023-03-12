@@ -136,6 +136,8 @@ cmd set-wallpaper ${{
 }}
 map W set-wallpaper
 
+map Z !zathura $f
+
 
 # Þarft að installa ctpv fyrir þetta (er á aurnum)
 # Svo þarf líka sérstök forrit fyrir hverja gerð
