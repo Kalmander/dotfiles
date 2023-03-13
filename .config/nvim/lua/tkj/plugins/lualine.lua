@@ -1,17 +1,17 @@
 local function searchcount_if_hi(str)
-        if vim.v.hlsearch == 1 then
-                return str
-        else
-                return ""
-        end
+	if vim.v.hlsearch == 1 then
+		return str
+	else
+		return ""
+	end
 end
 
 local function keymap()
-        -- if vim.fn.mode() ~= 'i' then return '' end
-        if vim.opt.iminsert:get() > 0 and vim.b.keymap_name then
-                return "⌨ " .. vim.b.keymap_name
-        end
-        return ""
+	-- if vim.fn.mode() ~= 'i' then return '' end
+	if vim.opt.iminsert:get() > 0 and vim.b.keymap_name then
+		return "⌨ " .. vim.b.keymap_name
+	end
+	return ""
 end
 
 return {
@@ -25,8 +25,8 @@ return {
 					theme = "auto",
 					-- component_separators = { left = "", right = "" },
 					-- section_separators = { left = "", right = "" },
-                                        -- section_separators = { left = '', right = '' },
-                                        -- component_separators = { left = '', right = '' },
+					-- section_separators = { left = '', right = '' },
+					-- component_separators = { left = '', right = '' },
 					component_separators = { " ", " " },
 					section_separators = { left = "", right = "" },
 					disabled_filetypes = {
@@ -47,7 +47,12 @@ return {
 					lualine_b = { "branch", "diff", "diagnostics" },
 					lualine_c = {
 						{ keymap },
-						-- { "searchcount", searchcount_if_hi },
+						{ "searchcount", searchcount_if_hi },
+						{
+							require("noice").api.statusline.mode.get,
+							cond = require("noice").api.statusline.mode.has,
+							color = { fg = "#ff9e64" },
+						},
 						function()
 							return "%="
 						end,
@@ -55,16 +60,16 @@ return {
 							"filename",
 							path = 1,
 							newfile_status = true,
-							shorting_target=1000,
+							shorting_target = 1000,
 							symbols = {
-							  modified = "落",
-							  readonly = "",
-							  unnamed = "[No Name]",
-							  newfile = "[New]",
+								modified = "落",
+								readonly = "",
+								unnamed = "[No Name]",
+								newfile = "[New]",
 							},
 						}
 					},
-				        lualine_x = { "filetype" },
+					lualine_x = { "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
 				},
