@@ -24,5 +24,5 @@ require('tkj.lsp')
 require('tkj.cmp')
 
 require("tkj.math-snippets").setup()
-require("tkj.mathmode_keymap")
+require("tkj.mathzone_keymap")
 require("tkj.calendar")

@@ -18,7 +18,10 @@ local toggle_mathmode_input = function()
 	end
 end
 
+local mathmode_keymap_autogroup = vim.api.nvim_create_augroup("MathzoneKeymap", { clear = true })
 vim.api.nvim_create_autocmd({ "CursorMovedI", "CursorHoldI", "InsertEnter", "TextChangedI" }, {
+	desc = "Toggle ice keymap off inside mathzone",
 	pattern = { "*.tex", "*.md" },
 	callback = toggle_mathmode_input,
+	group = mathmode_keymap_autogroup,
 })
